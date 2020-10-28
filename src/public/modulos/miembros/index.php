@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php
+// require "../../php/session.php";
+require "../../templates/head.php";
+?>
 <body>
     <div>
         <table>
@@ -21,7 +18,7 @@
                 <td>Email</td>
             </thead>
             <tr></tr>
-                
+
             <tfoot>
                 <td>#</td>
                 <td>Apellido</td>
