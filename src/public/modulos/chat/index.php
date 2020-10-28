@@ -16,16 +16,17 @@
     </style>
   </head>
   <body>
+    <iframe src="192.168.0.9:3000/" frameborder="0"></iframe>
     
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../../../socket.io/socket.io.js"></script>
 <script>
   var socket = io();
 </script>
-<script src="/socket.io/socket.io.js"></script>
+<script src="../../../../socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
   $(function () {
