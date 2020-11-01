@@ -30,9 +30,22 @@
             </form><a class="btn btn-light action-button" role="button" href="src/public/modulos/login/index.html">Ingresar </a></div>
         </div>
     </nav>
-    <!-- portada  -->
-    <img src="src/public/media/portada.jpg" >
-    <!-- width="50%" style=" display: block; margin-left: auto;  margin-right: auto; width: 50%;" alt="" -->
+    <!-- portada  --> 
+    <!-- carrusel -->
+    <div class="simple-slider">
+        <div class="swiper-container">
+                 
+                 <div class="swiper-wrapper" >
+                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1520&amp;h=200);"><img src="src/public/media/portada.jpg" width="100%"></div>
+                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1520&amp;h=200);"><img src="src/public/media/car1.jpg" width="100%"></div>
+                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1520&amp;h=200);"><img src="src/public/media/car2.png" width="100%"></div>
+                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1520&amp;h=200);"><img src="src/public/media/car4.jpg" width="100%"></div>      
+                  </div>
+                      <div class="swiper-pagination"></div>
+                      <div class="swiper-button-prev"></div>
+                      <div class="swiper-button-next"></div>
+        </div>
+    </div>
     <!-- menu de contacto -->
     <div style="background: rgb(0, 195, 255)">
         <div class="container">
@@ -44,33 +57,29 @@
             </div>
         </div>
     </div>
-    <!-- carrusel -->
-    <div class="simple-slider">
-        <div class="swiper-container">
-                  <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"><img src="src/public/media/car2.png" width="50%">dsafsf</div>
-                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"><img src="src/public/media/car1.jpg" width="50%">fdsdff</div>
-                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"><img src="src/public/media/car2.png" width="50%">afsasdfsd</div>
-                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"><img src="src/public/media/car3.jpg" width="50%">asdafdas</div>
-                            <div class="swiper-slide" style="background-image:url(https://placeholdit.imgix.net/~text?txtsize=68&amp;txt=Slideshow+Image&amp;w=1920&amp;h=500);"><img src="src/public/media/car4.jpg" width="50%">adasdasfs</div>      
-                  </div>
-                      <div class="swiper-pagination"></div>
-                      <div class="swiper-button-prev"></div>
-                      <div class="swiper-button-next"></div>
-        </div>
-    </div>
+   
     
     <!-- cuerpo de la pagina -->
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">rder</div>
-                <div class="col-md-4">erer</div>
-                <div class="col-md-4">wewr</div>
-            </div>
-        </div>
+    <div class="container-fluid">
+        <section class="main row">
+            <!-- columna izquierda -->
+               <article class="col-md-3" style="background:rgb(211, 203, 203);">
+                 <P>izquierda</P>
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure harum laudantium debitis alias expedita? Tenetur ea, soluta commodi molestiae iure iste magnam, id nemo vitae ipsam quia molestias maiores animi!
+               </article>
+               <!-- columna central -->
+                  <article class="col-md-7" style="background:white;">
+                    <P>centro</P>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid assumenda ut inventore sint nesciunt quaerat ipsam esse, at dicta aspernatur corrupti? Placeat earum hic assumenda repellendus laborum qui quidem impedit.
+                  </article>
+                  <!-- columna derecha -->
+                   <article class="col-md-2" style="background:rgb(211, 203, 203);">
+                     <P>derecha</P>
+                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi delectus aliquam perspiciatis recusandae mollitia praesentium unde quo iusto. Tempore praesentium modi facilis distinctio eum quis earum, repellendus mollitia eius consequuntur.
+                   </article>
+                   
+        </section>
     </div>
-    <br>
     <!-- footer -->
     <div class="footer-clean" style="background: rgb(171, 186, 190)">
         <footer>
@@ -94,12 +103,17 @@
                            
                         </ul>
                     </div>
-                   
+                    <!-- redes sociales -->
+                       <div class="col-lg-3 item social" ><a href="#"><i class="icon ion-social-facebook"></i></a> 
+                                                          <a href="#"><i class="icon ion-social-twitter"></i></a>
+                                                          <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                                                          <a href="#"><i class="icon ion-social-instagram"></i></a>
+                            <p class="copyright">SADOP © 2020</p>
+                      </div>
                 </div>
-                      <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">SADOP © 2020</p>
-                    </div>
+                      
             </div>
+                      
         </footer>
     </div>
     <!-- script -->
