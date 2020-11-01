@@ -12,7 +12,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="chat/" class="nav-link">
+            <a href="../../../../../../:3000" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Chat
