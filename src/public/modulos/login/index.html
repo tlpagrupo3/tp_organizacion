@@ -6,38 +6,19 @@
     <title>SADOP</title>
     <!-- CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-
+<link rel="stylesheet" href="../../css/style_login.css">
 </head>
 <body>
+  <!-- login -->
+  <section class="form-login">
+    <h5>Iniciar sesión</h5>
+    <input type="text" id="usuario" name="usuario"  placeholder="Usuario" class="controls">
+    <input type="password" id="pass" name="contraseña" placeholder="Contraseña"class="controls" >
+    <input class="buttons" type="submit" id="btn-aceptar" value="Ingresar">
+    <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
+  </section>
     
-    <div class="container">
-        <!-- Content here -->
-        <div class="container pt-5 mt-4"> <!-- Con esto se encierra a el formulario -->
-            <div class="row d-flex justify-content-center"> <!-- con esto centramos lo que encerramos-->
-              <div class="col-md-5 pb-3"><!-- con esto armamos columnas dentro de la casilla -->
-               <h1 class="py-3 text-conter my-5" id='formulario'>Login</h1>
-                    <form 
-                     
-                     ><!-- action="../../php/login.php" method="POST" -->
-                      <div class="form-group">                             
-                        <input type="text" id='usuario' name='usuario' placeholder="Usuario">
-                       </div>
-                        <div class="form-group">
-                        <input type="password" id="pass" name='contraseña' placeholder="Contraseña">
-                       </div>
-                       <br>
-                        <button  class="btn btn-primary"id="btn-aceptar"><a href="../">Aceptar</a></button>
-                        <input type="reset" class="btn btn-secondary"value="Cancelar">
-                        
-                       </form>
-              </div>
-             </div>
-                   
-           </div>
-      </div>
-
-
+    
       <!-- jQuery and JS bundle w/ Popper.js -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

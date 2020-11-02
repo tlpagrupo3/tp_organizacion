@@ -16,20 +16,32 @@
 <body>
     <!-- barra navegacion principal con inicio  -->
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"style="background: rgb(0, 195, 255)">
-        <div class="container"><a class="navbar-brand" href="#">Bienvenidos!!!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div
-            class="collapse navbar-collapse" id="navcol-1">
-            <ul class="nav navbar-nav">
-                <!-- <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Link 1</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 2</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 3</a></li> -->
-            </ul>
-            <!-- buscador y login -->
-            <form class="form-inline mr-auto" target="_self">
-                <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="search"></div>
-            </form><a class="btn btn-light action-button" role="button" href="src/public/modulos/login/index.html">Ingresar </a></div>
+        <div class="container"><a class="navbar-brand" href="#">Coperativa Onorato!!!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button> 
+            <div class="collapse navbar-collapse" id="navcol-1">
+                 <ul class="nav navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Datos de interes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Ultimos eventos</a>
+                          <a class="dropdown-item" href="#">Eventos Futuros</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Calendario Social</a>
+                        </div>
+                      </li>
+                   <li class="nav-item" role="presentation"><a class="nav-link" href="#">Noticias</a></li>
+                   <li class="nav-item" role="presentation"><a class="nav-link" href="#">Galeria</a></li>
+                   
+                </ul>
+               <!-- buscador y login -->
+              <form class="form-inline mr-auto" target="_self">
+                  <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><p> .  .</p><input class="form-control search-field" style="background: seashell;" type="search" id="search-field" name="search"></div>
+              </form><a class="btn btn-light action-button" role="button" href="src/public/modulos/login/index.html">Ingresar </a>
+            </div>
         </div>
     </nav>
+    
     <!-- portada  --> 
     <!-- carrusel -->
     <div class="simple-slider">
@@ -64,9 +76,64 @@
         <section class="main row">
             <!-- columna izquierda -->
                <article class="col-md-3" style="background:rgb(211, 203, 203);">
-                 <P>izquierda</P>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure harum laudantium debitis alias expedita? Tenetur ea, soluta commodi molestiae iure iste magnam, id nemo vitae ipsam quia molestias maiores animi!
-               </article>
+                 <P><h3>Ultimas Noticias</h3></P>
+                 <div class="card mb-3" style="max-width: 540px ">
+                    <!-- tarjeta de ultimas noticias -->
+                    <div class="row no-gutters" style="border: rgb(211, 203, 203) 3px solid;">
+                      <div class="col-md-4">
+                        <img src="src/public/media/car2.png" class="card-img" alt="...">
+                      </div>
+                      <br>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Noticia!!!</h5>
+                          <p class="card-text">hola este es un titular</p>
+                          <p class="card-text"><small class="text-muted">01/11/2020</small></p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- otra tarjeta -->
+                    <div class="row no-gutters" style="border: rgb(211, 203, 203) 3px solid;">
+                        <div class="col-md-4">
+                          <img src="..." class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Noticia!!!</h5>
+                            <p class="card-text">hola este es un titular</p>
+                            <p class="card-text"><small class="text-muted">01/11/2020</small></p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- otra tarjeta -->
+                    <div class="row no-gutters" style="border: rgb(211, 203, 203) 3px solid;">
+                        <div class="col-md-4">
+                          <img src="..." class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Noticia!!!</h5>
+                            <p class="card-text">hola este es un titular</p>
+                            <p class="card-text"><small class="text-muted">01/11/2020</small></p>
+                          </div>
+                        </div>
+                      </div>
+                       <!-- otra tarjeta -->
+                    <div class="row no-gutters" style="border: rgb(211, 203, 203) 3px solid;">
+                        <div class="col-md-4">
+                          <img src="..." class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">Noticia!!!</h5>
+                            <p class="card-text">hola este es un titular</p>
+                            <p class="card-text"><small class="text-muted">01/11/2020</small></p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                </div>
+                </article>
                <!-- columna central -->
                   <article class="col-md-7" style="background:white;">
                     <P>centro</P>
