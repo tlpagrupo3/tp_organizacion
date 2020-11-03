@@ -38,8 +38,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <a class="w3-bar-item w3-button w3-hover-black" href="actividades/" class="nav-link">Actividades</a>          
   <a class="w3-bar-item w3-button w3-hover-black" href="../../../../../../:3000" class="nav-link"> Chat</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="miembros/" class="nav-link">Miembros</a>
- 
-  <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="noticias/" class="nav-link">Noticias</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="notificaciones/" class="nav-link">Notificaciones</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="usuarios/" class="nav-link">Usuarios</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="login/" class="nav-link">Salir</a>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -139,23 +141,5 @@ function w3_close() {
 
 
 
-            <a href="noticias/" class="nav-link"> Noticias
-           
-            <a href="notificaciones/" class="nav-link"> Notificaciones
-                
-          
-          <li class="nav-item has-treeview">
-            <a href="usuarios/" class="nav-link">Usuarios
-           
-          <li class="nav-item has-treeview">
-            <a href="login/" class="nav-link">
-            <i class="nav-icon fas fa-times"></i>
-              <p>
-                Salir
-            </div>
-            </div>
-            <div class="col-md-4 col-xl-10"></div>
-          </li>
-        </div>
-    </div>
-</div>
+         
+       
