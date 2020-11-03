@@ -2,8 +2,8 @@
 // require "../php/session.php";
 require "../templates/sidebar.php";
 require "../templates/head.php";
-require "../templates/footer.php";
-require "../templates/navbar.php"
+
+require "../templates/navbar.php";
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +45,11 @@ require "../templates/navbar.php"
 <script src="../js/elementosHTML.js">
 
 </script>
+<?php
 
+
+require "../templates/footer.php";
+
+?>
 </body>
 </html>
