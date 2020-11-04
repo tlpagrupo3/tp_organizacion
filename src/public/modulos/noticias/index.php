@@ -20,21 +20,22 @@ require "../../templates/navbar.php";
       <p></p>
     </div>
   </div>
-  <label for="volanta">Volanta</label><br>
-<input id='volanta' type="text"><br>
-<label for="titular">Titular</label><br>
-<input id='titular' type="text"><br>
-<label for="copete">Copete</label><br>
-<input id='copete' type="text"><br>
-<label for="cuerpo">Cuerpo</label><br>
-<textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
-<label for="imagen">Foto</label><br>
-<input id='imagen' type="file"><br>
-<embed src="" type="">
-<label for="epigrafe">Epígrafe</label><br>
-<input id='epigrafe' type="text"><br>
-<label for="fecha">Fecha</label><br>
-<input id='fecha' type="datetime-local">
+    <label for="volanta">Volanta</label><br>
+        <input id='volanta' type="text"><br>
+    <label for="titular">Titular</label><br>
+        <input id='titular' type="text"><br>
+    <label for="copete">Copete</label><br>
+        <input id='copete' type="text"><br>
+    <label for="cuerpo">Cuerpo</label><br>
+        <textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
+    <label for="imagen">Foto</label><br>
+        <input id='imagen' type="file"><br>
+        <embed src="" type="">
+    <label for="epigrafe">Epígrafe</label><br>
+        <input id='epigrafe' type="text"><br>
+    <label for="fecha">Fecha</label><br>
+        <input id='fecha' type="datetime-local">
+        <input type="submit">
 
 
 

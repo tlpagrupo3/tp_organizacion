@@ -30,48 +30,22 @@ require "../../templates/navbar.php";
                         </div>
                         <form id='primeraParte' class="w3-container">
                             <p>
-                            <label>Nombre</label>
+                            <label>Nombre de Usuario</label>
                             <input class="w3-input" type="text"></p>
                             <p>
-                            <label>Apellido</label>
+                            <label>Contraseña</label>
                             <input class="w3-input" type="text"></p>
                             <p>
-                            <label>Tipo de documento</label>
+                            <label>Email de recuperación</label>
                             <input class="w3-input" type="text"></p>
-                            <label>Número de documento</label>
-                            <input class="w3-input" type="text"></p>
-                            <p>
-                            <label>Sexo</label>
+                            <label>Tipo de usuario</label>
                             <input class="w3-input" type="text"></p>
                             <p>
-                            <label>CUIL</label>
+                            <label>Miembro</label>
                             <input class="w3-input" type="text"></p>
-                            <label>Fecha de nacimiento</label>
-                            <input class="w3-input" type="text"></p>
-                            <p>
-                            <label>Número de teléfono</label>
-                            <input class="w3-input" type="text"></p>
-                            <p>
-                            <label>Correo Electrónico</label>
-                            <input class="w3-input" type="text"></p>
-                            <label>Código Postal</label>
-                            <input class="w3-input" type="text"></p>
-                            <p class="message">Siguiente <a href="#"> ></a></p>
+                            <input type="submit">
                         </form>
-                        <form class='segundaParte' hidden>
-                        <p>
-                            <label>Origen</label>
-                            <input class="w3-input" type="text"></p>
-                            <p>
-                            <label>Oficio</label>
-                            <input class="w3-input" type="text"></p>
-                            <p>
-                            <label>Monotributo</label>
-                            <input class="w3-input" type="text"></p>
-                            <label>Programa</label>
-                            <input class="w3-input" type="text"></p>
-                            <p class="message">Atrás <a href="#"> <</a></p>
-                        </form>
+                        
                         </div>
                     </div>
                 </div>

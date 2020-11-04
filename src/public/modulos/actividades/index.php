@@ -21,7 +21,19 @@ require "../../templates/navbar.php";
     </div>
   </div>
 
-
+ 
+    <label for="titular">Titulo</label><br>
+        <input id='titular' type="text"><br>
+    <label for="cuerpo">Descripción</label><br>
+        <textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
+    <label for="imagen">Foto</label><br>
+        <input id='imagen' type="file"><br>
+        <embed src="" type="">
+    <label for="epigrafe">Epígrafe</label><br>
+        <input id='epigrafe' type="text"><br>
+    <label for="fecha">Fecha</label><br>
+        <input id='fecha' type="datetime-local">
+        <input type="submit">
 
 
   
