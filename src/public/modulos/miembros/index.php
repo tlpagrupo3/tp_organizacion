@@ -61,7 +61,7 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text"></p>
                             <p class="message">Siguiente <a href="#"> ></a></p>
                         </form>
-                        <form class='segundaParte'>
+                        <form class='segundaParte' hidden>
                         <p>
                             <label>Origen</label>
                             <input class="w3-input" type="text"></p>
