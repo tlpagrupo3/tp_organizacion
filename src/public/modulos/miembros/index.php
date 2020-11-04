@@ -19,6 +19,68 @@ require "../../templates/navbar.php";
     </div>
   </div>
     <div>
+        
+        <div>
+            <button class="w3-button w3-border w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
+                <!-- The Modal -->
+                <div id="agregarMiembro" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                        <span onclick="document.getElementById('agregarMiembro').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                        <div class="w3-container w3-blue">
+                            <h2>Input Form</h2>
+                        </div>
+                        <form class="w3-container">
+                            <p>
+                            <label>Nombre</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Apellido</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Tipo de documento</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Número de documento</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Sexo</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>CUIL</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Fecha de nacimiento</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Número de teléfono</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Correo Electrónico</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Código Postal</label>
+                            <input class="w3-input" type="text"></p>
+                            <p class="message">Siguiente <a href="#"> ></a></p>
+                        </form>
+                        <form class='segundaParte'>
+                        <p>
+                            <label>Origen</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Oficio</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Monotributo</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Programa</label>
+                            <input class="w3-input" type="text"></p>
+                            
+                            
+                            <p class="message">Atrás <a href="#"> <</a></p>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
         <table>
             <thead>
                 <td>#</td>
@@ -67,13 +129,16 @@ require "../../templates/navbar.php";
 
 <!-- END MAIN -->
 </div>
-    <script src="../../js/elementosHTML.js">
-
-</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="../../js/elementosHTML.js"></script>
+    <script src="../../js/miembros.js"></script>
+    
 <?php
 
 
 require "../../templates/footer.php";
+
 
 ?>
 </body>
