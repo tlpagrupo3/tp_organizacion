@@ -1,9 +1,8 @@
 <?php
 // require "../php/session.php";
-require "../../templates/sidebar.php";
-require "../../templates/head.php";
-
-require "../../templates/navbar.php";
+require "../templates/sidebar.php";
+require "../templates/head.php";
+require "../templates/navbar.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ require "../../templates/navbar.php";
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Informacion del sistema</h1>
-      <p></p>
+      <p> </p>
     </div>
   </div>
 
