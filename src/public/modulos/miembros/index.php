@@ -31,7 +31,7 @@ require "../../templates/navbar.php";
                         <div class="w3-container w3-blue">
                             <h2>Input Form</h2>
                         </div>
-                        <form class="w3-container">
+                        <form id='primeraParte' class="w3-container">
                             <p>
                             <label>Nombre</label>
                             <input class="w3-input" type="text"></p>
@@ -73,8 +73,6 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text"></p>
                             <label>Programa</label>
                             <input class="w3-input" type="text"></p>
-                            
-                            
                             <p class="message">Atrás <a href="#"> <</a></p>
                         </form>
                         </div>

@@ -17,7 +17,65 @@ require "../../templates/navbar.php";
       <p></p>
     </div>
   </div>
-
+  <div>
+            <button class="w3-button w3-border w3-hover-cyan" onclick="document.getElementById('agregarUsuario').style.display='block'">Agregar Usuario</button>   
+                <!-- The Modal -->
+                <div id="agregarUsuario" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                        <span onclick="document.getElementById('agregarUsuario').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                        <div class="w3-container w3-blue">
+                            <h2>Input Form</h2>
+                        </div>
+                        <form id='primeraParte' class="w3-container">
+                            <p>
+                            <label>Nombre</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Apellido</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Tipo de documento</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Número de documento</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Sexo</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>CUIL</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Fecha de nacimiento</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Número de teléfono</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Correo Electrónico</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Código Postal</label>
+                            <input class="w3-input" type="text"></p>
+                            <p class="message">Siguiente <a href="#"> ></a></p>
+                        </form>
+                        <form class='segundaParte' hidden>
+                        <p>
+                            <label>Origen</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Oficio</label>
+                            <input class="w3-input" type="text"></p>
+                            <p>
+                            <label>Monotributo</label>
+                            <input class="w3-input" type="text"></p>
+                            <label>Programa</label>
+                            <input class="w3-input" type="text"></p>
+                            <p class="message">Atrás <a href="#"> <</a></p>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
     <div>
         <table>
             <th>
