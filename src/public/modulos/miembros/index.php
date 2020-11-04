@@ -73,7 +73,7 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text"></p>
                             <label>Programa</label>
                             <input class="w3-input" type="text"></p>
-                            <input type="submit">
+                            <button type="input">Enviar</button>
                             <p class="message">Atrás <a href="#"> <</a></p>
                         </form>
                         </div>

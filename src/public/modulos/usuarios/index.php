@@ -43,7 +43,7 @@ require "../../templates/navbar.php";
                             <p>
                             <label>Miembro</label>
                             <input class="w3-input" type="text"></p>
-                            <input type="submit">
+                            <button type="input">Enviar</button>
                         </form>
                         
                         </div>

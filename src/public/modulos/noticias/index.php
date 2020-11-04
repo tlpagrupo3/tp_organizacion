@@ -35,7 +35,7 @@ require "../../templates/navbar.php";
         <input id='epigrafe' type="text"><br>
     <label for="fecha">Fecha</label><br>
         <input id='fecha' type="datetime-local">
-        <input type="submit">
+        <button type="input">Enviar</button>
 
 
 
