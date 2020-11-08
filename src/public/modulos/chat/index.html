@@ -1,6 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <style>
+    /* $blue: #74b9ff; */
+
+body {
+  /* background-image: url('https://images.unsplash.com/photo-1560568082-c15188aa6510?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80'); */
+  background-color: #3498db;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  margin: 60px auto;
+  background: #fff;
+  padding: 0;
+  border-radius: 7px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+}
+
+.settings-tray {
+  background: #eee;
+  padding: 10px 15px;
+  border-radius: 7px;
+  
+  .svg {
+    padding: 0;
+  }
+  
+  &--right {
+    float: right;
+    
+    i {
+      margin-top: 10px;
+      font-size: 25px;
+      color: grey;
+      margin-left: 14px;
+      transition: .3s;
+      
+      &:hover {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.search-box {
+  background: #fafafa;
+  padding: 10px 13px;
+  
+  .input-wrapper {
+    background: #fff;
+    border-radius: 40px;
+    
+    i {
+      color: grey;
+      margin-left: 7px; 
+      vertical-align: middle;
+    }
+  }
+}
+
+input {
+  border: none;
+  border-radius: 30px;
+  width: 80%;
+
+  &::placeholder {
+    color: #e3e3e3;
+    font-weight: 300;
+    margin-left: 20px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.friend-drawer {
+  padding: 10px 15px;
+  display: flex;
+  vertical-align: baseline;
+  background: #fff;
+  transition: .3s ease;
+  
+  &--grey {
+    background: #eee;
+  }
+  
+  .text {
+    margin-left: 12px;
+    width: 70%;
+    
+    h6 {
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
+    
+    p {
+      margin: 0;
+    }
+  }
+  
+  .time {
+    color: grey;
+  }
+  
+  &--onhover:hover {
+    background: $blue;
+    cursor: pointer;
+    
+    p,
+    h6,
+    .time {
+      color: #fff !important;
+    }
+  }
+}
+
+hr {
+  margin: 5px auto;
+  width: 60%;
+}
+
+.chat-bubble {
+  padding: 10px 14px;
+  background: #eee;
+  margin: 10px 30px;
+  border-radius: 9px;
+  position: relative;
+  animation: fadeIn 1s ease-in;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    margin-top: -10px;
+  }
+  
+  &--left {
+     &:after {
+      left: 0;
+      border-right-color: #eee;
+	    border-left: 0;
+      margin-left: -20px;
+    }
+  }
+  
+  &--right {
+    &:after {
+      right: 0;
+      border-left-color: $blue;
+	    border-right: 0;
+      margin-right: -20px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.offset-md-9 {
+  .chat-bubble {
+    background: $blue;
+    color: #fff;
+  }
+}
+
+.chat-box-tray {
+  background: #eee;
+  display: flex;
+  align-items: baseline;
+  padding: 10px 15px;
+  align-items: center;
+  margin-top: 19px;
+  bottom: 0;
+  
+  input {
+    margin: 0 10px;
+    padding: 6px 2px;
+  }
+  
+  i {
+    color: grey;
+    font-size: 30px;
+    vertical-align: middle;
+    
+    &:last-of-type {
+      margin-left: 25px;
+    }
+  }
+}
+  </style>
+  <title>chat</title>
+</head>
+<body>
+  <!-- contenedor del chat -->
+  <div class="container">
+    <!-- contenedor -->
+    <div class="row no-gutters">
+      <div class="col-md-4 border-right">
+      <div class="settings-tray">
+        <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/06/filip.jpg" alt="Profile img">
+        <span class="settings-tray--right" >
+        <!-- icono de guardado en cache -->
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+          <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+        Guardados</svg>
+        <!-- icono de mensaje -->
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v11.586l-2-2A2 2 0 0 0 11.586 11H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+          <path fill-rule="evenodd" d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+        mensaje</svg>
+        <!-- icono de menu -->
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-menu-button-wide-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M14 7H2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM2 6a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H2z"/>
+          <path fill-rule="evenodd" d="M15 11H1v-1h14v1zM2 12.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h13A1.5 1.5 0 0 0 16 3.5v-2A1.5 1.5 0 0 0 14.5 0h-13zm1 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm9.927.427l.396.396a.25.25 0 0 0 .354 0l.396-.396A.25.25 0 0 0 13.396 2h-.792a.25.25 0 0 0-.177.427z"/>
+         menu</svg>
+        </span>
+      </div>
+          <!-- buscador de contactos del chat -->
+      <div class="search-box">
+        <div class="input-wrapper">
+          <!-- icono de buscador -->
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+          Buscador</svg>
+        <input placeholder="Buscar un chat" type="text">
+        </div>
+      </div>
+      <!-- lista de contactos del chat -->
+      <div class="friend-drawer friend-drawer--onhover">
+        <!-- imagen -->
+        <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/05/https-www.pexels.comphotoperson-man-confident-business-50855.png" alt="">
+        <!-- nombre -->
+        <div class="text">
+        <h6>Eliseo Roa</h6>
+        <p class="text-muted">como vas con la presentacion?</p>
+        </div>
+        <!-- hora -->
+        <span class="time text-muted small">13:21</span>
+      </div>
+      <hr>
+      <div class="friend-drawer friend-drawer--onhover">
+        <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/05/https-d3iw72m71ie81c.cloudfront.netmale-3-1.png" alt="">
+        <div class="text">
+        <h6>Alan Lescano</h6>
+        <p class="text-muted">me faltan algunas planillas</p>
+        </div>
+        <span class="time text-muted small">00:32</span>
+      </div>
+      <hr>
+      <div class="friend-drawer friend-drawer--onhover ">
+        <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/05/https-d3iw72m71ie81c.cloudfront.netfemale-4.png" alt="">
+        <div class="text">
+        <h6>Sonia Holt</h6>
+        <p class="text-muted">a que hora se manda el proyecto?</p>
+        </div>
+        <span class="time text-muted small">13:21</span>
+      </div>
+      <hr>
+      
+      </div>
+      <!-- perfil derecho del usuario del chat -->
+      <div class="col-md-8">
+      <div class="settings-tray">
+        <div class="friend-drawer no-gutters friend-drawer--grey">
+        <img class="profile-image" src="https://www.clarity-enhanced.net/wp-content/uploads/2020/05/https-www.pexels.comphotoperson-man-confident-business-50855.png" alt="">
+        <!-- nombre y estado -->
+        <div class="text">
+          <h6>Eliseo Roa</h6>
+          <p class="text-muted">trabajando...</p>
+        </div>
+        </div>
+      </div>
+      <!-- panel de chat -->
+      <ul id="messages"></ul>
+      <form action="">
+        <input id="m" autocomplete="off" /><button>Enviar</button>
+      </form>
+      <script src="../../../../socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+  </script>
+  <script src="../../../../socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    $(function () {
+      var socket = io();
+      $('form').submit(function(e) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+    });
+  </script>
+  <script>
+      $(function () {
+        var socket = io();
+        $('form').submit(function(e){
+          e.preventDefault(); // prevents page reloading
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+        });
+      });
+    </script>
+      
+      
+      </div>
+    </div>
+    </div>
+  <!-- script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Socket.IO chat</title>
@@ -14,13 +361,14 @@
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   </head>
   <body>
-    
-    
-    <ul id="messages"></ul>
+     
+  
+  <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <input id="m" autocomplete="off" /><button>Enviar</button>
     </form>
     <script src="../../../../socket.io/socket.io.js"></script>
 <script>
@@ -53,5 +401,9 @@
       });
     });
   </script>
+
+    <!--script  -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>  
   </body>
-</html>
+</html> --> -->
