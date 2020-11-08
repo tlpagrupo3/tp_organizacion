@@ -3,7 +3,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/src/public/modulos/chat/index.html');
+  res.sendFile(__dirname + '/src/public/modulos/chat/');
 });
 
 io.on('connection', (socket) => {

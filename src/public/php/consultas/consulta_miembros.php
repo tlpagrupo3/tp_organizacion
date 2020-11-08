@@ -1,5 +1,6 @@
 <?php
 require '../../bd/conexion.php';
+header('Access-Control-Allow-Origin: *');
 $sql='SELECT * from miembros.miembros 
     join miembros.tipo_documento using (id_tipo_documento) 
     join miembros.tipo_genero using (id_tipo_genero) 
