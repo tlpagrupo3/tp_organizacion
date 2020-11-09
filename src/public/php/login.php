@@ -1,7 +1,7 @@
 <?php 
 require '../bd/conexion.php';
 
-$nombre_usuario= $_POST['nombre_usuaio'];
+$nombre_usuario= $_POST['nombre_usuario'];
 $contrasena= $_POST['contrasena'];
 
 
@@ -16,9 +16,10 @@ if($stmt->rowCount()==1){
     $_SESSION['apellido']=$nombre_usuario;
     $_SESSION['id_nivel_acceso']=$nombre_usuario;
     $_SESSION['id_tipo_genero']=$nombre_usuario;
-    
+    header('location: ../modulos/landing/');
 }else{
-    echo 'El usuario o la contraseña son erroneos';
+    echo json_encode('El usuario o la contraseña son erroneos');
+    
 }
 
 
