@@ -21,7 +21,7 @@ require "../../templates/navbar.php";
     </div>
   </div>
 
- 
+ <form action="../../php/nueva_actividad.php" method="POST">
     <label for="titular">Titulo</label><br>
         <input id='titular' type="text"><br>
     <label for="cuerpo">Descripción</label><br>
@@ -33,8 +33,9 @@ require "../../templates/navbar.php";
         <input id='epigrafe' type="text"><br>
     <label for="fecha">Fecha</label><br>
         <input id='fecha' type="datetime-local">
+    <label for="id_usuario"></label>
         <button type="input">Enviar</button>
-
+</form>
 
   
   <!-- Pagination -->
