@@ -21,15 +21,15 @@ require "../../templates/navbar.php";
     <div>
         
         <div>
-            <button class="w3-button w3-border w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
+            <button class="w3-btn w3-black w3-round-xlarge w3-border w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
                 <!-- The Modal -->
                 <div id="agregarMiembro" class="w3-modal">
                     <div class="w3-modal-content">
                         <div class="w3-container">
                         <span onclick="document.getElementById('agregarMiembro').style.display='none'"
                         class="w3-button w3-display-topright">&times;</span>
-                        <div class="w3-container w3-blue">
-                            <h2>Input Form</h2>
+                        <div class="w3-container w3-cyan">
+                            <h2>Ingresar datos del miembro nuevo</h2>
                         </div>
                         <form  class="w3-container" action="../../php/miembros_abm.php">
                           <div id='primeraParte'>
@@ -81,7 +81,7 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="si/no"></p>
                             <label>Programa</label>
                             <input class="w3-input" type="text"></p>
-                            <select name="id_linea_programa" id="id_linea_programa"></select>
+                            <button type="input"class="w3-btn w3-black w3-round-large w3-hover-cyan ">Enviar</button>
                             <p class="message">Atrás <a href="#"> <</a></p>
                         </div>
                         </form>
@@ -90,7 +90,107 @@ require "../../templates/navbar.php";
                 </div>
         </div>
         <table>
-            <thead>
+        <div class="w3-container">
+  <h2>Miembros que pertenecen a la organizacion</h2>
+  <p>puede visualizar mas datos al seleccionar a los miembros</p>
+
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-cyan">
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Tipo de Doc</th> 
+         <th>Número de documento</th>
+        <th>CUIL</th>
+        <th>Género</th>
+        <th>Fecha de nacimiento</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Benitez</td>
+      <td>Rojelio</td>
+      <td>DNi</td>
+      <td>11.316.231</td>
+      <td>07-11316231-4</td>
+      <td>M</td>
+      <td>01/02/1953</td>
+      <td>3704-225633</td>
+      <td>B_rj@gmail.com</td>
+    </tr>
+   
+    
+  </table>
+</div>
+
+            <!-- <thead>
                 <td>#</td>
                 <td>Apellido</td>
                 <td>Nombre</td>
@@ -118,7 +218,7 @@ require "../../templates/navbar.php";
                 <td>Teléfono</td>
                 <td>Email</td>
             </tfoot>
-        </table>
+        </table> -->
     </div>
 
 
