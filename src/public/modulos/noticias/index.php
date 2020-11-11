@@ -29,13 +29,13 @@ require "../../templates/navbar.php";
     <label for="cuerpo">Cuerpo</label><br>
         <textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
     <label for="imagen">Foto</label><br>
-        <input id='imagen' type="file"><br>
-        <embed src="" type="">
+        <button id='imagen' type="file" class="w3-btn w3-gray w3-round-xlarge w3-border w3-hover-cyan">subir Archivo</button><br><br>
+        <embed src="" type="" class="w3-border"> <br><br>
     <label for="epigrafe">Epígrafe</label><br>
         <input id='epigrafe' type="text"><br>
     <label for="fecha">Fecha</label><br>
         <input id='fecha' type="datetime-local">
-        <button type="input">Enviar</button>
+        <button type="input" class="w3-btn w3-black w3-round-xlarge w3-border w3-hover-cyan">Enviar</button>
 
 
 
