@@ -11,16 +11,27 @@
 <body>
   <!-- login -->
   <section class="form-login">
+    <div id='alert'>
+      <span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">X</span>
+      <p>El usuario o la contraseña son erroneos</p>
+    </div>
+      
+      
+    </div>
+    <form action="../../php/login.php" method="POST">
     <h5>Iniciar sesión</h5>
-    <input type="text" id="usuario" name="usuario"  placeholder="Usuario" class="controls">
-    <input type="password" id="pass" name="contraseña" placeholder="Contraseña"class="controls" >
+    <input type="text" id="nombre_usuario" name="nombre_usuario"  placeholder="Usuario" class="controls">
+    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"class="controls" >
     <input class="buttons" type="submit" id="btn-aceptar" value="Ingresar">
-    <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
+    <p><a href="recuperar_pass.html">¿Olvidaste tu Contraseña?</a></p>
+    </form>
   </section>
     
     
       <!-- jQuery and JS bundle w/ Popper.js -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="../../js/login.js"></script>
 </body>
 </html>

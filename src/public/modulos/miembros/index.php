@@ -32,6 +32,8 @@ require "../../templates/navbar.php";
                             <h2>Ingresar datos del miembro nuevo</h2>
                         </div>
                         <form id='primeraParte' class="w3-container">
+                            <input type="text" hidden id='accion' name="accion">
+                            <input type="text" hidden id='id_miembro' name="id_miembro">
                             <p>
                             <label>Nombre</label>
                             <input class="w3-input" type="text"></p>
@@ -40,17 +42,17 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text"></p>
                             <p>
                             <label>Tipo de documento</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_tipo_documento" id="id_tipo_documento"></select>
                             <label>Número de documento</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" placeholder="Sin puntos ni espacios"></p>
                             <p>
                             <label>Sexo</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_tipo_genero" id="id_tipo_genero"></select>
                             <p>
                             <label>CUIL</label>
                             <input class="w3-input" type="text"></p>
                             <label>Fecha de nacimiento</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" placeholder="dd/mm/aaaa"></p>
                             <p>
                             <label>Número de teléfono</label>
                             <input class="w3-input" type="text"></p>
@@ -64,13 +66,13 @@ require "../../templates/navbar.php";
                         <form class='segundaParte' hidden>
                         <p>
                             <label>Origen</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_tipo_origen" id="id_tipo_origen"></select>
                             <p>
                             <label>Oficio</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_rama_economia_popular" id="id_economia_popular"></select>
                             <p>
                             <label>Monotributo</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" placeholder="si/no"></p>
                             <label>Programa</label>
                             <input class="w3-input" type="text"></p>
                             <button type="input"class="w3-btn w3-black w3-round-large w3-hover-cyan ">Enviar</button>
