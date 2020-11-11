@@ -11,6 +11,7 @@ class miembro{
     private $id_tipo_genero;
     private $cuil;
     private $fecha_nacimiento;
+    private $id_localidad;
     private $numero_documento;
     private $numero_telefono;
     private $email;
@@ -30,6 +31,7 @@ class miembro{
         $this->id_tipo_genero= $_POST['id_tipo_genero'];
         $this->cuil=$_POST['cuil'];
         $this->fecha_nacimiento=$_POST['fecha_nacimiento'];
+        $this->id_localidad=$_POST['id_localidad'];
         $this->numero_documento=$_POST['numero_documento'];
         $this->numero_telefono=$_POST['nuemro_telefono'];
         $this->email=$_POST['email'];
@@ -61,7 +63,8 @@ class miembro{
                 , id_actividad_economia_popular
                 , monotributo
                 , id_linea_programa
-                , codigo_postal)
+                , codigo_postal
+                , id_localidad)
                 VALUES ( :nombre
                         ,:apellido
                         ,:id_tipo_documento
@@ -75,7 +78,8 @@ class miembro{
                         ,:id_actividad_economia_popular
                         ,:monotributo
                         ,:id_linea_programa
-                        ,:codigo_postal);';
+                        ,:codigo_postal
+                        ,:id_localidad);';
             $stmt= $conexion->prepare($sql);
             $stmt->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
@@ -83,6 +87,7 @@ class miembro{
             ,':id_tipo_genero'=>$this->id_tipo_genero
             ,':cuil'=>$this->cuil
             ,':fecha_nacimiento'=>$this->fecha_nacimiento
+            ,':id_localidad'=>$this->id_localidad
             ,':numero_telefono'=>$this->numero_telefono
             ,':numero_documento'=>$this->numero_documento
             ,':email'=>$this->email
@@ -109,34 +114,22 @@ class miembro{
         if ($accion=='modificar') {
             # code...
             $sql='UPDATE miembros.miembros (
-                 nombre
-                , apellido
-                , id_tipo_documento
-                , id_tipo_genero
-                , cuil
-                , fecha_nacimiento
-                , numero_documento
-                , numero_telefono
-                , email
-                , id_tipo_origen
-                , id_actividad_economia_popular
-                , monotributo
-                , id_linea_programa
-                , codigo_postal)
-                VALUES ( :nombre
-                        ,:apellido
-                        ,:id_tipo_documento
-                        ,:id_tipo_genero
-                        ,:cuil
-                        ,:fecha_nacimiento
-                        ,:numero_telefono
-                        ,:numero_documento
-                        ,:email
-                        ,:id_tipo_origen
-                        ,:id_actividad_economia_popular
-                        ,:monotributo
-                        ,:id_linea_programa
-                        ,:codigo_postal)
+                 nombre=:nombre
+                , apellido=:apellido
+                , id_tipo_documento::id_tipo_documento
+                , id_tipo_genero=:id_tipo_genero
+                , cuil=:cuil
+                , fecha_nacimiento=:fecha_nacimiento
+                , numero_documento=:numero_documento
+                , numero_telefono=:numero_telefono
+                , email=:email
+                , id_tipo_origen=:id_tipo_origen
+                , id_actividad_economia_popular=:id_actividad_economia_popular
+                , monotributo=:monotributo
+                , id_linea_programa=:id_linea_programa
+                , codigo_postal=:codigo_postal
+                , localidad=:localidad)
+                
                 WHERE id_miembro=:id_miembro;';
             $stmt= $conexion->prepare($sql);
             $stmt->execute(array( ':nombre'=>$this->nombre
@@ -153,7 +146,8 @@ class miembro{
             ,':monotributo'=>$this->monotributo
             ,':id_linea_programa'=>$this->id_linea_programa
             ,':codigo_postal)'=>$this->codigo_postal
-            ,':id_miembro'=>$this->id_miembro));
+            ,':id_miembro'=>$this->id_miembro
+            ,':localidad'=>$this->id_localidad));
 
             if($stmt->rowCount() == 1){
                 echo json_encode('El miembro se actualizó correctamente');
