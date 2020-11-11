@@ -80,7 +80,7 @@ class miembro{
                         ,:id_linea_programa
                         ,:codigo_postal
                         ,:id_localidad);';
-            $stmt= $conexion->prepare($sql);
+            $stmt= $this->conexion->prepare($sql);
             $stmt->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
             ,':id_tipo_documento'=>$this->id_tipo_documento
@@ -131,7 +131,7 @@ class miembro{
                 , localidad=:localidad)
                 
                 WHERE id_miembro=:id_miembro;';
-            $stmt= $conexion->prepare($sql);
+            $stmt= $this->conexion->prepare($sql);
             $stmt->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
             ,':id_tipo_documento'=>$this->id_tipo_documento
@@ -166,7 +166,7 @@ class miembro{
         if ($accion=='eliminar') {
             # code...
             $sql='DELETE from miembros.miembros where id_miembro=:id_miembro';
-            $stmt=$conexion->prepare($sql);
+            $stmt=$this->conexion->prepare($sql);
             $stmt->execute(array(':id_miembro'=>$this->id_miembro));
             if($stmt->rowCount() == 1){
                 echo json_encode('El miembro se eliminó correctamente');
