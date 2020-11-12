@@ -14,7 +14,7 @@ class noticia {
     private $fecha;
     private $id_usuario;
     private $autorizacion;
-    private $id_noticia;
+    private $id_noticias;
 
     public function __construct($conexion,$_POST){
         
@@ -28,7 +28,7 @@ class noticia {
         $this->fecha=$_POST['fecha'];
         $this->id_usuario=$_POST['id_usuario'];
         $this->autorizacion=$_POST['autorizacion'];
-        $this->id_noticia=$_POST['id_noticia'];
+        $this->id_noticias=$_POST['id_noticias'];
     }
 
     public function nuevaNoticia($accion){
@@ -99,7 +99,8 @@ class noticia {
                                     ,':cuerpo'=>$this->cuerpo
                                     ,':epigrafe'=>$this->epigrafe
                                     ,':imagen'=>$this->fecha
-                                    ,':id_usuario'=>$this->id_usuario));
+                                    ,':id_usuario'=>$this->id_usuario
+                                    ,':id_noticias'=>$this->id_noticias));
                 if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('Noticia modificada correctamente');
@@ -113,7 +114,7 @@ class noticia {
         }
     }
     public function autorizarNoticia($accion){
-        if ($accion='autorizar') {
+        if ($accion=='autorizar') {
             # code...
             try {
                 //code...
@@ -122,12 +123,31 @@ class noticia {
                 WHERE id_noticia=:id_noticia;';
                 $stmt= $this->conexion->prepare($sql);
                 $stmt->execute(array(':autorizacion'=>$this->autorizacion
-                                    ,':id_noticia'=>$this->id_noticia));
+                                    ,':id_noticia'=>$this->id_noticias));
                 if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('La noticia se autorizó correctamente');
                 }else{
                     echo json_encode('No se pudo autorizar la notica, intente mas tarde');
+                }
+            } catch (PDOException $e) {
+                //throw $th;
+                echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
+            }
+        }
+    }
+    public function eliminarNoticia($accion){
+        if($accion=='eliminar'){
+            try {
+                //code...
+                $sql='DELETE FROM pubicaciones.noticias
+                WHERE id_noticias=:id_noticias;';
+                $stmt=$this->conexion->prepare($sql);
+                $stmt->execute(array(':id_noticias'=>$this->id_noticias));
+                if($stmt->rowCount==1){
+                    echo json_encode('El usuario se eliminó correctamente');
+                }else{
+                    echo json_encode('El usuario no pudo eliminarse, intente mas tarde');
                 }
             } catch (PDOException $e) {
                 //throw $th;

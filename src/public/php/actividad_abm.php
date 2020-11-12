@@ -121,6 +121,25 @@ class actividad{
             }
         }
     }
+    public function eliminarActividad($accion){
+        try{
+            if ($accion=='eliminar'){
+                $sql='DELETE FROM pubicaciones.actividades
+                WHERE id_actividades=:id_actividades;';
+                $stmt=$this->conexion->prepare($sql);
+                $stmt->execute(array(':id_actividades'=>$this->id_actividades));
+                if ($stmt->rowCount==1) {
+                    # code...
+                    echo json_encode('La actividad se eliminó correctamete');
+                }else {
+                    # code...
+                    echo json_encode('La actividad no se pudo eliminar');
+                }
+            }
+        }catch(PDOException $e){
+            echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
+        }
+    }
 
 }
 
@@ -129,6 +148,7 @@ $actividad= new actividad($conexion,$_POST);
 $actividad->agregarActividad($accion);
 $actividad->modificarActividad($accion);
 $actividad->autorizarActividad($accion);
+$actividad->eliminarActividad($accion);
 
 
 ?>
