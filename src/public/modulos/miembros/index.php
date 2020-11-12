@@ -100,10 +100,10 @@ require "../../templates/navbar.php";
         <th>Apellido</th>
         <th>Nombre</th>
         <th>Tipo de Doc</th> 
-         <th>Número de documento</th>
+         <th>Nº D.N.I</th>
         <th>CUIL</th>
         <th>Género</th>
-        <th>Fecha de nacimiento</th>
+        <th>Fecha de nac</th>
         <th>Teléfono</th>
         <th>Email</th>
       </tr>

@@ -6,11 +6,58 @@
   <link rel="stylesheet" href="http://localhost/sadop/src/public/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+  .w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+  }
+  </style>
 
   <title>chat</title>
 </head>
-<body>
-  <!-- contenedor del chat -->
+<body> 
+  <!-- Navbar barra Superior -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1">Coperativa Honorato</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white"></a>
+  </div>
+</div>
+<!-- Sidebar Barra lateral izquierda-->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/actividades/" class="nav-link">Actividades</a>          
+  <a class="w3-bar-item w3-button w3-hover-black" href="#" class="nav-link"> Chat</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/miembros/" class="nav-link">Miembros</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/noticias/" class="nav-link">Noticias</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/notificaciones/" class="nav-link">Notificaciones</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/usuarios/" class="nav-link">Usuarios</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/login/" class="nav-link">Salir</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- gran contenedor -->
+  <div class="container">
+    <!-- columna vacia -->
+    <div class="row">
+      <div class="col col-lg-3 " style=""></div>
+      <!-- columna del chat -->
+      <div class="col col-lg-9 w3-cyan">
+        <h5>Bienvenido al servicio de chat de la Cooperativa Honorato</h5>
+        <!-- contenedor del chat -->
   <div class="container">
     <!-- contenedor -->
     <div class="row no-gutters">
@@ -132,6 +179,20 @@
       </div>
     </div>
     </div>
+    
+
+      </div>
+      
+        
+    </div>
+    
+    </div>
+  <!-- footer -->
+  <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h6 align="center">S.A.D.O.P © 2020</h6>
+    </div>
+  </footer>
   <!-- script -->
   <script src="http://localhost/sadop/src/public/js/chat.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -200,4 +261,4 @@
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>  
   </body>
-</html> --> -->
+</html> --> 
