@@ -26,7 +26,7 @@ require "../../templates/navbar.php";
                         <span onclick="document.getElementById('agregarUsuario').style.display='none'"
                         class="w3-button w3-display-topright">&times;</span>
                         <div class="w3-container w3-cyan">
-                            <h2>Input Form</h2>
+                            <h2>Agregar Usuarios</h2>
                         </div>
                         <form id='primeraParte' class="w3-container">
                             <p>
