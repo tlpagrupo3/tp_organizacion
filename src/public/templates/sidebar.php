@@ -7,6 +7,7 @@
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <a class="w3-bar-item w3-button w3-hover-black" href="../actividades/" class="nav-link">Actividades</a>          
   <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost:3000" class="nav-link"> Chat</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="../gestion_documental/" class="nav-link"> Gestion Documental</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="../miembros/" class="nav-link">Miembros</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="../noticias/" class="nav-link">Noticias</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="../notificaciones/" class="nav-link">Notificaciones</a>
