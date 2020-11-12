@@ -35,53 +35,56 @@ require "../../templates/navbar.php";
                           <div id='primeraParte'>
                             <input type="text" hidden id='accion' name="accion">
                             <input type="text" hidden id='id_miembro' name="id_miembro">
-                            <p>
-                            <label>Nombre</label>
-                            <input class="w3-input" type="text" id="nombre" name="nombre"></p>
-                            <p>
-                            <label>Apellido</label>
-                            <input class="w3-input" type="text" id="apellido" name="apellido"></p>
-                            <p>
-                            <label>Tipo de documento</label>
-                            <select name="id_tipo_documento" id="id_tipo_documento"></select></p>
-                            <p>
-                            <label>Número de documento</label>
-                            <input class="w3-input" type="text" id="nuemro_documento" name="numero_documento" placeholder="Sin puntos ni espacios"></p>
-                            <p>
-                            <label>Sexo</label>
-                            <select name="id_tipo_genero" id="id_tipo_genero"></select>
-                            <p>
-                            <label>CUIL</label>
-                            <input class="w3-input" type="text" id="cuil" name="cuil"></p>
-                            <label>Fecha de nacimiento</label>
-                            <input class="w3-input" type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa"></p>
-                            <p>
-                            <label>Localidad</label>
-                            <select name="id_localidad" id="id_localidad"></select></p>
-                            <p>
-                            <label>Número de teléfono</label>
-                            <input class="w3-input" type="text" id="numero_telefono" name="numero_telefono"></p>
-                            <p>
-                            <label>Correo Electrónico</label>
-                            <input class="w3-input" type="text" id="email" name="email"></p>
-                            <label>Código Postal</label>
-                            <input class="w3-input" type="text" id="codigo_postal" name="codigo_postal"></p>
+                          
+                            <label>Nombre</label><br>
+                            <input class="w3-input" type="text" id="nombre" name="nombre"><br>
+
+                          
+                            <label>Apellido</label><br>
+                            <input class="w3-input" type="text" id="apellido" name="apellido"><br>
+                          
+                            <label>Tipo de documento</label><br>
+                            <select name="id_tipo_documento" id="id_tipo_documento"></select><br>
+                          
+                            <label>Número de documento</label><br>
+                            <input class="w3-input" type="text" id="nuemro_documento" name="numero_documento" placeholder="Sin puntos ni espacios"><br>
+                          
+                            <label>Sexo</label><br>
+                            <select name="id_tipo_genero" id="id_tipo_genero"></select><br>
+                          
+                            <label>CUIL</label><br>
+                            <input class="w3-input" type="text" id="cuil" name="cuil"><br>
+                            <label>Fecha de nacimiento</label><br>
+                            <input class="w3-input" type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa"><br>
+                            
+                            <label>Localidad</label><br>
+                            <select name="id_provincia" id="id_provincias"></select><br>
+                            <select name="id_departamento" id="id_departamentos"></select>
+                            <select name="id_localidad" id="id_localidades"></select><br>
+                          
+                            <label>Número de teléfono</label><br>
+                            <input class="w3-input" type="text" id="numero_telefono" name="numero_telefono"><br>
+                          
+                            <label>Correo Electrónico</label><br>
+                            <input class="w3-input" type="text" id="email" name="email"><br>
+                            <label>Código Postal</label><br>
+                            <input class="w3-input" type="text" id="codigo_postal" name="codigo_postal"><br>
                             <p class="message">Siguiente <a href="#"> ></a></p>
                             </div>
                         <div class='segundaParte' hidden>
-                        <p>
-                            <label>Origen</label>
-                            <select name="id_tipo_origen" id="id_tipo_origen"></select>
-                            <p>
-                            <label>Oficio</label>
-                            <select name="id_rama_economia_popular" id="id_rama_economia_popular"></select>
-                            <select name="id_actividad_economia_popular" id="id_actividad_economia_popular"></select>
-                            <p>
-                            <label>Monotributo</label>
-                            <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="si/no"></p>
-                            <label>Programa</label>
-                            <input class="w3-input" type="text"></p>
-                            <button type="input"class="w3-btn w3-black w3-round-large w3-hover-cyan ">Enviar</button>
+                      
+                            <label>Origen</label><br>
+                            <select name="id_tipo_origen" id="id_tipo_origen"></select><br>
+                          
+                            <label>Oficio</label><br>
+                            <select name="id_rama_economia_popular" id="id_rama_economia_popular"></select><br>
+                            <select name="id_actividad_economia_popular" id="id_actividad_economia_popular"></select><br>
+                          
+                            <label>Monotributo</label><br>
+                            <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="si/no"><br>
+                            <label>Programa</label><br>
+                            <select name="id_linea_programa" id="id_linea_programa"></select><br>
+                            <button type="input"class="w3-btn w3-black w3-round-large w3-hover-cyan ">Enviar</button><br>
                             <p class="message">Atrás <a href="#"> <</a></p>
                         </div>
                         </form>

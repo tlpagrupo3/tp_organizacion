@@ -19,20 +19,68 @@ $('.message a').click(function(){
          alert(respuesta)
      })
  })
- fetch('../../php/consultas/consulta_localidades.php')
+ fetch('../../php/consultas/consulta_provincias.php')
  .then(res=>res.json())
- .then(localidades=>{
+ .then(provincias=>{
     let selectHTML
-    localidades.forEach(localidad => {
+    provincias.forEach(provincia => {
         selectHTML+=
-        `<option value='${localidad.id_localidad}'>
-        ${localidad.localidad}
+        `<option value='${provincia.id_provincia}'>
+        ${provincia.provincia}
     </option>`
     });
     
-    formulario.querySelector('#id_localidad').innerHTML=selectHTML
+    formulario.querySelector('#id_provincias').innerHTML=selectHTML
 
  })
+ formulario.querySelector('#id_provincias').addEventListener('change',(e)=>{
+     e.preventDefault()
+     let id=formulario.querySelector('#id_provincias').value
+     let data= new FormData()
+     data.append('id',id)
+     fetch('../../php/consultas/consulta_departamentos.php',{
+         method: 'POST',
+         body: data
+     })    
+    .then(res=>res.json())
+    .then(departamentos=>{
+        let selectHTML
+        departamentos.forEach(departamento => {
+            selectHTML+=
+            `<option value='${departamento.id_departamento}'>
+            ${departamento.departamento}
+        </option>`
+        });
+        
+        formulario.querySelector('#id_departamentos').innerHTML=selectHTML
+    })
+ 
+
+ })
+ formulario.querySelector('#id_departamentos').addEventListener('change',(e)=>{
+    e.preventDefault()
+    let id=formulario.querySelector('#id_departamentos').value
+    let data= new FormData()
+    data.append('id',id)
+    fetch('../../php/consultas/consulta_localidades.php',{
+        method: 'POST',
+        body: data
+    })    
+   .then(res=>res.json())
+   .then(localidades=>{
+       let selectHTML
+       localidades.forEach(localidad => {
+           selectHTML+=
+           `<option value='${localidad.id_localidad}'>
+           ${localidad.localidad}
+       </option>`
+       });
+       
+       formulario.querySelector('#id_localidades').innerHTML=selectHTML
+   })
+
+
+})
  fetch('../../php/consultas/consulta_generos.php')
  .then(res=>res.json())
  .then(generos=>{
