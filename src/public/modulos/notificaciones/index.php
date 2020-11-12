@@ -26,14 +26,13 @@ require "../../templates/navbar.php";
 
   
   <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
+      <!-- Pagination -->
+      <div class="w3-center w3-padding-32">
     <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">1</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">2</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">3</a>
+      <a class="w3-button  w3-dark-gray w3-hover-cyan" href="#">»</a>
     </div>
   </div>
 

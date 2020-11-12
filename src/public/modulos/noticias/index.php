@@ -29,26 +29,25 @@ require "../../templates/navbar.php";
     <label for="cuerpo">Cuerpo</label><br>
         <textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
     <label for="imagen">Foto</label><br>
-        <button id='imagen' type="file" class="w3-btn w3-gray w3-round-xlarge w3-border w3-hover-cyan">subir Archivo</button><br><br>
+        <button id='imagen' type="file" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">subir Archivo</button><br><br>
         <embed src="" type="" class="w3-border"> <br><br>
     <label for="epigrafe">Epígrafe</label><br>
         <input id='epigrafe' type="text"><br>
     <label for="fecha">Fecha</label><br>
         <input id='fecha' type="datetime-local">
-        <button type="input" class="w3-btn w3-black w3-round-xlarge w3-border w3-hover-cyan">Enviar</button>
+        <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button>
 
 
 
   
   <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
+       <!-- Pagination -->
+       <div class="w3-center w3-padding-32">
     <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">1</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">2</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">3</a>
+      <a class="w3-button  w3-dark-gray w3-hover-cyan" href="#">»</a>
     </div>
   </div>
 

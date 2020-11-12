@@ -21,7 +21,7 @@ require "../../templates/navbar.php";
     <div>
         
         <div>
-            <button class="w3-btn w3-black w3-round-xlarge w3-border w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
+            <button class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
                 <!-- The Modal -->
                 <div id="agregarMiembro" class="w3-modal">
                     <div class="w3-modal-content">
@@ -84,7 +84,7 @@ require "../../templates/navbar.php";
                             <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="si/no"><br>
                             <label>Programa</label><br>
                             <select name="id_linea_programa" id="id_linea_programa"></select><br>
-                            <button type="input"class="w3-btn w3-black w3-round-large w3-hover-cyan ">Enviar</button><br>
+                            <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button><br>
                             <p class="message">Atrás <a href="#"> <</a></p>
                         </div>
                         </form>
@@ -227,14 +227,13 @@ require "../../templates/navbar.php";
 
 
   <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
+       <!-- Pagination -->
+       <div class="w3-center w3-padding-32">
     <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">1</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">2</a>
+      <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">3</a>
+      <a class="w3-button  w3-dark-gray w3-hover-cyan" href="#">»</a>
     </div>
   </div>
 
