@@ -1,4 +1,4 @@
-fetch('http://localhost/sadop/src/public/php/consultas/consulta_localidades.php')
+fetch('http://localhost/sadop/src/public/php/consultas/consulta_generos.php')
 .then(res=>res.json())
 .then(sesion=>{
     console.log(sesion)

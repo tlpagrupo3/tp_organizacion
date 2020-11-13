@@ -79,7 +79,127 @@ $('.message a').click(function(){
        formulario.querySelector('#id_localidades').innerHTML=selectHTML
    })
 
+})
+  fetch('../../php/consultas/consulta_provincias.php')
+   .then(res=>res.json())
+   .then(provincias=>{
+       
+      let selectHTML
+      provincias.forEach(provincia => {
+          selectHTML+=
+          `<option value='${provincia.id_provincia}'>
+          ${provincia.provincia}
+      </option>`
+      });
+      
+      formulario.querySelector('#id_provincias_m_a').innerHTML=selectHTML
+  
+   })
+   formulario.querySelector('#id_provincias_m_a').addEventListener('change',(e)=>{
+       e.preventDefault()
+       let id=formulario.querySelector('#id_provincias_m_a').value
+       let data= new FormData()
+       data.append('id',id)
+       fetch('../../php/consultas/consulta_departamentos.php',{
+           method: 'POST',
+           body: data
+       })    
+      .then(res=>res.json())
+      .then(departamentos=>{
+          let selectHTML
+          departamentos.forEach(departamento => {
+              selectHTML+=
+              `<option value='${departamento.id_departamento}'>
+              ${departamento.departamento}
+          </option>`
+          });
+          
+          formulario.querySelector('#id_departamentos_m_a').innerHTML=selectHTML
+      })
+   
+  
+   })
+   formulario.querySelector('#id_departamentos_m_a').addEventListener('change',(e)=>{
+      e.preventDefault()
+      let id=formulario.querySelector('#id_departamentos_m_a').value
+      let data= new FormData()
+      data.append('id',id)
+      fetch('../../php/consultas/consulta_localidades.php',{
+          method: 'POST',
+          body: data
+      })    
+     .then(res=>res.json())
+     .then(localidades=>{
+         let selectHTML
+         localidades.forEach(localidad => {
+             selectHTML+=
+             `<option value='${localidad.id_localidad}'>
+             ${localidad.localidad}
+         </option>`
+         });
+         
+         formulario.querySelector('#municipio_alta').innerHTML=selectHTML
+     })
+})
+fetch('../../php/consultas/consulta_provincias.php')
+.then(res=>res.json())
+.then(provincias=>{
+   let selectHTML
+   provincias.forEach(provincia => {
+       selectHTML+=
+       `<option value='${provincia.id_provincia}'>
+       ${provincia.provincia}
+   </option>`
+   });
+   
+   formulario.querySelector('#id_provincias_m_d').innerHTML=selectHTML
 
+})
+formulario.querySelector('#id_provincias_m_d').addEventListener('change',(e)=>{
+    e.preventDefault()
+    let id=formulario.querySelector('#id_provincias_m_d').value
+    let data= new FormData()
+    data.append('id',id)
+    fetch('../../php/consultas/consulta_departamentos.php',{
+        method: 'POST',
+        body: data
+    })    
+   .then(res=>res.json())
+   .then(departamentos=>{
+       let selectHTML
+       departamentos.forEach(departamento => {
+           selectHTML+=
+           `<option value='${departamento.id_departamento}'>
+           ${departamento.departamento}
+       </option>`
+       });
+       
+       formulario.querySelector('#id_departamentos_m_d').innerHTML=selectHTML
+   })
+
+
+})
+formulario.querySelector('#id_departamentos_m_d').addEventListener('change',(e)=>{
+   e.preventDefault()
+   let id=formulario.querySelector('#id_departamentos_m_d').value
+   let data= new FormData()
+   data.append('id',id)
+   fetch('../../php/consultas/consulta_localidades.php',{
+       method: 'POST',
+       body: data
+   })    
+  .then(res=>res.json())
+  .then(localidades=>{
+      let selectHTML
+      localidades.forEach(localidad => {
+          selectHTML+=
+          `<option value='${localidad.id_localidad}'>
+          ${localidad.localidad}
+      </option>`
+      });
+      
+      formulario.querySelector('#municipio_domicilio').innerHTML=selectHTML
+  })
 })
  fetch('../../php/consultas/consulta_generos.php')
  .then(res=>res.json())

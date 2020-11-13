@@ -20,6 +20,11 @@ class miembro{
     private $monotributo;
     private $id_linea_programa;
     private $codigo_postal;
+    private $calle;
+    private $numero;
+    private $municipio_alta;
+    private $municipio_domicilio;
+
 
     function __construct($conexion,$_POST)
     {
@@ -41,15 +46,19 @@ class miembro{
         $this->monotributo=$_POST['monotributo'];
         $this->id_linea_programa=$_POST['id_linea_programa'];
         $this->codigo_postal=$_POST['codigo_postal'];
+        $this->calle=$_POST['calle'];
+        $this->numero=$_POST['numero'];
+        $this->municipio_alta;
+        $this->municipio_domicilio;
     }
 
     public function agregar($accion){
         try {
             //code...
-        
+        $this->conexion->beginTransaction();
         if ($accion=='agregar') {
             # code...
-            $sql='INSERT into miembros.miembros (
+            $sqlMiembro='INSERT into miembros.miembros (
                  nombre
                 , apellido
                 , id_tipo_documento
@@ -80,8 +89,8 @@ class miembro{
                         ,:id_linea_programa
                         ,:codigo_postal
                         ,:id_localidad);';
-            $stmt= $this->conexion->prepare($sql);
-            $stmt->execute(array( ':nombre'=>$this->nombre
+            $stmtMiembro= $this->conexion->prepare($sqlMiembro);
+            $stmtMiembro->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
             ,':id_tipo_documento'=>$this->id_tipo_documento
             ,':id_tipo_genero'=>$this->id_tipo_genero
@@ -96,13 +105,30 @@ class miembro{
             ,':monotributo'=>$this->monotributo
             ,':id_linea_programa'=>$this->id_linea_programa
             ,':codigo_postal)'=>$this->codigo_postal));
+            $id= $stmtMiembro->lastInsertID();
 
-            if($stmt->rowCount() == 1){
+            $sqlDomicilio='INSERT INTO miembros.domicilio(
+                 id_miembros, municipio_alta, municipio_domicilio, id_localidad, calle, numero)
+                VALUES ( :id_miembros, :municipio_alta, :municipio_domicilio, :id_localidad, :calle, :numero);';
+            $stmtDomicilio= $this->conexion->prepare($sqlDomicilio);
+            $stmtDomicilio->execute(array(':id_miembros'=>$id
+                                            ,':municipio_alta'=>$this->municipio_alta
+                                            ,':municipio_domicilio'=>$this->municipio_domicilio
+                                            ,':id_localidad'=>$this->id_localidad
+                                            ,':calle'=>$this->calle
+                                            ,':numero'=>$this->numero));
+            
+            
+            
+            if(($stmtMiembro->rowCount() == 1)&&($stmtDomicilio->rowCount()==1)){
                 echo json_encode('El miembro se agregó correctamente');
             }else{
                 echo json_encode('Complete los campos obligatorios para contunuar');
+                $this->conexion->rollBack();
             }
-        }}catch (PDOException $e) {
+            
+        }$this->conexion->commit();
+        }catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
         }
@@ -110,10 +136,10 @@ class miembro{
     public function modificar($accion){
         try {
             //code...
-        
+        $this->conexion->beginTransaction();
         if ($accion=='modificar') {
             # code...
-            $sql='UPDATE miembros.miembros (
+            $sqlMiembro='UPDATE miembros.miembros (
                  nombre=:nombre
                 , apellido=:apellido
                 , id_tipo_documento::id_tipo_documento
@@ -131,8 +157,8 @@ class miembro{
                 , localidad=:localidad)
                 
                 WHERE id_miembro=:id_miembro;';
-            $stmt= $this->conexion->prepare($sql);
-            $stmt->execute(array( ':nombre'=>$this->nombre
+            $stmtMiembro= $this->conexion->prepare($sqlMiembro);
+            $stmtMiembro->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
             ,':id_tipo_documento'=>$this->id_tipo_documento
             ,':id_tipo_genero'=>$this->id_tipo_genero
@@ -149,12 +175,26 @@ class miembro{
             ,':id_miembro'=>$this->id_miembro
             ,':localidad'=>$this->id_localidad));
 
-            if($stmt->rowCount() == 1){
+            $sqlDomicilio='UPDATE miembros.domicilio
+            SET municipio_alta=:municipio_alta, municipio_domicilio=:municipio_domicilio, id_localidad=:id_lolcaidad, calle=:calle, numero=:numero
+            WHERE id_miembro=:id_miembro;';
+            $stmtDomicilio=$this->conexion->prepare($sqlDomicilio);
+            $stmtDomicilio->execute(array(':municipio_alta'=>$this->municipio_alta
+                                        ,':municipio_domicilio'=>$this->municipio_domicilio
+                                        ,':id_localidad'=>$this->id_localidad
+                                        ,':calle'=>$this->calle
+                                        ,':numero'=>$this->numero));
+            
+            
+            if(($stmtMiembro->rowCount() == 1)&&($stmtDomicilio->rowCount() == 1)){
                 echo json_encode('El miembro se actualizó correctamente');
             }else{
                 echo json_encode('Complete los campos obligatorios para contunuar');
+                $this->conexion->rollBack();
             }
+            
         }
+        $this->conexion->commit();
         }catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -163,18 +203,22 @@ class miembro{
     public function eliminar($accion){
         try {
             //code...
+            $this->conexion->beginTransaction();
         if ($accion=='eliminar') {
             # code...
             $sql='DELETE from miembros.miembros where id_miembro=:id_miembro';
             $stmt=$this->conexion->prepare($sql);
             $stmt->execute(array(':id_miembro'=>$this->id_miembro));
+            
             if($stmt->rowCount() == 1){
                 echo json_encode('El miembro se eliminó correctamente');
             }else{
                 echo json_encode('Complete los campos obligatorios para contunuar');
+                $this->conexion->rollBack();
             }
+            
         }        
-        
+        $this->conexion->commit();
         
         }catch (PDOException $e) {
             //throw $th;

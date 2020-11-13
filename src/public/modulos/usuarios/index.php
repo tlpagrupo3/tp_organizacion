@@ -7,7 +7,11 @@ require "../../templates/navbar.php";
 ?>
 
 <!DOCTYPE html>
-<body>
+<script>
+function aver(){
+    window.open("www.google.com",'ventana1')}
+</script>
+<body onunload="aver()">
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
@@ -28,7 +32,7 @@ require "../../templates/navbar.php";
                         <div class="w3-container w3-cyan">
                             <h2>Agregar Usuarios</h2>
                         </div>
-                        <form id='primeraParte' class="w3-container">
+                        <form action="../../php/usuarios_abm.php"  method='POST'class="w3-container">
                             <p>
                             <label>Nombre de Usuario</label>
                             <input class="w3-input" type="text"></p>
@@ -39,10 +43,10 @@ require "../../templates/navbar.php";
                             <label>Email de recuperación</label>
                             <input class="w3-input" type="text"></p>
                             <label>Tipo de usuario</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_nivel_acceso" id="id_nivel_acceso"></select></p>
                             <p>
                             <label>Miembro</label>
-                            <input class="w3-input" type="text"></p>
+                            <select name="id_miembros" id="id_miembros"></select></p>
                             <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button>
                         </form>
                         
@@ -123,9 +127,12 @@ require "../../templates/navbar.php";
 
 <!-- END MAIN -->
 </div>
-    <script src="../../js/elementosHTML.js">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-</script>
+    <script src="../../js/elementosHTML.js"></script>
+    <script src="../../js/usuarios.js"></script>
+
+
 <?php
 
 

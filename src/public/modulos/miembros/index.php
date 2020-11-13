@@ -31,7 +31,7 @@ require "../../templates/navbar.php";
                         <div class="w3-container w3-cyan">
                             <h2>Ingresar datos del miembro nuevo</h2>
                         </div>
-                        <form  class="w3-container" action="../../php/miembros_abm.php">
+                        <form  class="w3-container" action="../../php/miembros_abm.php" method="POST">
                           <div id='primeraParte'>
                             <input type="text" hidden id='accion' name="accion">
                             <input type="text" hidden id='id_miembro' name="id_miembro">
@@ -61,6 +61,12 @@ require "../../templates/navbar.php";
                             <select name="id_provincia" id="id_provincias"></select><br>
                             <select name="id_departamento" id="id_departamentos"></select>
                             <select name="id_localidad" id="id_localidades"></select><br>
+
+                            <label>Calle</label><br>
+                            <input class="w3-input" type="text" id="calle" name="calle"><br>
+
+                            <label>Número</label><br>
+                            <input class="w3-input" type="text" id="numero" name="numero"><br>
                           
                             <label>Número de teléfono</label><br>
                             <input class="w3-input" type="text" id="numero_telefono" name="numero_telefono"><br>
@@ -73,6 +79,16 @@ require "../../templates/navbar.php";
                             </div>
                         <div class='segundaParte' hidden>
                       
+                            <label>Municipio Alta</label><br>
+                            <select name="id_provincia_m_a" id="id_provincias_m_a"></select><br>
+                            <select name="id_departamento_m_a" id="id_departamentos_m_a"></select>
+                            <select name="municipio_alta" id="municipio_alta"></select><br>
+
+                            <label>Municipio Domicilio</label><br>
+                            <select name="id_provincia_m_d" id="id_provincias_m_d"></select><br>
+                            <select name="id_departamento_m_d" id="id_departamentos_m_d"></select>
+                            <select name="municipio_domicilio" id="municipio_domicilio"></select><br>
+
                             <label>Origen</label><br>
                             <select name="id_tipo_origen" id="id_tipo_origen"></select><br>
                           
