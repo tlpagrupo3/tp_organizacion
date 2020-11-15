@@ -1,6 +1,7 @@
 <?php
 require "../bd/conexion.php";
 $accion=$_POST['accion'];
+var_dump($_POST);
 class miembro{
     
     public $conexion;
@@ -26,7 +27,7 @@ class miembro{
     private $municipio_domicilio;
 
 
-    function __construct($conexion,$_POST)
+    function __construct($conexion)
     {
         $this->conexion=$conexion;
         $this->id_miembro=$_POST['id_miembro'];
@@ -38,11 +39,10 @@ class miembro{
         $this->fecha_nacimiento=$_POST['fecha_nacimiento'];
         $this->id_localidad=$_POST['id_localidad'];
         $this->numero_documento=$_POST['numero_documento'];
-        $this->numero_telefono=$_POST['nuemro_telefono'];
+        $this->numero_telefono=$_POST['numero_telefono'];
         $this->email=$_POST['email'];
-        $this->id_tipo_origen=$_POST['id_tipo_origen'];
-        $this->oficio=$_POST['oficio'];
-        $this->id_actividad_popular=$_POST['id_actividad_popular'];
+        $this->id_tipo_origen=$_POST['id_tipo_origen'];        
+        $this->id_actividad_popular=$_POST['id_actividad_economia_popular'];
         $this->monotributo=$_POST['monotributo'];
         $this->id_linea_programa=$_POST['id_linea_programa'];
         $this->codigo_postal=$_POST['codigo_postal'];
@@ -55,9 +55,10 @@ class miembro{
     public function agregar($accion){
         try {
             //code...
-        $this->conexion->beginTransaction();
+        
         if ($accion=='agregar') {
             # code...
+            $this->conexion->beginTransaction();
             $sqlMiembro='INSERT into miembros.miembros (
                  nombre
                 , apellido
@@ -72,8 +73,7 @@ class miembro{
                 , id_actividad_economia_popular
                 , monotributo
                 , id_linea_programa
-                , codigo_postal
-                , id_localidad)
+                , codigo_postal)
                 VALUES ( :nombre
                         ,:apellido
                         ,:id_tipo_documento
@@ -87,8 +87,7 @@ class miembro{
                         ,:id_actividad_economia_popular
                         ,:monotributo
                         ,:id_linea_programa
-                        ,:codigo_postal
-                        ,:id_localidad);';
+                        ,:codigo_postal);';
             $stmtMiembro= $this->conexion->prepare($sqlMiembro);
             $stmtMiembro->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
@@ -96,7 +95,6 @@ class miembro{
             ,':id_tipo_genero'=>$this->id_tipo_genero
             ,':cuil'=>$this->cuil
             ,':fecha_nacimiento'=>$this->fecha_nacimiento
-            ,':id_localidad'=>$this->id_localidad
             ,':numero_telefono'=>$this->numero_telefono
             ,':numero_documento'=>$this->numero_documento
             ,':email'=>$this->email
@@ -104,15 +102,14 @@ class miembro{
             ,':id_actividad_economia_popular'=>$this->id_actividad_popular
             ,':monotributo'=>$this->monotributo
             ,':id_linea_programa'=>$this->id_linea_programa
-            ,':codigo_postal)'=>$this->codigo_postal));
-            $id= $stmtMiembro->lastInsertID();
+            ,':codigo_postal'=>$this->codigo_postal));
+           
 
             $sqlDomicilio='INSERT INTO miembros.domicilio(
                  id_miembros, municipio_alta, municipio_domicilio, id_localidad, calle, numero)
-                VALUES ( :id_miembros, :municipio_alta, :municipio_domicilio, :id_localidad, :calle, :numero);';
+                VALUES ( (SELECT max(id_miembros) from miembros.miembros), :municipio_alta, :municipio_domicilio, :id_localidad, :calle, :numero);';
             $stmtDomicilio= $this->conexion->prepare($sqlDomicilio);
-            $stmtDomicilio->execute(array(':id_miembros'=>$id
-                                            ,':municipio_alta'=>$this->municipio_alta
+            $stmtDomicilio->execute(array(':municipio_alta'=>$this->municipio_alta
                                             ,':municipio_domicilio'=>$this->municipio_domicilio
                                             ,':id_localidad'=>$this->id_localidad
                                             ,':calle'=>$this->calle
@@ -126,8 +123,8 @@ class miembro{
                 echo json_encode('Complete los campos obligatorios para contunuar');
                 $this->conexion->rollBack();
             }
-            
-        }$this->conexion->commit();
+            $this->conexion->commit();
+        }
         }catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -136,9 +133,10 @@ class miembro{
     public function modificar($accion){
         try {
             //code...
-        $this->conexion->beginTransaction();
+        
         if ($accion=='modificar') {
             # code...
+            $this->conexion->beginTransaction();
             $sqlMiembro='UPDATE miembros.miembros (
                  nombre=:nombre
                 , apellido=:apellido
@@ -192,9 +190,9 @@ class miembro{
                 echo json_encode('Complete los campos obligatorios para contunuar');
                 $this->conexion->rollBack();
             }
-            
+            $this->conexion->commit();
         }
-        $this->conexion->commit();
+        
         }catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -203,9 +201,10 @@ class miembro{
     public function eliminar($accion){
         try {
             //code...
-            $this->conexion->beginTransaction();
+            
         if ($accion=='eliminar') {
             # code...
+            $this->conexion->beginTransaction();
             $sql='DELETE from miembros.miembros where id_miembro=:id_miembro';
             $stmt=$this->conexion->prepare($sql);
             $stmt->execute(array(':id_miembro'=>$this->id_miembro));
@@ -216,9 +215,9 @@ class miembro{
                 echo json_encode('Complete los campos obligatorios para contunuar');
                 $this->conexion->rollBack();
             }
-            
+            $this->conexion->commit();
         }        
-        $this->conexion->commit();
+        
         
         }catch (PDOException $e) {
             //throw $th;
@@ -230,7 +229,7 @@ class miembro{
 
 
 
-$miembro= new miembro($conexion,$_POST);
+$miembro= new miembro($conexion);
 
 $miembro->agregar($accion);
 $miembro->modificar($accion);

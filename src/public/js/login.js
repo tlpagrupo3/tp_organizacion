@@ -21,6 +21,10 @@ login.addEventListener('submit',(e)=>{
             // document.querySelector('div.w3-panel').setAttribute('hidden',false)
             
             
+            }else{
+                if (mensaje=='datos correctos') {
+                    window.location='../landing/'
+                }
             }
         })
     }

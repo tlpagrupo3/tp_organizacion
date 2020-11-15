@@ -1,5 +1,5 @@
 <?php
-// require "../../php/session.php";
+require "../../php/session.php";
 require "../../templates/sidebar.php";
 require "../../templates/head.php";
 
@@ -33,15 +33,17 @@ function aver(){
                             <h2>Agregar Usuarios</h2>
                         </div>
                         <form action="../../php/usuarios_abm.php"  method='POST'class="w3-container">
+                            <input type="text" name='accion' value='agregar' hidden>
+                            <input type="text" name='id_usuario' hidden>
                             <p>
                             <label>Nombre de Usuario</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" name='nombre_usuario'></p>
                             <p>
                             <label>Contraseña</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" name='contrasena'></p>
                             <p>
                             <label>Email de recuperación</label>
-                            <input class="w3-input" type="text"></p>
+                            <input class="w3-input" type="text" name="email_recuperacion"></p>
                             <label>Tipo de usuario</label>
                             <select name="id_nivel_acceso" id="id_nivel_acceso"></select></p>
                             <p>

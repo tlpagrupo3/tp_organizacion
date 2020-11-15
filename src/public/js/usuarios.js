@@ -11,15 +11,16 @@ window.addEventListener('unload',(e)=>{
 fetch('../../php/consultas/consulta_miembros.php')
 .then(res=>res.json())
 .then(miembros=>{
-    let selectHTML
+    let selectHTML    
     miembros.forEach(miembro => {
         selectHTML+=
         `
-    <option id='${miembro.id_miembros}>${miembro.apellido}, ${miembro.nombre}</option>
+    <option value='${miembro.id_miembros}'>${miembro.apellido}, ${miembro.nombre}</option>
     `
+    
     });
     
-    document.querySelector('#id_miembros').innerHTML
+    document.querySelector('#id_miembros').innerHTML=selectHTML
 })
 
 fetch('../../php/consultas/consulta_nivel_acceso.php')
@@ -30,7 +31,7 @@ fetch('../../php/consultas/consulta_nivel_acceso.php')
     niveles.forEach(nivel => {
         selectHTML+=
         `
-        <option id='${nivel.id_nivel_acceso}'>${nivel.nivel_acceso}</option>
+        <option value='${nivel.id_nivel_acceso}'>${nivel.nivel_acceso}</option>
         `
     });
     document.querySelector('#id_nivel_acceso').innerHTML= selectHTML

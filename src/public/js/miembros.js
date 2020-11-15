@@ -22,7 +22,7 @@ $('.message a').click(function(){
  fetch('../../php/consultas/consulta_provincias.php')
  .then(res=>res.json())
  .then(provincias=>{
-    let selectHTML
+    let selectHTML=`<option selected disabled>Seleccione una Provincia</option>`
     provincias.forEach(provincia => {
         selectHTML+=
         `<option value='${provincia.id_provincia}'>
@@ -44,7 +44,7 @@ $('.message a').click(function(){
      })    
     .then(res=>res.json())
     .then(departamentos=>{
-        let selectHTML
+        let selectHTML=`<option selected disabled>Seleccione un Departamento</option>`
         departamentos.forEach(departamento => {
             selectHTML+=
             `<option value='${departamento.id_departamento}'>
@@ -68,7 +68,7 @@ $('.message a').click(function(){
     })    
    .then(res=>res.json())
    .then(localidades=>{
-       let selectHTML
+       let selectHTML=`<option selected disabled>Seleccione una Localidad</option>`
        localidades.forEach(localidad => {
            selectHTML+=
            `<option value='${localidad.id_localidad}'>
@@ -84,7 +84,7 @@ $('.message a').click(function(){
    .then(res=>res.json())
    .then(provincias=>{
        
-      let selectHTML
+      let selectHTML=`<option selected disabled>Seleccione una Provincia</option>`
       provincias.forEach(provincia => {
           selectHTML+=
           `<option value='${provincia.id_provincia}'>
@@ -106,7 +106,7 @@ $('.message a').click(function(){
        })    
       .then(res=>res.json())
       .then(departamentos=>{
-          let selectHTML
+          let selectHTML=`<option selected disabled>Seleccione un Departamento</option>`
           departamentos.forEach(departamento => {
               selectHTML+=
               `<option value='${departamento.id_departamento}'>
@@ -130,7 +130,7 @@ $('.message a').click(function(){
       })    
      .then(res=>res.json())
      .then(localidades=>{
-         let selectHTML
+         let selectHTML=`<option selected disabled>Seleccione una Localidad</option>`
          localidades.forEach(localidad => {
              selectHTML+=
              `<option value='${localidad.id_localidad}'>
@@ -144,7 +144,7 @@ $('.message a').click(function(){
 fetch('../../php/consultas/consulta_provincias.php')
 .then(res=>res.json())
 .then(provincias=>{
-   let selectHTML
+   let selectHTML=`<option selected disabled>Seleccione una Provincia</option>`
    provincias.forEach(provincia => {
        selectHTML+=
        `<option value='${provincia.id_provincia}'>
@@ -166,7 +166,7 @@ formulario.querySelector('#id_provincias_m_d').addEventListener('change',(e)=>{
     })    
    .then(res=>res.json())
    .then(departamentos=>{
-       let selectHTML
+       let selectHTML=`<option selected disabled>Seleccione un Departamento</option>`
        departamentos.forEach(departamento => {
            selectHTML+=
            `<option value='${departamento.id_departamento}'>
@@ -190,7 +190,7 @@ formulario.querySelector('#id_departamentos_m_d').addEventListener('change',(e)=
    })    
   .then(res=>res.json())
   .then(localidades=>{
-      let selectHTML
+      let selectHTML=`<option selected disabled>Seleccione una Localidad</option>`
       localidades.forEach(localidad => {
           selectHTML+=
           `<option value='${localidad.id_localidad}'>

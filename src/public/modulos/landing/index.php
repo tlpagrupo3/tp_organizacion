@@ -1,5 +1,5 @@
 <?php
-// require "../php/session.php";
+require "../../php/session.php";
 require "../../templates/sidebar.php";
 require "../../templates/head.php";
 require "../../templates/navbar.php";
@@ -22,8 +22,6 @@ require "../../templates/navbar.php";
 
 
 
-
-  
   <!-- Pagination -->
   <div class="w3-center w3-padding-32">
     <div class="w3-bar">

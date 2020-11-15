@@ -1,6 +1,7 @@
 <?php
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
+echo json_encode($_POST);
 class usuarios {
 
     public $conexion;
@@ -11,7 +12,7 @@ class usuarios {
     private $id_nivel_acceso;
     private $id_miembros;
 
-    public function __construct($conexion,$_POST){
+    public function __construct($conexion){
         
         $this->conexion=$conexion;
         $this->id_usuarios=$_POST['id_usuarios'];
@@ -25,9 +26,10 @@ class usuarios {
     public function agregarUsuario($accion){
         try {
             //code...
-        
+            
             if ($accion=='agregar') {
                 # code...
+                $this->conexion->beginTransaction();
                 $sql='INSERT INTO miembros.usuarios(
                     nombre_usuario
                     , contrasena
@@ -50,7 +52,9 @@ class usuarios {
                     echo json_encode('El usuario se registró correctamente');
                 }else{
                     echo json_encode('Hay campos vacios o erroneos');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             }
         } catch (PDOException $e) {
             //throw $th;
@@ -63,6 +67,7 @@ class usuarios {
             //code...
             if ($accion=='modificar') {
                 # code...
+                $this->conexion->beginTransaction();
                 $sql='UPDATE miembros.usuarios
                 SET nombre_usuario=:nombre_usuario
                     , contrasena=:contrasena
@@ -82,7 +87,9 @@ class usuarios {
                     echo json_encode('El usuario se modificó correctamente');
                 }else{
                     echo json_encode('Hay campos vacios o erroneos');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             }
 
         } catch (PDOException $e) {
@@ -95,6 +102,7 @@ class usuarios {
             //code...
             if ($accion=='eliminar') {
                 # code...
+                $this->conexion->beginTransaction();
                 $sql='DELETE FROM miembros.usuarios
                 WHERE id_usuarios=:id_usuarios;';
                 $stmt= $this->conexion->prepare($sql);
@@ -104,7 +112,9 @@ class usuarios {
                     echo json_encode('El usuario se eliminó correctamente');
                 }else{
                     echo json_encode('No se pudo eliminar al usuario, intente mas tarde');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             }
         } catch (PDOException $e) {
             //throw $th;
@@ -113,7 +123,7 @@ class usuarios {
     }
 }
 
-$usuario= new usuarios($conexion,$_POST);
+$usuario= new usuarios($conexion);
 
 $usuario->agregarUsuario($accion);
 $usuario->modificarUsuario($accion);

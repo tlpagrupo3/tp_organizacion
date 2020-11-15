@@ -1,5 +1,5 @@
 <?php
-// require "../php/session.php";
+require "../../php/session.php";
 require "../../templates/sidebar.php";
 require "../../templates/head.php";
 
@@ -33,7 +33,7 @@ require "../../templates/navbar.php";
                         </div>
                         <form  class="w3-container" action="../../php/miembros_abm.php" method="POST">
                           <div id='primeraParte'>
-                            <input type="text" hidden id='accion' name="accion">
+                            <input type="text" hidden id='accion' name="accion" value="agregar">
                             <input type="text" hidden id='id_miembro' name="id_miembro">
                           
                             <label>Nombre</label><br>
@@ -97,7 +97,7 @@ require "../../templates/navbar.php";
                             <select name="id_actividad_economia_popular" id="id_actividad_economia_popular"></select><br>
                           
                             <label>Monotributo</label><br>
-                            <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="si/no"><br>
+                            <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="S/N"><br>
                             <label>Programa</label><br>
                             <select name="id_linea_programa" id="id_linea_programa"></select><br>
                             <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button><br>
@@ -116,6 +116,7 @@ require "../../templates/navbar.php";
   <table class="w3-table-all">
     <thead>
       <tr class="w3-cyan">
+        <th>Acciones</th>
         <th>Apellido</th>
         <th>Nombre</th>
         <th>Tipo de Doc</th> 
@@ -128,6 +129,7 @@ require "../../templates/navbar.php";
       </tr>
     </thead>
     <tr>
+      <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -139,6 +141,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -150,6 +153,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -161,6 +165,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -172,6 +177,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -183,6 +189,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
@@ -194,6 +201,7 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
+    <td></td>
       <td>Benitez</td>
       <td>Rojelio</td>
       <td>DNi</td>
