@@ -8,7 +8,7 @@ window.addEventListener('unload',(e)=>{
     
     window.open("www.google.com")
 })
-fetch('../../php/consultas/consulta_miembros.php')
+fetch('../../php/consultas/consulta_miembros_no_usuarios.php')
 .then(res=>res.json())
 .then(miembros=>{
     let selectHTML    
