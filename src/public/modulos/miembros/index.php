@@ -7,7 +7,7 @@ require "../../templates/navbar.php";
 ?>
 
 <!DOCTYPE html>
-<body>
+<body >
 
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
@@ -113,7 +113,7 @@ require "../../templates/navbar.php";
   <h2>Miembros que pertenecen a la organizacion</h2>
   <p>puede visualizar mas datos al seleccionar a los miembros</p>
 
-  <table class="w3-table-all">
+  <table class="w3-table-all" style="display: block; overflow-x:auto">
     <thead>
       <tr class="w3-cyan">
         <th>Acciones</th>
@@ -144,78 +144,6 @@ require "../../templates/navbar.php";
       <td>B_rj@gmail.com</td>
     </tr>
     <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-    <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-    <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-    <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-    <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-    <tr>
-    <td></td>
-      <td>Benitez</td>
-      <td>Rojelio</td>
-      <td>DNi</td>
-      <td>11.316.231</td>
-      <td>07-11316231-4</td>
-      <td>M</td>
-      <td>01/02/1953</td>
-      <td>3704-225633</td>
-      <td>B_rj@gmail.com</td>
-    </tr>
-   
     
   </table>
 </div>
