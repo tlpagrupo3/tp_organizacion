@@ -46,8 +46,7 @@ class noticia {
                 }
             }
             validarImagen($this->imagen);
-            print_r($this->imagen);
-            echo $this->id_usuario;
+            
             try {
                 //code...
                 $this->conexion->beginTransaction();
@@ -97,7 +96,18 @@ class noticia {
             # code...
             try {
                 //code...
-                $sql='UPDATE publicaciones.noticias
+                function validarImagen($imagen){
+                    $tipo= $imagen['type'];
+                    $nombre= $imagen['name'];
+    
+                    if ($tipo == "image/jpg"||$tipo == "image/jpeg"||$tipo == "image/png"||$tipo == "image/gif") {
+                        # code...
+                        move_uploaded_file($imagen['tmp_name'],'../media/'.$nombre);
+                    }
+                }
+                validarImagen($this->imagen);
+                $this->conexion->beginTransaction();
+                $sql="UPDATE publicaciones.noticias
                 SET volanta=:volanta
                     , titular=:titular
                     , copete=:copete
@@ -106,17 +116,21 @@ class noticia {
                     , imagen=:imagen
                     , fecha=:fecha
                     , id_usuario=:id_usuario
+                    ,autorizacion='n'
                     
-                WHERE id_noticias=:id_noticias;';
+                WHERE id_noticias=:id_noticias;";
                 $stmt= $this->conexion->prepare($sql);
                 $stmt->execute(array(':volanta'=>$this->volanta
                                     ,':titular'=>$this->titular
                                     ,':copete'=>$this->copete
                                     ,':cuerpo'=>$this->cuerpo
                                     ,':epigrafe'=>$this->epigrafe
-                                    ,':imagen'=>$this->fecha
+                                    ,':imagen'=>'media/'.$this->imagen['name']
+                                    ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario
-                                    ,':id_noticias'=>$this->id_noticias));
+                                    ,':id_noticias'=>$this->id_noticias
+                                    ));
+                $this->conexion->commit();
                 if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('Noticia modificada correctamente');
@@ -135,7 +149,7 @@ class noticia {
             try {
                 //code...
                 $this->conexion->beginTransaction();
-                print_r($_POST);
+                
                 $sql='UPDATE publicaciones.noticias
                 SET  autorizacion=:autorizacion
                 WHERE id_noticias=:id_noticias;';
@@ -159,15 +173,19 @@ class noticia {
         if($accion=='eliminar'){
             try {
                 //code...
+                print_r($_POST);
+
+                $this->conexion->beginTransaction();
                 $sql='DELETE FROM publicaciones.noticias
                 WHERE id_noticias=:id_noticias;';
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':id_noticias'=>$this->id_noticias));
-                if($stmt->rowCount==1){
-                    echo json_encode('El usuario se eliminó correctamente');
+                if($stmt->rowCount()==1){
+                    echo json_encode('La noticia se eliminó correctamente');
                 }else{
-                    echo json_encode('El usuario no pudo eliminarse, intente mas tarde');
+                    echo json_encode('La noticia no pudo eliminarse, intente mas tarde');
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -180,4 +198,5 @@ $noticia= new noticia($conexion);
 $noticia->nuevaNoticia($accion);
 $noticia->modificarNoticia($accion);
 $noticia->autorizarNoticia($accion);
+$noticia->eliminarNoticia($accion);
 ?>

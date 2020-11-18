@@ -20,25 +20,33 @@ require "../../templates/navbar.php";
       <p></p>
     </div>
   </div>
+    
+    <form id="selectModificar">
+      <h3>Modificar una noticia</h3>
+      <select name="id_noticias" id="selectNoticias"></select>
+      <input type='submit' value='Seleccionar Noticia'>
+    </form>
+    <br>
     <form action="../../php/noticia_abm.php" method="post" enctype="multipart/form-data">
-    <input type="text" value='agregar' name='accion' hidden>
+    <input type="text" id='accion' value='agregar' name='accion' hidden>
     <input type="text" name='id_usuario' value='2' hidden>
+    <input type="text" name='id_noticias' id="id_noticias" hidden>
     <label for="volanta">Volanta</label><br>
-        <input id='volanta' type="text" name="volanta"><br>
+        <input class='volanta' type="text" name="volanta"><br>
     <label for="titular">Titular</label><br>
-        <input id='titular' type="text" name="titular"><br>
+        <input class='titular' type="text" name="titular"><br>
     <label for="copete">Copete</label><br>
-        <input id='copete' type="text" name="copete"><br>
+        <input class='copete' type="text" name="copete"><br>
     <label for="cuerpo">Cuerpo</label><br>
-        <textarea id="cuerpo" cols="30" rows="10" name="cuerpo"></textarea><br>
+        <textarea class="cuerpo" cols="30" rows="10" name="cuerpo"></textarea><br>
     <label for="imagen">Foto</label><br>
         <!-- <button id='imagen' type="file" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">subir Archivo</button><br><br> -->
         <input type="file" name="imagen">
         <embed src="" type="" class="w3-border"> <br><br>
     <label for="epigrafe">Epígrafe</label><br>
-        <input id='epigrafe' type="text" name="epigrafe"><br>
+        <input class='epigrafe' type="text" name="epigrafe"><br>
     <label for="fecha">Fecha</label><br>
-        <input id='fecha' type="datetime-local" name="fecha">
+        <input class='fecha' type="datetime-local" name="fecha">
         <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button>
     </form>
 
@@ -58,9 +66,8 @@ require "../../templates/navbar.php";
 
 <!-- END MAIN -->
 </div>
-<script src="../../js/elementosHTML.js">
-
-</script>
+<script src="../../js/elementosHTML.js"></script>
+<script src="../../js/noticias.js"></script>
 <?php
 
 
