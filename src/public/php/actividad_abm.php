@@ -33,7 +33,7 @@ class actividad{
             # code...
             try {
                 //code...
-                $sql='INSERT INTO pubicaciones.actividades(
+                $sql='INSERT INTO publicaciones.actividades(
                      titular
                     , descripcion
                     , imagen
@@ -70,7 +70,7 @@ class actividad{
             # code...
             try {
                 //code...
-                $sql='UPDATE pubicaciones.actividades
+                $sql='UPDATE publicaciones.actividades
                 SET titular=:titular
                     , descripcion=:descripcion
                     , imagen=:imagen
@@ -103,7 +103,7 @@ class actividad{
             # code...
             try {
                 //code...
-                $sql='UPDATE pubicaciones.actividades
+                $sql='UPDATE publicaciones.actividades
                 SET autorizacion=:autorizacion
                 WHERE id_actividades=:id_actividades;';
                 $stmt=$this->conexion->prepare($sql);
@@ -124,7 +124,7 @@ class actividad{
     public function eliminarActividad($accion){
         try{
             if ($accion=='eliminar'){
-                $sql='DELETE FROM pubicaciones.actividades
+                $sql='DELETE FROM publicaciones.actividades
                 WHERE id_actividades=:id_actividades;';
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':id_actividades'=>$this->id_actividades));

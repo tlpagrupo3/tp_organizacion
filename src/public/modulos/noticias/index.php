@@ -20,24 +20,27 @@ require "../../templates/navbar.php";
       <p></p>
     </div>
   </div>
+    <form action="../../php/noticia_abm.php" method="post" enctype="multipart/form-data">
+    <input type="text" value='agregar' name='accion' hidden>
+    <input type="text" name='id_usuario' value='2' hidden>
     <label for="volanta">Volanta</label><br>
-        <input id='volanta' type="text"><br>
+        <input id='volanta' type="text" name="volanta"><br>
     <label for="titular">Titular</label><br>
-        <input id='titular' type="text"><br>
+        <input id='titular' type="text" name="titular"><br>
     <label for="copete">Copete</label><br>
-        <input id='copete' type="text"><br>
+        <input id='copete' type="text" name="copete"><br>
     <label for="cuerpo">Cuerpo</label><br>
-        <textarea name="" id="cuerpo" cols="30" rows="10"></textarea><br>
+        <textarea id="cuerpo" cols="30" rows="10" name="cuerpo"></textarea><br>
     <label for="imagen">Foto</label><br>
-        <button id='imagen' type="file" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">subir Archivo</button><br><br>
+        <!-- <button id='imagen' type="file" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">subir Archivo</button><br><br> -->
+        <input type="file" name="imagen">
         <embed src="" type="" class="w3-border"> <br><br>
     <label for="epigrafe">Epígrafe</label><br>
-        <input id='epigrafe' type="text"><br>
+        <input id='epigrafe' type="text" name="epigrafe"><br>
     <label for="fecha">Fecha</label><br>
-        <input id='fecha' type="datetime-local">
+        <input id='fecha' type="datetime-local" name="fecha">
         <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button>
-
-
+    </form>
 
   
   <!-- Pagination -->

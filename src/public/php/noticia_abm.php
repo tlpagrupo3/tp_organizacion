@@ -1,5 +1,5 @@
 <?php
-
+var_dump($_POST);
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
 class noticia {
@@ -15,15 +15,16 @@ class noticia {
     private $id_usuario;
     private $autorizacion;
     private $id_noticias;
+    
 
-    public function __construct($conexion,$_POST){
+    public function __construct($conexion){
         
         $this->conexion=$conexion;
         $this->volanta=$_POST['volanta'];
         $this->titular=$_POST['titular'];
         $this->copete=$_POST['copete'];
         $this->cuerpo=$_POST['cuerpo'];
-        $this->imagen=$_POST['imagen'];
+        $this->imagen=$_FILES['imagen'];
         $this->epigrafe=$_POST['epigrafe'];
         $this->fecha=$_POST['fecha'];
         $this->id_usuario=$_POST['id_usuario'];
@@ -32,12 +33,25 @@ class noticia {
     }
 
     public function nuevaNoticia($accion){
-        if ($accion=='agragar') {
+        if ($accion=='agregar') {
             # code...
             
+            function validarImagen($imagen){
+                $tipo= $imagen['type'];
+                $nombre= $imagen['name'];
+
+                if ($tipo == "image/jpg"||$tipo == "image/jpeg"||$tipo == "image/png"||$tipo == "image/gif") {
+                    # code...
+                    move_uploaded_file($imagen['tmp_name'],'../media/'.$nombre);
+                }
+            }
+            validarImagen($this->imagen);
+            print_r($this->imagen);
+            echo $this->id_usuario;
             try {
                 //code...
-                $sql='INSERT INTO pubicaciones.noticias(
+                $this->conexion->beginTransaction();
+                $sql='INSERT INTO publicaciones.noticias(
                     volanta
                     , titular
                     , copete
@@ -55,20 +69,22 @@ class noticia {
                             ,:fecha
                             ,:id_usuario);';
                 $stmt= $this->conexion->prepare($sql);
-                $stmt->execute(array(':valanta'=>$this->volanta
+                $stmt->execute(array(':volanta'=>$this->volanta
                                     ,':titular'=>$this->titular
                                     ,':copete'=>$this->copete
                                     ,':cuerpo'=>$this->cuerpo
                                     ,':epigrafe'=>$this->epigrafe
-                                    ,':imagen'=>$this->imagen
+                                    ,':imagen'=>'media/'.$this->imagen['name']
                                     ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario));
-                if ($stmt->rowCount==1) {
+                
+                if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('La noticia se agregó correctamente');
                 }else{
                     echo json_encode('Hay campos vacios o erroneos');
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -81,7 +97,7 @@ class noticia {
             # code...
             try {
                 //code...
-                $sql='UPDATE pubicaciones.noticias
+                $sql='UPDATE publicaciones.noticias
                 SET volanta=:volanta
                     , titular=:titular
                     , copete=:copete
@@ -93,7 +109,7 @@ class noticia {
                     
                 WHERE id_noticias=:id_noticias;';
                 $stmt= $this->conexion->prepare($sql);
-                $stmt->execute(array(':volanta'=>$this->volanta,
+                $stmt->execute(array(':volanta'=>$this->volanta
                                     ,':titular'=>$this->titular
                                     ,':copete'=>$this->copete
                                     ,':cuerpo'=>$this->cuerpo
@@ -118,7 +134,7 @@ class noticia {
             # code...
             try {
                 //code...
-                $sql='UPDATE pubicaciones.noticias
+                $sql='UPDATE publicaciones.noticias
                 SET  autorizacion=:autorizacion
                 WHERE id_noticia=:id_noticia;';
                 $stmt= $this->conexion->prepare($sql);
@@ -140,7 +156,7 @@ class noticia {
         if($accion=='eliminar'){
             try {
                 //code...
-                $sql='DELETE FROM pubicaciones.noticias
+                $sql='DELETE FROM publicaciones.noticias
                 WHERE id_noticias=:id_noticias;';
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':id_noticias'=>$this->id_noticias));
@@ -157,7 +173,7 @@ class noticia {
     }
 }
 
-$noticia= new noticia($conexion,$_POST);
+$noticia= new noticia($conexion);
 $noticia->nuevaNoticia($accion);
 $noticia->modificarNoticia($accion);
 $noticia->autorizarNoticia($accion);
