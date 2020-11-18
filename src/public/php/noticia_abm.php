@@ -134,18 +134,21 @@ class noticia {
             # code...
             try {
                 //code...
+                $this->conexion->beginTransaction();
+                print_r($_POST);
                 $sql='UPDATE publicaciones.noticias
                 SET  autorizacion=:autorizacion
-                WHERE id_noticia=:id_noticia;';
+                WHERE id_noticias=:id_noticias;';
                 $stmt= $this->conexion->prepare($sql);
                 $stmt->execute(array(':autorizacion'=>$this->autorizacion
-                                    ,':id_noticia'=>$this->id_noticias));
+                                    ,':id_noticias'=>$this->id_noticias));
                 if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('La noticia se autorizó correctamente');
                 }else{
                     echo json_encode('No se pudo autorizar la notica, intente mas tarde');
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
