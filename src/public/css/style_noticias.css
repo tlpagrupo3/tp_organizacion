@@ -1,0 +1,16 @@
+.fecha{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: solid;
+    text-align:right;
+
+}
+.volanta{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: solid;
+    text-align:center;
+}
+.titutar{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align:center;   
+    color: blue;
+}
