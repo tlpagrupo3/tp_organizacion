@@ -20,9 +20,12 @@ require "../../templates/navbar.php";
       <p></p>
     </div>
   </div>
+<div>
+  <h3>Autorizaciones pendientes</h3>
+  <div id='noticias'>
 
-
-
+  </div>
+</div>
 
   
   <!-- Pagination -->
@@ -39,10 +42,8 @@ require "../../templates/navbar.php";
 
 
 <!-- END MAIN -->
-</div>
-<script src="../../js/elementosHTML.js">
-
-</script>
+</div><script src="../../js/elementosHTML.js"></script>
+<script src="../../js/notificaciones.js"></script>
 <?php
 
 
