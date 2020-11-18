@@ -37,4 +37,21 @@ fetch('../../php/consultas/consulta_nivel_acceso.php')
     document.querySelector('#id_nivel_acceso').innerHTML= selectHTML
 })
 
+fetch('../../php/consultas/consulta_usuarios.php')
+.then(res=>res.json())
+.then(usuarios=>{
+    let tabla
+    usuarios.forEach(usuario=>{
+        tabla+=
+        `
+        <tr id='usuario${usuarios.id_usuarios}'>
+        <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></td>
+        <td>${usuario.nombre_usuario}</td>
+        <td>${usuario.nivel_acceso}</td>
+        <td>${usuario.apellido}, ${usuario.nombre}</td>
+        </tr>
+        `
+    })
+    document.querySelector('tbody').innerHTML= tabla
+})
  

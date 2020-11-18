@@ -296,3 +296,36 @@ formulario.querySelector('#id_departamentos_m_d').addEventListener('change',(e)=
     formulario.querySelector('#id_rama_economia_popular').innerHTML=selectHTML
 
  })
+
+fetch('../../php/consultas/consulta_miembros.php')
+.then(res=>res.json())
+.then(miembros=>{
+    console.log(miembros)
+    let tabla
+    miembros.forEach(miembro=>{
+        tabla+=
+        `
+        <tr id='miembro${miembro.id_miembros}'>
+        <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></i></td>
+        <td>${miembro.apellido}</td>
+        <td>${miembro.nombre}</td>
+        <td>${miembro.tipo_documento}</td>
+        <td>${miembro.numero_documento}</td>
+        <td>${miembro.cuil}</td>
+        <td>${miembro.tipo_genero}</td>
+        <td>${miembro.fecha_nacimiento}</td>
+        <td>${miembro.numero_telefono}</td>
+        <td>${miembro.email}</td>
+        <td>${miembro.provincia}</td>
+        <td>${miembro.departamento}</td>
+        <td>${miembro.localidad}</td>
+        
+        </tr>
+        `
+        // <td>${miembro.}</td>
+        // <td>${miembro.}</td>
+        // <td>${miembro.}</td>
+
+    })
+    document.querySelector('tbody').innerHTML=tabla
+})

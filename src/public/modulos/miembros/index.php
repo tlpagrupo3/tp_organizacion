@@ -126,6 +126,9 @@ require "../../templates/navbar.php";
         <th>Fecha de nac</th>
         <th>Teléfono</th>
         <th>Email</th>
+        <th>Provinvia</th>
+        <th>Departamento</th>
+        <th>Localidad</th>
       </tr>
     </thead>
     <tr>

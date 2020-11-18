@@ -64,10 +64,11 @@ function aver(){
   <table class="w3-table-all">
     <thead>
       <tr class="w3-cyan">
+        <th>Acciones</th>
         <th>Usuario</th>
         <th>Tipo de Usuario</th>
         <th>Nombre</th> 
-         <th>Editar</th>
+        
       </tr>
     </thead>
     <tr>
