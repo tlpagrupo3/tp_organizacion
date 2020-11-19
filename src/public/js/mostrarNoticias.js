@@ -8,8 +8,8 @@ fetch('src/public/php/consultas/consulta_noticias.php')
         <div id='noticia${noticia.id_noticia}'>
             <div class='fecha'>${noticia.fecha}</div>
             <div class='volanta'>${noticia.volanta}</div>
-            <div class='titutar'>${noticia.titular}</div>
-            <div class='imagen'><img src='http://localhost/sadop/src/public/${noticia.imagen}'</div>
+            <div class='titular'>${noticia.titular}</div>
+            <div class='imagen'><img src='http://localhost/sadop/src/public/${noticia.imagen}'></div>
             <div class='epigrafe'>${noticia.epigrafe}</div>
             <div class='copete'>${noticia.copete}</div>
             <div class='cuerpo'>${noticia.cuerpo}</div>
