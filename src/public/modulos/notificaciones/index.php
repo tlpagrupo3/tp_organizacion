@@ -2,7 +2,6 @@
 require "../../php/session.php";
 require "../../templates/sidebar.php";
 require "../../templates/head.php";
-
 require "../../templates/navbar.php";
 ?>
 

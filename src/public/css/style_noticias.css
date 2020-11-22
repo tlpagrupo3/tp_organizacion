@@ -1,8 +1,8 @@
+/* css para el formato de muestra de las noticias */
 .fecha{
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-bottom: solid;
     text-align:right;
-
 }
 .volanta{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -12,29 +12,39 @@
 .titular{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
-    font-weight: 900;
+    font-weight: 800;
     text-align:center;   
     color:black;
 }
 .imagen img{
-    
- 
-    
-    
+  margin: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 20%;
+  border: 1px solid black;
+  padding: 5px;  
 }
 .epigrafe{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 10px;
     font-style: italic;
+    text-align:center;  
 }
+   
 .copete{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     font-style: italic;
-
+    text-align:center;  
+    color: rgb(44, 43, 43);
 }
 .cuerpo{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
-    
+    margin-bottom: 30px;
+    border-bottom: red 5px double;   
 }
+/* formato listo */
