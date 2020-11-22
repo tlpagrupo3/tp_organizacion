@@ -40,7 +40,7 @@ fetch('../../php/consultas/consulta_nivel_acceso.php')
 fetch('../../php/consultas/consulta_usuarios.php')
 .then(res=>res.json())
 .then(usuarios=>{
-    let tabla
+    let tabla=''
     usuarios.forEach(usuario=>{
         tabla+=
         `

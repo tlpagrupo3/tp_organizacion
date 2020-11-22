@@ -1,7 +1,7 @@
 fetch('src/public/php/consultas/consulta_noticias.php')
 .then(res=>res.json())
 .then(noticias=>{
-    let news
+    let news=''
     noticias.forEach(noticia => {
         news+=
         `        

@@ -301,7 +301,7 @@ fetch('../../php/consultas/consulta_miembros.php')
 .then(res=>res.json())
 .then(miembros=>{
     console.log(miembros)
-    let tabla
+    let tabla=''
     miembros.forEach(miembro=>{
         tabla+=
         `

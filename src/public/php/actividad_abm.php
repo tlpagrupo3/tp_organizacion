@@ -2,6 +2,7 @@
 
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
+var_dump($_FILES);
 class actividad{
 
     public $conexion;
@@ -19,7 +20,7 @@ class actividad{
         $this->conexion= $conexion;
         $this->titular= $_POST['titular'];
         $this->descripcion= $_POST['descripcion'];
-        $this->imagen= $_POST['imagen'];
+        $this->imagen= $_FILES['imagen'];
         $this->epigrafe= $_POST['epigrafe'];
         $this->fecha= $_POST['fecha'];
         $this->id_usuario= $_POST['id_usuario'];
@@ -33,6 +34,17 @@ class actividad{
             # code...
             try {
                 //code...
+                $this->conexion->beginTransaction();
+                function validarImagen($imagen){
+                    $tipo= $imagen['type'];
+                    $nombre= $imagen['name'];
+    
+                    if ($tipo == "image/jpg"||$tipo == "image/jpeg"||$tipo == "image/png"||$tipo == "image/gif") {
+                        # code...
+                        move_uploaded_file($imagen['tmp_name'],'../media/'.$nombre);
+                    }
+                }
+                validarImagen($this->imagen);
                 $sql='INSERT INTO publicaciones.actividades(
                      titular
                     , descripcion
@@ -44,12 +56,12 @@ class actividad{
                             ,:descripcion
                             ,:imagen
                             ,:epigrafe
-                            ,fecha
-                            ,id_usuario);';
+                            ,:fecha
+                            ,:id_usuario);';
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':titular'=>$this->titular
                                     ,':descripcion'=>$this->descripcion
-                                    ,':imagen'=>'../../media'.$_FILES['name']
+                                    ,':imagen'=>'../../media'.$this->imagen['name']
                                     ,':epigrafe'=>$this->epigrafe
                                     ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario));
@@ -58,7 +70,9 @@ class actividad{
                     echo json_encode('La actividad se agregó correctamente');
                 }else{
                     echo json_encode('Hay campos vacios o erroneos');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
