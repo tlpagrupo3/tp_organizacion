@@ -21,7 +21,7 @@ require "../../templates/navbar.php";
     </div>
   </div>
 
- <form action="../../php/nueva_actividad.php" method="POST">
+ <form action="../../php/actividad_abm.php" method="POST">
     <label for="titular">Titulo</label><br>
     <input id='titular' class="w3-input w3-border" type="text">
       

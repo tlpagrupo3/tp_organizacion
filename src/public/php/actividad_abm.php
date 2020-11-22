@@ -14,7 +14,7 @@ class actividad{
     private $id_actividades;
     private $autorizacion;
 
-    public function __construct($conexion,$_POST){
+    public function __construct($conexion){
         
         $this->conexion= $conexion;
         $this->titular= $_POST['titular'];
@@ -49,7 +49,7 @@ class actividad{
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':titular'=>$this->titular
                                     ,':descripcion'=>$this->descripcion
-                                    ,':imagen'=>$this->imagen
+                                    ,':imagen'=>'../../media'.$_FILES['name']
                                     ,':epigrafe'=>$this->epigrafe
                                     ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario));
