@@ -9,8 +9,32 @@
     border-bottom: solid;
     text-align:center;
 }
-.titutar{
+.titular{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: 900;
     text-align:center;   
-    color: blue;
+    color:black;
+}
+.imagen img{
+    
+ 
+    
+    
+}
+.epigrafe{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px;
+    font-style: italic;
+}
+.copete{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-style: italic;
+
+}
+.cuerpo{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    
 }
