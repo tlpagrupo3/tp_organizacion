@@ -2,7 +2,6 @@
 require "../../php/session.php";
 require "../../templates/sidebar.php";
 require "../../templates/head.php";
-
 require "../../templates/navbar.php";
 ?>
 
@@ -147,41 +146,7 @@ require "../../templates/navbar.php";
     
   </table>
 </div>
-
-            <!-- <thead>
-                <td>#</td>
-                <td>Apellido</td>
-                <td>Nombre</td>
-                <td>CUIL</td>
-                <td>Tipo de Documento</td>
-                <td>Número de documento</td>
-                <td>Género</td>
-                <td>Fecha de nacimiento</td>
-                <td>Localidad</td>
-                <td>Teléfono</td>
-                <td>Email</td>
-            </thead>
-            <tr></tr>
-
-            <tfoot>
-                <td>#</td>
-                <td>Apellido</td>
-                <td>Nombre</td>
-                <td>CUIL</td>
-                <td>Tipo de Documento</td>
-                <td>Número de documento</td>
-                <td>Género</td>
-                <td>Fecha de nacimiento</td>
-                <td>Localidad</td>
-                <td>Teléfono</td>
-                <td>Email</td>
-            </tfoot>
-        </table> -->
-    </div>
-
-
-
-  <!-- Pagination -->
+</div>
        <!-- Pagination -->
        <div class="w3-center w3-padding-32">
     <div class="w3-bar">

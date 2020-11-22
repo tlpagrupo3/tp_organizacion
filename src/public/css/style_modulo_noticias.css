@@ -1,0 +1,75 @@
+
+input.fecha{
+        position: absolute;
+        width: 80%;
+        padding: 5px;
+      
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: solid;
+    text-align:right;
+}
+input.volanta{
+        position: absolute;
+        width: 80%;
+        margin-top: 20px;
+        padding: 5px;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: solid;
+    text-align:center;
+}
+input.titular{
+        position: absolute;
+        width: 80%;
+        margin-top: 22px;
+        padding: 5px;
+        
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: 800;
+    text-align:center;   
+    color:black;
+}
+.imagen img{
+  margin: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 20%;
+  border: 1px solid black;
+  padding: 5px;  
+}
+input.epigrafe{
+        position: absolute;
+        width: 80%;
+        margin-top: 20px;
+        padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px;
+    font-style: italic;
+    text-align:center;  
+}
+   
+input.copete{
+        position: absolute;
+        width: 80%;
+        margin-top: 20px;
+        padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-style: italic;
+    text-align:center;  
+    color: rgb(44, 43, 43);
+}
+textarea.cuerpo{
+       width: 90%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-bottom: 30px;
+    border-bottom: red 5px double;   
+}
+
+
+/* formato listo */

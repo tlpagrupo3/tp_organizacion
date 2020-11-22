@@ -23,6 +23,7 @@ $('.message a').click(function(){
  .then(res=>res.json())
  .then(provincias=>{
     let selectHTML=`<option selected disabled>Seleccione una Provincia</option>`
+    // n asig a obj del array
     provincias.forEach(provincia => {
         selectHTML+=
         `<option value='${provincia.id_provincia}'>
@@ -33,6 +34,7 @@ $('.message a').click(function(){
     formulario.querySelector('#id_provincias').innerHTML=selectHTML
 
  })
+
  formulario.querySelector('#id_provincias').addEventListener('change',(e)=>{
      e.preventDefault()
      let id=formulario.querySelector('#id_provincias').value
@@ -42,6 +44,7 @@ $('.message a').click(function(){
          method: 'POST',
          body: data
      })    
+     //resp a la pet
     .then(res=>res.json())
     .then(departamentos=>{
         let selectHTML=`<option selected disabled>Seleccione un Departamento</option>`
@@ -51,7 +54,7 @@ $('.message a').click(function(){
             ${departamento.departamento}
         </option>`
         });
-        
+        //renderiza la resp dentro del select
         formulario.querySelector('#id_departamentos').innerHTML=selectHTML
     })
  
