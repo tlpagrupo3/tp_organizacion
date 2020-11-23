@@ -22,6 +22,7 @@ require "../../templates/navbar.php";
   <h3>Autorizaciones pendientes</h3>
   <div id='noticias'>
   </div>
+  <div id="actividades"></div>
 </div>
       <!-- Pagination -->
       <div class="w3-center w3-padding-32">

@@ -2,7 +2,7 @@
 
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
-var_dump($_FILES);
+var_dump($_POST);
 class actividad{
 
     public $conexion;
@@ -30,7 +30,7 @@ class actividad{
     }
 
     public function agregarActividad($accion){
-        if ($accion='agregar') {
+        if ($accion=='agregar') {
             # code...
             try {
                 //code...
@@ -61,7 +61,7 @@ class actividad{
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':titular'=>$this->titular
                                     ,':descripcion'=>$this->descripcion
-                                    ,':imagen'=>'../../media'.$this->imagen['name']
+                                    ,':imagen'=>'media/'.$this->imagen['name']
                                     ,':epigrafe'=>$this->epigrafe
                                     ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario));
@@ -84,6 +84,17 @@ class actividad{
             # code...
             try {
                 //code...
+                $this->conexion->beginTransaction();
+                function validarImagen($imagen){
+                    $tipo= $imagen['type'];
+                    $nombre= $imagen['name'];
+    
+                    if ($tipo == "image/jpg"||$tipo == "image/jpeg"||$tipo == "image/png"||$tipo == "image/gif") {
+                        # code...
+                        move_uploaded_file($imagen['tmp_name'],'../media/'.$nombre);
+                    }
+                }
+                validarImagen($this->imagen);                
                 $sql='UPDATE publicaciones.actividades
                 SET titular=:titular
                     , descripcion=:descripcion
@@ -95,7 +106,7 @@ class actividad{
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':titular'=>$this->titular
                                     ,':descripcion'=>$this->descripcion
-                                    ,'imagen'=>$this->imagen
+                                    ,'imagen'=>$this->imagen['name']
                                     ,':epigrafe'=>$this->epigrafe
                                     ,':fecha'=>$this->fecha
                                     ,':id_usuario'=>$this->id_usuario
@@ -105,7 +116,9 @@ class actividad{
                     echo json_encode('La actividad se modificó correctamente');
                 }else{
                     echo json_encode('Hay campos vacios o erroneos');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -117,18 +130,21 @@ class actividad{
             # code...
             try {
                 //code...
+                $this->conexion->beginTransaction();
                 $sql='UPDATE publicaciones.actividades
                 SET autorizacion=:autorizacion
                 WHERE id_actividades=:id_actividades;';
                 $stmt=$this->conexion->prepare($sql);
-                $stmt->execute(array('autorizacion'=>$this->autorizacion
-                                    ,'id_actividades'=>$this->id_actividades));
-                if ($stmt->rowCount==1) {
+                $stmt->execute(array(':autorizacion'=>$this->autorizacion
+                                    ,':id_actividades'=>$this->id_actividades));
+                if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('La actividad se autorizó correctamente');
                 }else{
                     echo json_encode('No se pudo actualizar la noticia, intente mas tarde');
+                    $this->conexion->rollBack();
                 }
+                $this->conexion->commit();
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -138,17 +154,20 @@ class actividad{
     public function eliminarActividad($accion){
         try{
             if ($accion=='eliminar'){
+                $this->conexion->beginTransaction();
                 $sql='DELETE FROM publicaciones.actividades
                 WHERE id_actividades=:id_actividades;';
                 $stmt=$this->conexion->prepare($sql);
                 $stmt->execute(array(':id_actividades'=>$this->id_actividades));
-                if ($stmt->rowCount==1) {
+                if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('La actividad se eliminó correctamete');
                 }else {
                     # code...
                     echo json_encode('La actividad no se pudo eliminar');
+                    $this->conexion->rollback();
                 }
+                $this->conexion->commit();
             }
         }catch(PDOException $e){
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
