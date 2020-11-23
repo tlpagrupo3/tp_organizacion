@@ -309,7 +309,9 @@ fetch('../../php/consultas/consulta_miembros.php')
         tabla+=
         `
         <tr id='miembro${miembro.id_miembros}'>
-        <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></i></td>
+        <td>
+        <a onclick="document.getElementById('agregarMiembro').style.display='block'"><i class="fas fa-edit" onclick='cargarModificar(${miembro.id_miembros})' style='color: blue'></i></a>
+        <a onclick="document.getElementById('agregarMiembro').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${miembro.id_miembros}) style='color: green''></i></a></td>
         <td>${miembro.apellido}</td>
         <td>${miembro.nombre}</td>
         <td>${miembro.tipo_documento}</td>
@@ -332,3 +334,47 @@ fetch('../../php/consultas/consulta_miembros.php')
     })
     document.querySelector('tbody').innerHTML=tabla
 })
+
+
+const cargarModificar= (id)=>{
+    fetch('../../php/consultas/consulta_miembros.php')
+    .then(res=>res.json())
+    .then(miembros=>{
+        let miembro = miembros.find(miembro=>{return miembro.id_miembros ==id})
+        
+        document.querySelector('#accion').value='modificar'
+        document.querySelector('#id_miembro').value=miembro.id_miembros
+        document.querySelector('#nombre').value=miembro.nombre
+        document.querySelector('#apellido').value=miembro.apellido
+        document.querySelector('#id_tipo_documento').value=miembro.id_tipo_documento
+        document.querySelector('#numero_documento').value=miembro.numero_documento
+        document.querySelector('#id_tipo_genero').value=miembro.id_tipo_genero
+        document.querySelector('#cuil').value=miembro.cuil
+        document.querySelector('#fecha_nacimiento').value=miembro.fecha_nacimiento
+        document.querySelector('#id_provincias').value=miembro.id_provincia
+        document.querySelector('#id_departamentos').value=miembro.id_departamento
+        document.querySelector('#id_localidades').value=miembro.id_localidad
+        document.querySelector('#calle').value=miembro.calle
+        document.querySelector('#numero').value=miembro.numero
+        document.querySelector('#numero_telefono').value=miembro.numero_telefono
+        document.querySelector('#email').value=miembro.email
+        document.querySelector('#codigo_postal').value=miembro.codigo_postal
+        document.querySelector('#id_provincias_m_a').value=miembro.id_provincia_m_a
+        document.querySelector('#id_departamentos_m_a').value=miembro.id_departamento_m_a
+        document.querySelector('#municipio_alta').value=miembro.municipio_alta
+        document.querySelector('#id_provincias_m_d').value=miembro.id_provincia_m_d
+        document.querySelector('#id_departamentos_m_d').value=miembro.id_departamento_m_d
+        document.querySelector('#id_tipo_origen').value=miembro.id_tipo_origen
+        document.querySelector('#id_rama_economia_popular').value=miembro.id_rama_economia_popular
+        document.querySelector('#id_actividad_economia_popular').value=miembro.id_actividad_economia_popular
+        document.querySelector('#monotributo').value=miembro.monotributo
+        document.querySelector('#id_linea_programa').value=miembro.id_linea_programa
+
+        console.log(miembro)
+    })
+    
+}
+
+const cargarEliminar=(id)=>{
+
+}

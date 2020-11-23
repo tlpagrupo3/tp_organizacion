@@ -48,8 +48,8 @@ class miembro{
         $this->codigo_postal=$_POST['codigo_postal'];
         $this->calle=$_POST['calle'];
         $this->numero=$_POST['numero'];
-        $this->municipio_alta;
-        $this->municipio_domicilio;
+        $this->municipio_alta=$_POST['municipio_alta'];
+        $this->municipio_domicilio=$_POST['municipio_domicilio'];
     }
 
     public function agregar($accion){
@@ -80,8 +80,8 @@ class miembro{
                         ,:id_tipo_genero
                         ,:cuil
                         ,:fecha_nacimiento
-                        ,:numero_telefono
                         ,:numero_documento
+                        ,:numero_telefono
                         ,:email
                         ,:id_tipo_origen
                         ,:id_actividad_economia_popular
@@ -137,10 +137,10 @@ class miembro{
         if ($accion=='modificar') {
             # code...
             $this->conexion->beginTransaction();
-            $sqlMiembro='UPDATE miembros.miembros (
+            $sqlMiembro='UPDATE miembros.miembros SET
                  nombre=:nombre
                 , apellido=:apellido
-                , id_tipo_documento::id_tipo_documento
+                , id_tipo_documento=:id_tipo_documento
                 , id_tipo_genero=:id_tipo_genero
                 , cuil=:cuil
                 , fecha_nacimiento=:fecha_nacimiento
@@ -152,9 +152,8 @@ class miembro{
                 , monotributo=:monotributo
                 , id_linea_programa=:id_linea_programa
                 , codigo_postal=:codigo_postal
-                , localidad=:localidad)
                 
-                WHERE id_miembro=:id_miembro;';
+                WHERE id_miembros=:id_miembro;';
             $stmtMiembro= $this->conexion->prepare($sqlMiembro);
             $stmtMiembro->execute(array( ':nombre'=>$this->nombre
             ,':apellido'=>$this->apellido
@@ -169,19 +168,19 @@ class miembro{
             ,':id_actividad_economia_popular'=>$this->id_actividad_popular
             ,':monotributo'=>$this->monotributo
             ,':id_linea_programa'=>$this->id_linea_programa
-            ,':codigo_postal)'=>$this->codigo_postal
-            ,':id_miembro'=>$this->id_miembro
-            ,':localidad'=>$this->id_localidad));
+            ,':codigo_postal'=>$this->codigo_postal
+            ,':id_miembro'=>$this->id_miembro));
 
             $sqlDomicilio='UPDATE miembros.domicilio
-            SET municipio_alta=:municipio_alta, municipio_domicilio=:municipio_domicilio, id_localidad=:id_lolcaidad, calle=:calle, numero=:numero
-            WHERE id_miembro=:id_miembro;';
+            SET municipio_alta=:municipio_alta, municipio_domicilio=:municipio_domicilio, id_localidad=:id_localidad, calle=:calle, numero=:numero
+            WHERE id_miembros=:id_miembro;';
             $stmtDomicilio=$this->conexion->prepare($sqlDomicilio);
             $stmtDomicilio->execute(array(':municipio_alta'=>$this->municipio_alta
                                         ,':municipio_domicilio'=>$this->municipio_domicilio
                                         ,':id_localidad'=>$this->id_localidad
                                         ,':calle'=>$this->calle
-                                        ,':numero'=>$this->numero));
+                                        ,':numero'=>$this->numero
+                                        ,':id_miembro'=>$this->id_miembro));
             
             
             if(($stmtMiembro->rowCount() == 1)&&($stmtDomicilio->rowCount() == 1)){

@@ -46,7 +46,7 @@ require "../../templates/navbar.php";
                             <select name="id_tipo_documento" id="id_tipo_documento"></select><br>
                           
                             <label>Número de documento</label><br>
-                            <input class="w3-input" type="text" id="nuemro_documento" name="numero_documento" placeholder="Sin puntos ni espacios"><br>
+                            <input class="w3-input" type="text" id="numero_documento" name="numero_documento" placeholder="Sin puntos ni espacios"><br>
                           
                             <label>Sexo</label><br>
                             <select name="id_tipo_genero" id="id_tipo_genero"></select><br>

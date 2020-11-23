@@ -1,4 +1,4 @@
-fetch('../../php/consultas/consulta_tipo_documento.php')
+fetch('../../php/consultas/consulta_tipo_documentacion.php')
 .then(res=>res.json())
 .then(tipos=>{
     let select=`<option selected disabled>Seleccione el tipo de documento a cargar</option>`
