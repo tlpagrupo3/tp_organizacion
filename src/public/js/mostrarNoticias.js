@@ -13,7 +13,7 @@ fetch('src/public/php/consultas/consulta_noticias.php')
             <div class='epigrafe'>${noticia.epigrafe}</div>
             <div class='copete'>${noticia.copete}</div>
             <div class='cuerpo'>${noticia.cuerpo}</div>
-            
+            <div class='autor'>Autor: ${noticia.apellido}, ${noticia.nombre}</div>
         </div>
         `
     });

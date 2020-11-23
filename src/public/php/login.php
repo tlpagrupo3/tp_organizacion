@@ -42,6 +42,7 @@ class login {
                 $_SESSION['apellido']=$usuario->apellido;
                 $_SESSION['codigo_acceso']=$usuario->codigo_acceso;
                 $_SESSION['id_tipo_genero']=$usuario->id_tipo_genero;
+                $_SESSION['id_usuarios']=$usuario->id_usuarios;
                 echo json_encode('datos correctos');
                 }
                 $this->conexion->commit();

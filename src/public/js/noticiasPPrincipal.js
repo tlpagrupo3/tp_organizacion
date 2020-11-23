@@ -32,7 +32,7 @@ fetch('src/public/php/consultas/consulta_noticias_PP.php')
             <img src="http://localhost/sadop/src/public/${noticias[0].imagen}" alt="imagen" style="margin-top: 3px;margin-left: 200px; width:300px;">
             <h4>${noticias[0].copete}</h4>
             <P>${noticias[0].cuerpo}</P>
-            
+            <p>Autor: ${noticias[0].apellido}, ${noticias[0].nombre}</p>
         
         
     `
@@ -59,6 +59,7 @@ const mostrarNoticia = (id)=>{
         <img src="http://localhost/sadop/src/public/${noticia.imagen}" alt="imagen" style="margin-top: 3px;margin-left: 200px; width:300px;">
         <h4>${noticia.copete}</h4>
         <P>${noticia.cuerpo}</P>
+        <p>Autor: ${noticia.apellido}, ${noticia.nombre}</p>
         `
         document.querySelector('article.col-md-7').innerHTML=centro
     })
