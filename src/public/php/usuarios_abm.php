@@ -70,14 +70,12 @@ class usuarios {
                 $this->conexion->beginTransaction();
                 $sql='UPDATE miembros.usuarios
                 SET nombre_usuario=:nombre_usuario
-                    , contrasena=:contrasena
                     , email_recuperacion=:email_recuperacion
                     , id_nivel_acceso=:id_nivel_acceso
                     , id_miembros=:id_miembros
                 WHERE id_usuarios=:id_usuarios;';
                 $stmt= $this->conexion->prepare($sql);
                 $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
-                                    ,':contrasena'=>$this->contrasena
                                     ,':email_recuperacion'=>$this->email_recuperacion
                                     ,':id_nivel_acceso'=>$this->id_nivel_acceso
                                     ,':id_miembros'=>$this->id_miembros
@@ -107,7 +105,7 @@ class usuarios {
                 WHERE id_usuarios=:id_usuarios;';
                 $stmt= $this->conexion->prepare($sql);
                 $stmt->execute(array(':id_usuarios'=>$this->id_usuarios));
-                if ($stmt->rowCount==1) {
+                if ($stmt->rowCount()==1) {
                     # code...
                     echo json_encode('El usuario se eliminó correctamente');
                 }else{

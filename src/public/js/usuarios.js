@@ -45,7 +45,8 @@ fetch('../../php/consultas/consulta_usuarios.php')
         tabla+=
         `
         <tr id='usuario${usuarios.id_usuarios}'>
-        <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></td>
+        <td><a onclick="document.getElementById('agregarUsuario').style.display='block'"><i class="fas fa-edit" onclick='cargarModificar(${usuario.id_usuarios})' style='color: blue'></i></a>
+        <a onclick="document.getElementById('eliminarUsuario').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${usuario.id_usuarios})' style='color: green'></i></a></td></td>
         <td>${usuario.nombre_usuario}</td>
         <td>${usuario.nivel_acceso}</td>
         <td>${usuario.apellido}, ${usuario.nombre}</td>
@@ -54,4 +55,29 @@ fetch('../../php/consultas/consulta_usuarios.php')
     })
     document.querySelector('tbody').innerHTML= tabla
 })
- 
+
+
+const cargarModificar= (id)=>{
+    fetch('../../php/consultas/consulta_usuarios.php')
+    .then(res=>res.json())
+    .then(usuarios=>{
+        let usuario = usuarios.find(usuario=>{return usuario.id_usuarios ==id})
+        console.log(usuario)
+        document.getElementById('contrasena').setAttribute('disabled','true')
+        document.getElementById('accion').value= 'modificar'
+        document.getElementById('id_usuarios').value= usuario.id_usuarios
+        document.getElementById('nombre_usuario').value= usuario.nombre_usuario
+        document.getElementById('email_recuperacion').value= usuario.email_recuperacion
+        document.getElementById('id_nivel_acceso').value= usuario.id_nivel_acceso
+        document.getElementById('id_miembros').innerHTML= `<option value="${usuario.id_miembros}">${usuario.apellido}, ${usuario.nombre}</option>`
+
+    })
+}
+const cargarEliminar= (id)=>{
+    fetch('../../php/consultas/consulta_usuarios.php')
+    .then(res=>res.json())
+    .then(usuarios=>{
+        let usuario = usuarios.find(usuario=>{return usuario.id_usuarios ==id})
+        document.getElementById('id_usuariosEliminar').innerHTML= `<option value="${usuario.id_usuarios}">${usuario.nombre_usuario}</option>`
+    })
+}

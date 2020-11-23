@@ -33,17 +33,17 @@ function aver(){
                             <h2>Agregar Usuarios</h2>
                         </div>
                         <form action="../../php/usuarios_abm.php"  method='POST'class="w3-container">
-                            <input type="text" name='accion' value='agregar' hidden>
-                            <input type="text" name='id_usuario' hidden>
+                            <input type="text" name='accion' id='accion' value='agregar' hidden>
+                            <input type="text" name='id_usuarios' id="id_usuarios" hidden>
                             <p>
                             <label>Nombre de Usuario</label>
-                            <input class="w3-input" type="text" name='nombre_usuario'></p>
+                            <input class="w3-input" type="text" id="nombre_usuario" name='nombre_usuario'></p>
                             <p>
                             <label>Contraseña</label>
-                            <input class="w3-input" type="text" name='contrasena'></p>
+                            <input class="w3-input" type="text" id="contrasena" name='contrasena'></p>
                             <p>
                             <label>Email de recuperación</label>
-                            <input class="w3-input" type="text" name="email_recuperacion"></p>
+                            <input class="w3-input" type="text" name="email_recuperacion" id="email_recuperacion"></p>
                             <label>Tipo de usuario</label>
                             <select name="id_nivel_acceso" id="id_nivel_acceso"></select></p>
                             <p>
@@ -57,7 +57,25 @@ function aver(){
                 </div>
         </div>
     <div>
-        
+    <div id="eliminarUsuario" class="w3-modal ">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                        <span onclick="document.getElementById('eliminarUsuario').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                        <div class="w3-container w3-cyan">
+                            <h2>Agregar Usuarios</h2>
+                        </div>
+                        <form action="../../php/usuarios_abm.php"  method='POST'class="w3-container">
+                            <input type="text" name='accion' id='accion' value='eliminar' hidden>
+                            <p>
+                            <label>Usuario</label>
+                            <select name="id_usuarios" id="id_usuariosEliminar"></select></p>
+                            <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
         <h2>Miembros que pertenecen a la organizacion</h2>
   <p>puede visualizar mas datos al seleccionar a los miembros</p>
 

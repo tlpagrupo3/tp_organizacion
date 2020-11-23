@@ -392,3 +392,7 @@ const cargarEliminar=(id)=>{
         document.getElementById('id_miembroEliminar').innerHTML=select
     })
 }
+
+document.getElementById('botonAgragar').addEventListener('click',()=>{
+    document.getElementById('accion').value='agregar'
+})

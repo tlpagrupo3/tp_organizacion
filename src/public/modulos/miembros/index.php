@@ -20,7 +20,7 @@ require "../../templates/navbar.php";
     <div>
         
         <div>
-            <button class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
+            <button class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan" id="botonAgregar" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
                 <!-- The Modal -->
                 <div id="agregarMiembro" class="w3-modal">
                     <div class="w3-modal-content">
