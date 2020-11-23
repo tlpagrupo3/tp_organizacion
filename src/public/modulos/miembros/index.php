@@ -107,6 +107,23 @@ require "../../templates/navbar.php";
                     </div>
                 </div>
         </div>
+        <div id="eliminarMiembro" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-container">
+                        <span onclick="document.getElementById('eliminarMiembro').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                        <div class="w3-container w3-cyan">
+                            <h2>Seguro que quiere eleminar al miembro...</h2>
+                        </div>
+                        <form  class="w3-container" action="../../php/miembros_abm.php" method="POST">
+                            <input type="text" name="accion" id="accion" value="eliminar" hidden><br>
+                            <label for="id_miembroEliminar">Miembro</label>
+                            <select name="id_miembro" id="id_miembroEliminar"></select><br>
+                            <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Eliminar</button><br>
+                        </form>
+                        </div>
+                    </div>
+                </div>
         <table>
         <div class="w3-container">
   <h2>Miembros que pertenecen a la organizacion</h2>

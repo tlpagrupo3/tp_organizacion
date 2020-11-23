@@ -311,7 +311,7 @@ fetch('../../php/consultas/consulta_miembros.php')
         <tr id='miembro${miembro.id_miembros}'>
         <td>
         <a onclick="document.getElementById('agregarMiembro').style.display='block'"><i class="fas fa-edit" onclick='cargarModificar(${miembro.id_miembros})' style='color: blue'></i></a>
-        <a onclick="document.getElementById('agregarMiembro').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${miembro.id_miembros}) style='color: green''></i></a></td>
+        <a onclick="document.getElementById('eliminarMiembro').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${miembro.id_miembros})' style='color: green'></i></a></td>
         <td>${miembro.apellido}</td>
         <td>${miembro.nombre}</td>
         <td>${miembro.tipo_documento}</td>
@@ -376,5 +376,19 @@ const cargarModificar= (id)=>{
 }
 
 const cargarEliminar=(id)=>{
+    fetch('../../php/consultas/consulta_miembros.php')
+    .then(res=>res.json())
+    .then(miembros=>{
+        let select=''
+        let miembro = miembros.find(miembro=>{return miembro.id_miembros ==id})
+        
 
+            select+=
+            `
+            <option value="${miembro.id_miembros}">${miembro.apellido}, ${miembro.nombre}</option>
+            `
+        
+
+        document.getElementById('id_miembroEliminar').innerHTML=select
+    })
 }

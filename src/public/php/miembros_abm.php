@@ -201,21 +201,27 @@ class miembro{
         try {
             //code...
             
-        if ($accion=='eliminar') {
-            # code...
-            $this->conexion->beginTransaction();
-            $sql='DELETE from miembros.miembros where id_miembro=:id_miembro';
-            $stmt=$this->conexion->prepare($sql);
-            $stmt->execute(array(':id_miembro'=>$this->id_miembro));
-            
-            if($stmt->rowCount() == 1){
-                echo json_encode('El miembro se eliminó correctamente');
-            }else{
-                echo json_encode('Complete los campos obligatorios para contunuar');
-                $this->conexion->rollBack();
-            }
-            $this->conexion->commit();
-        }        
+            if ($accion=='eliminar') {
+                # code...
+                $this->conexion->beginTransaction();
+
+                $sqlDomicilio='DELETE FROM miembros.domicilio WHERE id_miembros=:id_miembro;';
+                $stmtDomicilio=$this->conexion->prepare($sqlDomicilio);
+                $stmtDomicilio->execute(array(':id_miembro'=>$this->id_miembro));
+
+                $sqlMiembro='DELETE from miembros.miembros where id_miembros=:id_miembro';
+                $stmtMiembro=$this->conexion->prepare($sqlMiembro);
+                $stmtMiembro->execute(array(':id_miembro'=>$this->id_miembro));
+
+                
+                if($stmtMiembro->rowCount() == 1 && $stmtDomicilio->rowCount() == 1 ){
+                    echo json_encode('El miembro se eliminó correctamente');
+                }else{
+                    echo json_encode('Complete los campos obligatorios para contunuar');
+                    $this->conexion->rollBack();
+                }
+                $this->conexion->commit();
+            }        
         
         
         }catch (PDOException $e) {
