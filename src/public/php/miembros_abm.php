@@ -1,7 +1,6 @@
 <?php
 require "../bd/conexion.php";
 $accion=$_POST['accion'];
-var_dump($_POST);
 class miembro{
     
     public $conexion;
@@ -56,75 +55,150 @@ class miembro{
         try {
             //code...
         
-        if ($accion=='agregar') {
-            # code...
-            $this->conexion->beginTransaction();
-            $sqlMiembro='INSERT into miembros.miembros (
-                 nombre
-                , apellido
-                , id_tipo_documento
-                , id_tipo_genero
-                , cuil
-                , fecha_nacimiento
-                , numero_documento
-                , numero_telefono
-                , email
-                , id_tipo_origen
-                , id_actividad_economia_popular
-                , monotributo
-                , id_linea_programa
-                , codigo_postal)
-                VALUES ( :nombre
-                        ,:apellido
-                        ,:id_tipo_documento
-                        ,:id_tipo_genero
-                        ,:cuil
-                        ,:fecha_nacimiento
-                        ,:numero_documento
-                        ,:numero_telefono
-                        ,:email
-                        ,:id_tipo_origen
-                        ,:id_actividad_economia_popular
-                        ,:monotributo
-                        ,:id_linea_programa
-                        ,:codigo_postal);';
-            $stmtMiembro= $this->conexion->prepare($sqlMiembro);
-            $stmtMiembro->execute(array( ':nombre'=>$this->nombre
-            ,':apellido'=>$this->apellido
-            ,':id_tipo_documento'=>$this->id_tipo_documento
-            ,':id_tipo_genero'=>$this->id_tipo_genero
-            ,':cuil'=>$this->cuil
-            ,':fecha_nacimiento'=>$this->fecha_nacimiento
-            ,':numero_telefono'=>$this->numero_telefono
-            ,':numero_documento'=>$this->numero_documento
-            ,':email'=>$this->email
-            ,':id_tipo_origen'=>$this->id_tipo_origen
-            ,':id_actividad_economia_popular'=>$this->id_actividad_popular
-            ,':monotributo'=>$this->monotributo
-            ,':id_linea_programa'=>$this->id_linea_programa
-            ,':codigo_postal'=>$this->codigo_postal));
-           
+            if ($accion=='agregar') {
+                # code...
 
-            $sqlDomicilio='INSERT INTO miembros.domicilio(
-                 id_miembros, municipio_alta, municipio_domicilio, id_localidad, calle, numero)
-                VALUES ( (SELECT max(id_miembros) from miembros.miembros), :municipio_alta, :municipio_domicilio, :id_localidad, :calle, :numero);';
-            $stmtDomicilio= $this->conexion->prepare($sqlDomicilio);
-            $stmtDomicilio->execute(array(':municipio_alta'=>$this->municipio_alta
-                                            ,':municipio_domicilio'=>$this->municipio_domicilio
-                                            ,':id_localidad'=>$this->id_localidad
-                                            ,':calle'=>$this->calle
-                                            ,':numero'=>$this->numero));
+                function validar_nombre($nombre){
+                    if (is_numeric($nombre) ==1) return false;
+                    if (strlen($nombre)<3) return false;
+                    return true;
+                  };
+                  function validar_apellido($apellido){
+                    if (is_numeric($apellido) ==1) return false;
+                    if (strlen($apellido)<3) return false;
+                    return true;
+                  };
+                  function validar_dni($dni){
+                    $numdni = str_replace('.','',trim($dni,'.'));
+                    if (is_numeric($numdni) <>1) return false;
+                    if (strlen($numdni)!==8) return false;
+                    return true;
+                  };
+                
+                  function validar_cuil($CUIL){
+                    $numcuil = str_replace('-','',trim($CUIL,'-'));
+                
+                    if (is_numeric($numcuil) <>1) return false;
+                    if (strlen($numcuil)!==11) return false;
+                    
+                    $factores = array(5,4,3,2,7,6,5,4,3,2);
+                    $sumatoria =0;
+                    
+                    for($i=0;$i<strlen($numcuil)-1;$i++){
+                      
+                      $orden = substr($numcuil,$i,1);
+                      $sumatoria += ($orden* $factores[$i]);
+                      
+                    };
+                
+                    $resto = $sumatoria % 11;
+                    $digitoVerificador = ($resto != 0 ) ? 11-$resto : $resto;
+                
+                    return ($digitoVerificador == substr($numcuil, strlen($numcuil)-1));
+                  };
+                
+                
+                  function validar_direccion($direccion){
+                    if (is_numeric($direccion) ==1) return false;
+                    if (strlen($direccion)<7) return false;
+                    return true;
+                  }
+
+                  if (!validar_nombre($this->nombre)){
+                    echo $this->nombre. ' Debe ingresar un Nombre';
+                    exit;
+                  }
+                  if (!validar_apellido($this->apellido)){
+                    echo $this->apellido. ' Debe ingresar un Apellido';
+                    exit;
+                  }
+                  if (!validar_dni($this->numero_documento)){
+                    echo $this->dni. ' DNI Incorrecto';
+                    exit;
+                  }
+                  if (!filter_var($this->email, FILTER_VALIDATE_EMAIL) === true) {
+                  echo("$this->email ingrese un correo valido");
+                  exit;
+                  }
+                  if (!validar_cuil($this->cuil)){
+                    echo $this->cuil.' Cuil incorrecto';
+                    exit;
+                    
+                  }
+
+                  if (!validar_direccion($this->calle)){
+                    echo $this->calle.' Ingrese una dirección';
+                    exit;
+                  }
+
+
+                $this->conexion->beginTransaction();
+                $sqlMiembro='INSERT into miembros.miembros (
+                    nombre
+                    , apellido
+                    , id_tipo_documento
+                    , id_tipo_genero
+                    , cuil
+                    , fecha_nacimiento
+                    , numero_documento
+                    , numero_telefono
+                    , email
+                    , id_tipo_origen
+                    , id_actividad_economia_popular
+                    , monotributo
+                    , id_linea_programa
+                    , codigo_postal)
+                    VALUES ( :nombre
+                            ,:apellido
+                            ,:id_tipo_documento
+                            ,:id_tipo_genero
+                            ,:cuil
+                            ,:fecha_nacimiento
+                            ,:numero_documento
+                            ,:numero_telefono
+                            ,:email
+                            ,:id_tipo_origen
+                            ,:id_actividad_economia_popular
+                            ,:monotributo
+                            ,:id_linea_programa
+                            ,:codigo_postal);';
+                $stmtMiembro= $this->conexion->prepare($sqlMiembro);
+                $stmtMiembro->execute(array( ':nombre'=>$this->nombre
+                ,':apellido'=>$this->apellido
+                ,':id_tipo_documento'=>$this->id_tipo_documento
+                ,':id_tipo_genero'=>$this->id_tipo_genero
+                ,':cuil'=>$this->cuil
+                ,':fecha_nacimiento'=>$this->fecha_nacimiento
+                ,':numero_telefono'=>$this->numero_telefono
+                ,':numero_documento'=>$this->numero_documento
+                ,':email'=>$this->email
+                ,':id_tipo_origen'=>$this->id_tipo_origen
+                ,':id_actividad_economia_popular'=>$this->id_actividad_popular
+                ,':monotributo'=>$this->monotributo
+                ,':id_linea_programa'=>$this->id_linea_programa
+                ,':codigo_postal'=>$this->codigo_postal));
             
-            
-            
-            if(($stmtMiembro->rowCount() == 1)&&($stmtDomicilio->rowCount()==1)){
-                echo json_encode('El miembro se agregó correctamente');
-            }else{
-                echo json_encode('Complete los campos obligatorios para contunuar');
-                $this->conexion->rollBack();
+
+                $sqlDomicilio='INSERT INTO miembros.domicilio(
+                    id_miembros, municipio_alta, municipio_domicilio, id_localidad, calle, numero)
+                    VALUES ( (SELECT max(id_miembros) from miembros.miembros), :municipio_alta, :municipio_domicilio, :id_localidad, :calle, :numero);';
+                $stmtDomicilio= $this->conexion->prepare($sqlDomicilio);
+                $stmtDomicilio->execute(array(':municipio_alta'=>$this->municipio_alta
+                                                ,':municipio_domicilio'=>$this->municipio_domicilio
+                                                ,':id_localidad'=>$this->id_localidad
+                                                ,':calle'=>$this->calle
+                                                ,':numero'=>$this->numero));
+                
+                
+                
+                if(($stmtMiembro->rowCount() == 1)&&($stmtDomicilio->rowCount()==1)){
+                    echo json_encode('El miembro se agregó correctamente');
+                }else{
+                    echo json_encode('Complete los campos obligatorios para contunuar');
+                    $this->conexion->rollBack();
+                }
+                $this->conexion->commit();
             }
-            $this->conexion->commit();
-        }
         }catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -136,6 +210,81 @@ class miembro{
         
         if ($accion=='modificar') {
             # code...
+
+            function validar_nombre($nombre){
+                if (is_numeric($nombre) ==1) return false;
+                if (strlen($nombre)<3) return false;
+                return true;
+              };
+              function validar_apellido($apellido){
+                if (is_numeric($apellido) ==1) return false;
+                if (strlen($apellido)<3) return false;
+                return true;
+              };
+              function validar_dni($dni){
+                $numdni = str_replace('.','',trim($dni,'.'));
+                if (is_numeric($numdni) <>1) return false;
+                if (strlen($numdni)!==8) return false;
+                return true;
+              };
+            
+              function validar_cuil($CUIL){
+                $numcuil = str_replace('-','',trim($CUIL,'-'));
+            
+                if (is_numeric($numcuil) <>1) return false;
+                if (strlen($numcuil)!==11) return false;
+                
+                $factores = array(5,4,3,2,7,6,5,4,3,2);
+                $sumatoria =0;
+                
+                for($i=0;$i<strlen($numcuil)-1;$i++){
+                  
+                  $orden = substr($numcuil,$i,1);
+                  $sumatoria += ($orden* $factores[$i]);
+                  
+                };
+            
+                $resto = $sumatoria % 11;
+                $digitoVerificador = ($resto != 0 ) ? 11-$resto : $resto;
+            
+                return ($digitoVerificador == substr($numcuil, strlen($numcuil)-1));
+              };
+            
+            
+              function validar_direccion($direccion){
+                if (is_numeric($direccion) ==1) return false;
+                if (strlen($direccion)<7) return false;
+                return true;
+              }
+
+              if (!validar_nombre($this->nombre)){
+                echo $this->nombre. ' Debe ingresar un Nombre';
+                exit;
+              }
+              if (!validar_apellido($this->apellido)){
+                echo $this->apellido. ' Debe ingresar un Apellido';
+                exit;
+              }
+              if (!validar_dni($this->numero_documento)){
+                echo $this->dni. ' DNI Incorrecto';
+                exit;
+              }
+              if (!filter_var($this->email, FILTER_VALIDATE_EMAIL) === true) {
+              echo("$this->email ingrese un correo valido");
+              exit;
+              }
+              if (!validar_cuil($this->cuil)){
+                echo $this->cuil.' Cuil incorrecto';
+                exit;
+                
+              }
+
+              if (!validar_direccion($this->calle)){
+                echo $this->calle.' Ingrese una dirección';
+                exit;
+              }
+
+
             $this->conexion->beginTransaction();
             $sqlMiembro='UPDATE miembros.miembros SET
                  nombre=:nombre

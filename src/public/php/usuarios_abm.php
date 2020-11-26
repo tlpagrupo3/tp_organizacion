@@ -1,7 +1,6 @@
 <?php
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
-echo json_encode($_POST);
 class usuarios {
 
     public $conexion;

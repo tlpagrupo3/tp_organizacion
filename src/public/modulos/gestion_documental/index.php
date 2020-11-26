@@ -54,7 +54,7 @@ require "../../templates/navbar.php";
         <th>Tema</th>
         <th>Fecha</th> 
         <th>Localidad relacionada</th>
-        <th>Referente a cargo</th>
+        <th>Cargado por</th>
         <th>Archivo</th>
         
 
