@@ -379,6 +379,296 @@ class miembro{
         }
 
     }
+    function busqueda($accion){
+      try {
+          //code...
+          if ($accion=='buscar') {
+              # code...
+              if ($this->nombre!=''
+              && $this->apellido!=''
+              && $this->id_tipo_documento!=''
+              && $this->id_tipo_genero 
+              && $this->id_cuil!='' 
+              && $this->fecha_nacimiento!=''
+              && $this->id_localidad
+              && $this->numero_documento
+              && $this->numero_telefono
+              && $this->email
+              && $this->id_tipo_origen
+              && $this->id_actividad_popular
+              && $this->monotributo
+              && $this->id_linea_programa
+              && $this->codigo_postal
+              && $this->calle
+              && $this->numero
+              && $this->municipio_alta
+              && $this->municipio_domicilio) {
+                # code...
+                $sql='SELECT * from miembros.miembros
+                                join miembros.tipo_documento using (id_tipo_documento) 
+                                join miembros.tipo_genero using (id_tipo_genero) 
+                                join miembros.tipo_origen using(id_tipo_origen) 
+                                join miembros.actividad_economia_popular using (id_actividad_economia_popular) 
+                                join miembros.linea_programa using (id_linea_programa)
+                                join miembros.domicilio using (id_miembros)
+                                join miembros.localidad using (id_localidad)
+                                join miembros.departamento using (id_departamento)
+                                join miembros.provincia using (id_provincia) 
+                                where 
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal)
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo
+                                and id_linea_programa=:id_linea_programa
+                                and codigo_postal=:codigo_postal) or
+                                (nombre=:nombre
+                                and apellido=:apellido
+                                and id_tipo_documento=:id_tipo_documento
+                                and id_tipo_genero=:id_tipo_genero
+                                and cuil=:cuil
+                                and fecha_nacimiento=:fecha_nacimiento
+                                and numero_documento=:numero_documento
+                                and numero_telefono=:numero_telefono
+                                and email=:email
+                                and id_tipo_origen=:id_tipo_origen
+                                and id_actividad_economia_popular=:id_actividad_economia_popular
+                                and monotributo=:monotributo)
+                                ';
+                              $stmt= $this->conexion->prepare($sql);
+                              $stmt->execute(array( ':nombre'=>$this->nombre
+                                  ,':apellido'=>$this->apellido
+                                  ,':id_tipo_documento'=>$this->id_tipo_documento
+                                  ,':id_tipo_genero'=>$this->id_tipo_genero
+                                  ,':cuil'=>$this->cuil
+                                  ,':fecha_nacimiento'=>$this->fecha_nacimiento
+                                  ,':numero_telefono'=>$this->numero_telefono
+                                  ,':numero_documento'=>$this->numero_documento
+                                  ,':email'=>$this->email
+                                  ,':id_tipo_origen'=>$this->id_tipo_origen
+                                  ,':id_actividad_economia_popular'=>$this->id_actividad_popular
+                                  ,':monotributo'=>$this->monotributo
+                                  ,':id_linea_programa'=>$this->id_linea_programa
+                                  ,':codigo_postal'=>$this->codigo_postal));
+                              $respuesta=$stmt->fetchAll(PDO::FETCH_OBJ);
+                              echo json_encode($respuesta);
+
+              } else {
+                # code...
+              }
+              
+              
+          } else {
+              # code...
+          }
+          
+      } catch (\Throwable $th) {
+          //throw $th;
+      }
+  }
+
 };
 
 

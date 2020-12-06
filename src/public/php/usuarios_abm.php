@@ -10,6 +10,8 @@ class usuarios {
     private $email_recuperacion;
     private $id_nivel_acceso;
     private $id_miembros;
+    private $nombre;
+    private $apellido;
 
     public function __construct($conexion){
         
@@ -20,6 +22,8 @@ class usuarios {
         $this->email_recuperacion=$_POST['email_recuperacion'];
         $this->id_nivel_acceso=$_POST['id_nivel_acceso'];
         $this->id_miembros=$_POST['id_miembros'];
+        $this->nombre= $_POST['nombre'];
+        $this->apellido= $_POST['apellido'];
     }
 
     public function agregarUsuario($accion){
@@ -116,6 +120,369 @@ class usuarios {
         } catch (PDOException $e) {
             //throw $th;
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
+        }
+    }
+    function buscarUsuario($accion){
+        try {
+            //code...
+            if ($accion=='buscar') {
+                # code...
+                if ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                    $sql='SELECT * from miembros.usuarios
+                    where email_recuperacion=:email_recuperacion
+                    and id_nivel_acceso=:id_nivel_acceso
+                    and nombre= :nombre
+                    and apellido=:apellido';
+                $stmt=$this->conexion->prepare($sql);
+                $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion
+                                    ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->id_nivel_acceso!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario                        
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->id_nivel_acceso!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='' && $this->id_nivel_acceso!='' ) {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and id_miembros=:id_miembros
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->id_nivel_acceso!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and id_miembros=:id_miembros
+                        and nombre= :';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->id_nivel_acceso!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and id_miembros=:id_miembros
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->id_nivel_acceso!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!=''&& $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre!=''&& $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre= :nombre
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array());
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->email_recuperacion!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and email_recuperacion=:email_recuperacion';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->id_nivel_acceso!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and id_nivel_acceso=:id_nivel_acceso';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->id_nivel_acceso!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and id_nivel_acceso=:id_nivel_acceso';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion
+                                        ,':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->id_nivel_acceso!='' && $this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where id_nivel_acceso=:id_nivel_acceso
+                        and nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->id_nivel_acceso!='' && $this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where id_nivel_acceso=:id_nivel_acceso
+                        and apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre_usuario!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre_usuario=:nombre_usuario';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':nombre_usuario'=>$this->nombre_usuario));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->email_recuperacion!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where email_recuperacion=:email_recuperacion';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':email_recuperacion'=>$this->email_recuperacion));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->id_nivel_acceso!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where id_nivel_acceso=:id_nivel_acceso';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array(':id_nivel_acceso'=>$this->id_nivel_acceso));
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->nombre!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where nombre= :nombre';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array());
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }elseif ($this->apellido!='') {
+                    # code...
+                
+                    $sql='SELECT * from miembros.usuarios
+                        where apellido=:apellido';
+                    $stmt=$this->conexion->prepare($sql);
+                    $stmt->execute(array());
+                    $repuesta= $stmt->fetchAll(PDO::FETCH_OBJ);
+                    echo json_encode($repuesta);
+                }
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 }
