@@ -28,6 +28,9 @@ class login {
             if ($stmt->rowCount()==1) {
                 # code...
                 session_start();
+                session_destroy();
+                session_start();
+                session_regenerate_id();
                 $this->conexion->beginTransaction();
                 $sql='SELECT * from miembros.usuarios join miembros.miembros using(id_miembros) join miembros.nivel_acceso using(id_nivel_acceso)
                 WHERE nombre_usuario=:nombre_usuario and contrasena=:contrasena;';

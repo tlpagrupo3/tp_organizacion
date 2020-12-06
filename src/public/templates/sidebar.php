@@ -9,6 +9,15 @@ if (isset($_SESSION)) {
 ?>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <?php
+  if ($_SESSION['codigo_acceso']==='WK90e'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+    # code...
+  ?> 
+  
+  <a class="w3-bar-item w3-button w3-hover-black" href="../miembros/" class="nav-link">Administración de Miembros</a>  
+  <?php
+  }
+  ?>
+  <?php
   if ($_SESSION['codigo_acceso']==='NH5T1'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
     # code...
   ?>    
@@ -39,7 +48,7 @@ if (isset($_SESSION)) {
     # code...
   ?> 
   <a class="w3-bar-item w3-button w3-hover-black" href="../gestion_documental/" class="nav-link">Gestion Documental</a>
-  <a class="w3-bar-item w3-button w3-hover-black" href="../miembros/" class="nav-link">Miembros</a>  
+  
   <?php
   }
   ?>

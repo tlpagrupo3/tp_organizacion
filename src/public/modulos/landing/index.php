@@ -40,7 +40,6 @@ require "../../templates/navbar.php";
 </div>
 
 <script src="../../js/elementosHTML.js"></script>
-<script src="../../js/guardarSession.js"></script>
 <?php
 
 
