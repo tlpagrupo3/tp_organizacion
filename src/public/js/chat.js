@@ -24,7 +24,7 @@
         if (session.id_tipo_genero==undefined) {
             window.location.assign('http://localhost/sadop/')
         }
-        document.getElementById('usuario').innerHTML=session.nombre + ' '+ session.apellido
+        document.getElementById('usuario').innerHTML=session.nombre + ' '+ session.apellido+`<p id='usuarioActual' hidden>${session.id_usuarios}</p>`
         if(session.codigo_acceso==='WK90e'||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')){
             sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/miembros/" class="nav-link">Administración de Miembros</a>`      
         }
@@ -45,11 +45,42 @@
             sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/notificaciones/" class="nav-link">Notificaciones</a>`
         }
         document.querySelector('nav div').innerHTML=sidebar
+        
+        let datos= new FormData()
+        datos.append('accion', 'cargar')
+        fetch('http://localhost/sadop/src/public/php/agregarHistorialChat.php',{
+            method: 'POST',
+            body: datos
+        })
+        .then(res=>res.json())
+        .then(mensajes=>{
+            let listaMensajes=''
+            mensajes.forEach(mensaje => {
+                listaMensajes+=
+                `
+                <li>${mensaje.mensaje}</li>
+                `
+            });
+            document.querySelector('#messages').innerHTML= listaMensajes
+        })
     
     })
 
-
-
-
-
+document.querySelector('form').addEventListener('submit',(e)=>{
+    e.preventDefault();
+    let usuario= document.querySelector('#usuarioActual').innerText
+    let mensaje= document.querySelector('#m').value
+    let datos= new FormData(e.target)
+    datos.append('id_usuarios',usuario)
+    datos.append('mensaje',mensaje)
+    datos.append('accion','agregar')
+    fetch('http://localhost/sadop/src/public/php/agregarHistorialChat.php',{
+        method: 'POST',
+        body: datos
+    })
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+    })
+})
 
