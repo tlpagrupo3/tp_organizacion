@@ -5,9 +5,9 @@
 					<div class="footer-content">
 						<span class="bigger-120">
 							<span class="blue bolder">Admin</span>
-							Grupo Nº3 &copy; 2020
+							S.Ad.O.P &copy; 2020
 						</span>
-
+                        <img src="../../media/sadop1.png" style="width: 100px; height: 50px;" >
 						&nbsp; &nbsp;
 				</div>
 			</div>

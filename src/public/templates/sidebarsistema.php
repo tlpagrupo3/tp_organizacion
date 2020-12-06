@@ -23,14 +23,14 @@
                     <!-- calendario -->
 
 					<li class="">
-						<a href="calendar.html">
+						<a href="../../modulos/">
 							<i class="ace-icon fa fa-calendar"></i>
 
 							<span class="menu-text">
 								Agenda
 
 								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
+									
 								</span>
 							</span>
 						</a>

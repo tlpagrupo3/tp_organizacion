@@ -15,6 +15,9 @@
 		<link rel="stylesheet" href="../../css/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../../css/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../../css/css/fullcalendar.min.css" />
+
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="../../css/css/fonts.googleapis.com.css" />
@@ -44,8 +47,7 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
 	
 </head>
 <body class="no-skin">

@@ -5,157 +5,207 @@ require "../../templates/navarsistema.php";
 require "../../templates/sidebarsistema.php";
 
 ?>
+<!-- contenedor -->
 <div class="main-content">
+  <!-- contenedor del modal -->
+<div class="" style="margin-left:30px;margin-top:30px;">
+<!-- /.modal-dialog -->
+								
+								<a href="#my-modal" role="button" class="btn btn-primary" data-toggle="modal">
+									&nbsp; Agregar Miembros &nbsp;
+								</a>
 
-<div class="w3-main" style="margin-left:250px">
+								<div id="my-modal" class="modal fade" tabindex="-1">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close red" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h3 class="smaller lighter blue no-margin">Ingresar datos del nuevo miembro</h3>
+											</div>
 
-<div class="w3-row w3-padding-64">
-  <div class="w3-twothird w3-container">
-    <h1 class="w3-text-teal">Informacion del sistema</h1>
-    <p></p>
-  </div>
+											<div class="modal-body">
+												Some content
+												<br />
+												<br />
+												<br />
+												<br />
+												<br />
+												1
+												<br />
+												<br />
+												<br />
+												<br />
+												<br />
+												2
+											</div>
+
+											<div class="modal-footer">
+												<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+													<i class="ace-icon fa fa-times"></i>
+													Cerrar
+												</button>
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div>
 </div>
-  <div>
-      
-      <div>
-          <button class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan" onclick="document.getElementById('agregarMiembro').style.display='block'">Agregar Miembro</button>   
-              <!-- The Modal -->
-              <div id="agregarMiembro" class="w3-modal">
-                  <div class="w3-modal-content">
-                      <div class="w3-container">
-                      <span onclick="document.getElementById('agregarMiembro').style.display='none'"
-                      class="w3-button w3-display-topright">&times;</span>
-                      <div class="w3-container w3-cyan">
-                          <h2>Ingresar datos del miembro nuevo</h2>
-                      </div>
-                      <form  class="w3-container" action="../../php/miembros_abm.php" method="POST">
-                        <div id='primeraParte'>
-                          <input type="text" hidden id='accion' name="accion" value="agregar">
-                          <input type="text" hidden id='id_miembro' name="id_miembro">
-                        
-                          <label>Nombre</label><br>
-                          <input class="w3-input" type="text" id="nombre" name="nombre"><br>
+<!-- /contenedor del  modal -->
 
-                        
-                          <label>Apellido</label><br>
-                          <input class="w3-input" type="text" id="apellido" name="apellido"><br>
-                        
-                          <label>Tipo de documento</label><br>
-                          <select name="id_tipo_documento" id="id_tipo_documento"></select><br>
-                        
-                          <label>Número de documento</label><br>
-                          <input class="w3-input" type="text" id="nuemro_documento" name="numero_documento" placeholder="Sin puntos ni espacios"><br>
-                        
-                          <label>Sexo</label><br>
-                          <select name="id_tipo_genero" id="id_tipo_genero"></select><br>
-                        
-                          <label>CUIL</label><br>
-                          <input class="w3-input" type="text" id="cuil" name="cuil"><br>
-                          <label>Fecha de nacimiento</label><br>
-                          <input class="w3-input" type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa"><br>
-                          
-                          <label>Localidad</label><br>
-                          <select name="id_provincia" id="id_provincias"></select><br>
-                          <select name="id_departamento" id="id_departamentos"></select>
-                          <select name="id_localidad" id="id_localidades"></select><br>
+<h2 class="text-primary">Miembros pertenecientes a la organizacion</h2>
+<i class="ace-icon fa fa-users"> Puede visualizar mas datos al seleccionar a los miembros</i>
+<!-- contenedor para la tabla -->
 
-                          <label>Calle</label><br>
-                          <input class="w3-input" type="text" id="calle" name="calle"><br>
+<div class="row" style="margin-left:30px;margin-top:30px;">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">Miembros Actuales</h3>
 
-                          <label>Número</label><br>
-                          <input class="w3-input" type="text" id="numero" name="numero"><br>
-                        
-                          <label>Número de teléfono</label><br>
-                          <input class="w3-input" type="text" id="numero_telefono" name="numero_telefono"><br>
-                        
-                          <label>Correo Electrónico</label><br>
-                          <input class="w3-input" type="text" id="email" name="email"><br>
-                          <label>Código Postal</label><br>
-                          <input class="w3-input" type="text" id="codigo_postal" name="codigo_postal"><br>
-                          <p class="message">Siguiente <a href="#"> ></a></p>
-                          </div>
-                      <div class='segundaParte' hidden>
-                    
-                          <label>Municipio Alta</label><br>
-                          <select name="id_provincia_m_a" id="id_provincias_m_a"></select><br>
-                          <select name="id_departamento_m_a" id="id_departamentos_m_a"></select>
-                          <select name="municipio_alta" id="municipio_alta"></select><br>
+										<div class="clearfix">
+											<div class="pull-right tableTools-container"></div>
+										</div>
+										<div class="table-header">
+										Ultimos Agregados
+										</div>
 
-                          <label>Municipio Domicilio</label><br>
-                          <select name="id_provincia_m_d" id="id_provincias_m_d"></select><br>
-                          <select name="id_departamento_m_d" id="id_departamentos_m_d"></select>
-                          <select name="municipio_domicilio" id="municipio_domicilio"></select><br>
+										<!-- div.table-responsive -->
 
-                          <label>Origen</label><br>
-                          <select name="id_tipo_origen" id="id_tipo_origen"></select><br>
-                        
-                          <label>Oficio</label><br>
-                          <select name="id_rama_economia_popular" id="id_rama_economia_popular"></select><br>
-                          <select name="id_actividad_economia_popular" id="id_actividad_economia_popular"></select><br>
-                        
-                          <label>Monotributo</label><br>
-                          <input class="w3-input" type="text" id="monotributo" name="monotributo" placeholder="S/N"><br>
-                          <label>Programa</label><br>
-                          <select name="id_linea_programa" id="id_linea_programa"></select><br>
-                          <button type="input" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Enviar</button><br>
-                          <p class="message">Atrás <a href="#"> <</a></p>
-                      </div>
-                      </form>
-                      </div>
-                  </div>
-              </div>
-      </div>
-      <table>
-      <div class="w3-container">
-<h2>Miembros que pertenecen a la organizacion</h2>
-<p>puede visualizar mas datos al seleccionar a los miembros</p>
+										<!-- div.dataTables_borderWrap -->
+										<div>
+											<table style="display: block; overflow-x:auto" id="dynamic-table" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+                             <th>Acciones</th>
+														<th>Apellido</th>
+														<th>Nombre</th>
+														<th>Tip de Doc</th>
+														<th>Nº D.N.I</th>
+                            <th>Cuil</th>
+                            <th>Género</th>
+                            <th>Fecha de nac</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Provinvia</th>
+                            <th>Departamento</th>
+                            <th>Localidad</th>
+                           
+													</tr>
+												</thead>
 
-<table class="w3-table-all" style="display: block; overflow-x:auto">
-  <thead>
-    <tr class="w3-cyan">
-      <th>Acciones</th>
-      <th>Apellido</th>
-      <th>Nombre</th>
-      <th>Tipo de Doc</th> 
-       <th>Nº D.N.I</th>
-      <th>CUIL</th>
-      <th>Género</th>
-      <th>Fecha de nac</th>
-      <th>Teléfono</th>
-      <th>Email</th>
-      <th>Provinvia</th>
-      <th>Departamento</th>
-      <th>Localidad</th>
-    </tr>
-  </thead>
-  <tr>
-    <td></td>
-    <td>Benitez</td>
-    <td>Rojelio</td>
-    <td>DNi</td>
-    <td>11.316.231</td>
-    <td>07-11316231-4</td>
-    <td>M</td>
-    <td>01/02/1953</td>
-    <td>3704-225633</td>
-    <td>B_rj@gmail.com</td>
-  </tr>
-  <tr>
-  
-</table>
+												<tbody>
+													<tr>
+                          <td>
+															<div class="hidden-sm hidden-xs action-buttons">
+																<a class="blue" href="#">
+																	<i class="ace-icon fa fa-search-plus bigger-130"></i>
+																</a>
+
+																<a class="green" href="#">
+																	<i class="ace-icon fa fa-pencil bigger-130"></i>
+																</a>
+
+																<a class="red" href="#">
+																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
+																</a>
+															</div>
+
+															<div class="hidden-md hidden-lg">
+																<div class="inline pos-rel">
+																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+																	</button>
+
+																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+																		<li>
+																			<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+																				<span class="blue">
+																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+
+																		<li>
+																			<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+																				<span class="green">
+																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+
+																		<li>
+																			<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+																				<span class="red">
+																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																				</span>
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</td>
+                            <td>perez</td>
+                            <td>arveja</td>
+                            <td>tipo ave</td>
+                            <td>001</td>
+                            <td>20013</td>
+                            <td>ave</td>
+                            <td>2013</td>
+                            <td>3704pico pico</td>
+                            <td>tucutu@gmail.com</td>
+                            <td>formosa</td>
+                            <td>formosa</td>
+                            <td>san hilario</td>
+                            
+                            
+														
+													</tr>
+
+													
+														
+													</tbody>
+												</table>
+											</div>
+
+											<div class="modal-footer no-margin-top">
+											
+
+												<ul class="pagination pull-right no-margin">
+													<li class="prev disabled">
+														<a href="#">
+															<i class="ace-icon fa fa-angle-double-left"></i>
+														</a>
+													</li>
+
+													<li class="active">
+														<a href="#">1</a>
+													</li>
+
+													<li>
+														<a href="#">2</a>
+													</li>
+
+													<li>
+														<a href="#">3</a>
+													</li>
+
+													<li class="next">
+														<a href="#">
+															<i class="ace-icon fa fa-angle-double-right"></i>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div>
+
 </div>
-</div>
-     <!-- Pagination -->
-     <div class="w3-center w3-padding-32">
-  <div class="w3-bar">
-    <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">1</a>
-    <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">2</a>
-    <a class="w3-button w3-dark-gray w3-hover-cyan" href="#">3</a>
-    <a class="w3-button  w3-dark-gray w3-hover-cyan" href="#">»</a>
-  </div>
-</div>
-
-</div>
+<!-- /gran contenedor -->
 
 <!-- END MAIN -->
 </div>

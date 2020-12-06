@@ -13,71 +13,70 @@
     <link rel="stylesheet" href="/src/public/css/estilo.css">
     <link rel="stylesheet" href="src/public/css/style_noticias.css">
 </head>
-<body>
+
      <!-- barra navegacion principal con inicio  -->
-     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"style="background: rgb(0, 195, 255)">
-        <div class="container"><a class="navbar-brand" href="/sadop">Cooperativa Honorato!!!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button> 
+      <!-- barra navegacion principal con inicio  -->
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search"style="background:#B0C4DE;" >
+        <div class="container"><a class="navbar-brand" href="/sadop" style="font-family: Cambria;">Cooperativa Honorato!!!</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button> 
             <div class="collapse navbar-collapse" id="navcol-1">
                  <ul class="nav navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" style="font-family: Cambria;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Datos de interes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Ultimos eventos</a>
-                          <a class="dropdown-item" href="#">Eventos Futuros</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Calendario Social</a>
+                          <a class="dropdown-item" style="font-family: Cambria;" href="informacion.html">Informacion</a>
+                          <a class="dropdown-item" style="font-family: Cambria;" href="quienessomos.html">¿Quienes somos?</a>
+                          <a class="dropdown-item" style="font-family: Cambria;" href="contacto.html">Contacto</a>
                         </div>
                       </li>
-                   <li class="nav-item" role="presentation"><a class="nav-link" href="noticias.html">Noticias</a></li>
-                   <li class="nav-item" role="presentation"><a class="nav-link" href="#">Galeria</a></li>
+                   <!-- por si mas adelante quiero agregar algo -->
+                   <li class="nav-item" role="presentation"><a class="nav-link" style="font-family: Cambria;"  href="#"></a></li>
                    
                 </ul>
                <!-- buscador y login -->
               <form class="form-inline mr-auto" target="_self">
-                  <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><p> .  .</p><input class="form-control search-field" style="background: seashell;" type="search" id="search-field" name="search"></div>
-              </form><a class="btn btn-light action-button" role="button" href="src/public/modulos/login/index.html">Ingresar </a>
+              </form><a class="btn btn-light action-button" style="background: rgb(73, 90, 136);" role="button" href="src/public/modulos/login/index.html" style="height:40px;">Ingresar </a>
             </div>
         </div>
     </nav>
+    <!-- cuerpo-->
+    
     <div id='noticias'></div>
-    <div class="footer-clean" style="background: rgb(171, 186, 190)">
+    <!-- footer -->
+
+    <div class="footer-clean" style="background: #B0C4DE">
         <footer>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-sm-4 col-md-3 item">
-                        <ul><li><a href="#">Noticias</a></li></ul>
+                        <ul><li><a  style="font-family: Cambria;" href="#">Noticias</a></li></ul>
                     </div>
                     <div class="col-sm-4 col-md-3 item">
-                        <ul><li><a href="#">Informacion</a></li></ul>
+                        <ul><li><a style="font-family: Cambria;"  href="#">Informacion</a></li></ul>
                     </div>
                     <div class="col-sm-4 col-md-3 item">
-                        <ul><li><a href="#">contacto</a></li></ul>
+                        <ul><li><a  style="font-family: Cambria;" href="#">contacto</a></li></ul>
                     </div>
                     <!-- redes sociales -->
-                    <div class="col-lg-3 item social" ><a href="#"><i class="icon ion-social-facebook"></i></a> 
-                                                        <a href="#"><i class="icon ion-social-twitter"></i></a>
-                                                        <a href="#"><i class="icon ion-social-snapchat"></i></a>
-                                                        <a href="#"><i class="icon ion-social-instagram"></i></a>
-                            <p class="copyright">SADOP © 2020</p>
-                    </div>
+                       <div class="col-lg-3 item social" ><a href="#"><i class="icon ion-social-facebook"></i></a> 
+                                                          <a href="#"><i class="icon ion-social-twitter"></i></a>
+                                                          <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                                                          <a href="#"><i class="icon ion-social-instagram"></i></a>
+                            <p class="copyright">S.Ad.O.P © 2020</p>
+                      </div>
                 </div>
             </div>
-                    
+                      
         </footer>
     </div>
 
-
-</body>
-<!-- footer -->
-
-<!-- script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-<script src="src/public/js/script.min.js"></script>
-<script src="src/public/js/mostrarNoticias.js"></script>
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="src/public/js/script.min.js"></script>
+    <script src="src/public/js/mostrarNoticias.js"></script>
 </body>
 
 </html>
