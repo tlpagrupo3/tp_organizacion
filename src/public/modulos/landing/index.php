@@ -39,9 +39,8 @@ require "../../templates/navbar.php";
 <!-- END MAIN -->
 </div>
 
-<script src="../../js/elementosHTML.js">
-
-</script>
+<script src="../../js/elementosHTML.js"></script>
+<script src="../../js/guardarSession.js"></script>
 <?php
 
 

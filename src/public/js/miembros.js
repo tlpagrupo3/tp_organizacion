@@ -7,7 +7,8 @@ $('.message a').click(function(){
 
  let formulario= document.querySelector('div form.w3-container')
 
- formulario.addEventListener('submit',()=>{
+ formulario.addEventListener('submit',(e)=>{
+     e.preventDefault();
      data= new FormData(formulario)
 
      fetch('../../php/miembros_abm.php',{
@@ -17,6 +18,7 @@ $('.message a').click(function(){
      .then(res=>res.json())
      .then(respuesta=>{
          alert(respuesta)
+         
      })
  })
  fetch('../../php/consultas/consulta_provincias.php')

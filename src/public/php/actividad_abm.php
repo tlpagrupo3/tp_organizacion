@@ -173,7 +173,6 @@ class actividad{
             echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
         }
     }
-
 }
 
 $actividad= new actividad($conexion,$_POST);

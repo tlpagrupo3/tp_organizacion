@@ -9,32 +9,41 @@ if (isset($_SESSION)) {
 ?>
   <h4 class="w3-bar-item"><b>Menu</b></h4>
   <?php
+  if ($_SESSION['codigo_acceso']==='NH5T1'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+    # code...
+  ?>    
+  <a class="w3-bar-item w3-button w3-hover-black" href="../usuarios/" class="nav-link">Administración de Usuarios</a>
+  <?php
+  }
+  ?> 
+         
+  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost:3000" class="nav-link"> Chat</a>
+  <?php
   if ($_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('RDO1')||$_SESSION['codigo_acceso']===('53C91')) {
     # code...
   ?>
-    <a class="w3-bar-item w3-button w3-hover-black" href="../actividades/" class="nav-link">Actividades</a>
+    <a class="w3-bar-item w3-button w3-hover-black" href="../actividades/" class="nav-link">Generador de Actividades</a>
     <?php
   }
   ?>
-         
-  <a class="w3-bar-item w3-button w3-hover-black" href="http://localhost:3000" class="nav-link"> Chat</a>
+    <?php
+  if ($_SESSION['codigo_acceso']==='76YP0'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+    # code...
+  ?>   
+  <a class="w3-bar-item w3-button w3-hover-black" href="../noticias/" class="nav-link">Generador de Noticias</a>
+  <?php
+  }
+  ?>  
   <?php
   if ($_SESSION['codigo_acceso']==='WK90e'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
     # code...
   ?> 
-  <a class="w3-bar-item w3-button w3-hover-black" href="../gestion_documental/" class="nav-link"> Gestion Documental</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="../gestion_documental/" class="nav-link">Gestion Documental</a>
   <a class="w3-bar-item w3-button w3-hover-black" href="../miembros/" class="nav-link">Miembros</a>  
   <?php
   }
   ?>
-  <?php
-  if ($_SESSION['codigo_acceso']==='76YP0'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
-    # code...
-  ?>   
-  <a class="w3-bar-item w3-button w3-hover-black" href="../noticias/" class="nav-link">Noticias</a>
-  <?php
-  }
-  ?>  
+
   <?php
   if ($_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
     # code...
@@ -43,14 +52,7 @@ if (isset($_SESSION)) {
   <?php
   }
   ?>
-  <?php
-  if ($_SESSION['codigo_acceso']==='NH5T1'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
-    # code...
-  ?>    
-  <a class="w3-bar-item w3-button w3-hover-black" href="../usuarios/" class="nav-link">Usuarios</a>
-  <?php
-  }
-  ?>  
+ 
   <a class="w3-bar-item w3-button w3-hover-black" href="../../php/logout.php" class="nav-link">Salir</a>
 </nav>
 <?php
