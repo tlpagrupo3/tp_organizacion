@@ -45,8 +45,9 @@ fetch('../../php/consultas/consulta_usuarios.php')
         tabla+=
         `
         <tr id='usuario${usuarios.id_usuarios}'>
-        <td><a onclick="document.getElementById('agregarUsuario').style.display='block'"><i class="fas fa-edit" onclick='cargarModificar(${usuario.id_usuarios})' style='color: blue'></i></a>
-        <a onclick="document.getElementById('eliminarUsuario').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${usuario.id_usuarios})' style='color: green'></i></a></td></td>
+        <td>
+        <a href="#agregarUsuario" data-toggle="modal"><i class="ace-icon fa fa-pencil bigger-130" onclick='cargarModificar(${usuario.id_usuarios})' style='color: blue'></i></a>
+        <a href="#eliminarUsuario" data-toggle="modal"><i class="ace-icon fa fa-trash-o bigger-130" onclick='cargarEliminar(${usuario.id_usuarios})' style='color: green'></i></a></td></td>
         <td>${usuario.nombre_usuario}</td>
         <td>${usuario.nivel_acceso}</td>
         <td>${usuario.apellido}, ${usuario.nombre}</td>

@@ -13,7 +13,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="../landing/" class="navbar-brand">
 						<small>
 							<!-- <i class="fa fa-leaf"></i> -->
 							<img src="../../media/sadop.png" style="width: 50px; height: 50px;  border-radius:150px;" >

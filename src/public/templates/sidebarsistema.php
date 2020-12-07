@@ -12,102 +12,130 @@
                 <!-- /.sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-                    <!-- inicio landig -->
-					<li class="active">
-						<a href="index.html">
+                    <!-- inicio landing -->
+					<li class="">
+						<a href="../landing/">
                             <i class="ace-icon fa fa-home"></i>
 							<span class="menu-text"> Inicio</span>
 						</a>
 						<b class="arrow"></b>
-                    </li>
-                    <!-- calendario -->
-
-					<li class="">
-						<a href="../../modulos/">
-							<i class="ace-icon fa fa-calendar"></i>
-
-							<span class="menu-text">
-								Agenda
-
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									
-								</span>
-							</span>
-						</a>
-						<b class="arrow"></b>
 					</li>
-
-                    <!-- Actividades  -->
+					<!-- miembros -->
+					<?php
+	if ($_SESSION['codigo_acceso']==='WK90e'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+		# code...
+	?> 
 					<li class="">
-						<a href="#" class="">
-                        <i class="ace-icon glyphicon glyphicon-book"></i>
-							<span class="menu-text">
-							Actividades
-							</span>
-						</a>
-					</li>
-                  <!-- noticias -->
-                    <li class="">
-						<a href="">
-							<i class="ace-icon glyphicon glyphicon-align-center"></i>
-							<span class="menu-text">Noticias</span>
+						<a href="../miembros/">
+							<i class="ace-icon fa fa-users"></i>
+							<span class="menu-text">Administración de Miembros</span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
-
-					<li class="">
-						<a href="">
-							<i class="ace-icon fa fa-bell-o"></i>
-							<span class="menu-text"> Notificaciones </span>
-						</a>
-
-						<b class="arrow"></b>
-                    </li>
-                    
-
-					
-                  <!--chat  -->
-                  <li class="">
-						<a href="">
-							<i class="ace-icon fa fa-envelope"></i>
-							<span class="menu-text"> Chat</span>
-						</a>
-
-						<b class="arrow"></b>
-                    </li>
+	<?php
+	}
+	?>
+	<?php
+	if ($_SESSION['codigo_acceso']==='NH5T1'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+		# code...
+	?>  
                     <!-- usuarios -->
                     <li class="">
-						<a href="">
+						<a href="../usuarios/">
 							<i class="ace-icon glyphicon glyphicon-user"></i>
-							<span class="menu-text"> Usuarios</span>
+							<span class="menu-text">Administración de Usuarios</span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
-                    <!-- miembros -->
-                    <li class="">
-						<a href="">
-							<i class="ace-icon fa fa-users"></i>
-							<span class="menu-text"> Miembros</span>
+	<?php
+	}
+	?> 				
+                    <!-- calendario -->
+					<li class="">
+						<a href="#">
+							<i class="ace-icon fa fa-calendar"></i>
+							<span class="menu-text">Agenda<span class="badge badge-transparent tooltip-error" title="2 Important Events"></span></span>
+						</a>
+						<b class="arrow"></b>
+					</li>
+					<!--chat  -->
+					<li class="">
+						<a href="http://localhost:3000">
+							<i class="ace-icon fa fa-envelope"></i>
+							<span class="menu-text">Chat</span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
-                    <!-- gestion documental -->
+	<?php
+	if ($_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('RDO1')||$_SESSION['codigo_acceso']===('53C91')) {
+		# code...
+	?>
+                    <!-- Actividades  -->
+					<li class="">
+						<a href="../actividades/" class="">
+                        <i class="ace-icon glyphicon glyphicon-book"></i>
+							<span class="menu-text">Generador de Actividades</span>
+						</a>
+					</li>
+	<?php
+	}
+	?>
+	<?php
+	if ($_SESSION['codigo_acceso']==='76YP0'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+		# code...
+	?>   				
+                  	<!-- noticias -->
                     <li class="">
-						<a href="">
+						<a href="../noticias/">
+							<i class="ace-icon glyphicon glyphicon-align-center"></i>
+							<span class="menu-text">Generador de Noticias</span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+	<?php
+	}
+	?>  
+	<?php
+	if ($_SESSION['codigo_acceso']==='WK90e'||$_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+		# code...
+	?> 
+					<!-- gestion documental -->
+                    <li class="">
+						<a href="../gestion_documental/">
 							<i class="ace-icon fa fa-folder-open"></i>
-							<span class="menu-text">Gest Documental</span>
+							<span class="menu-text">Gestión Documental</span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
+	<?php
+	}
+	?>
+	<?php
+	if ($_SESSION['codigo_acceso']===('D53KP')||$_SESSION['codigo_acceso']===('53C91')){
+		# code...
+	?>
+                    <!-- Notificaciones -->
+					<li class="">
+						<a href="../notificaciones/">
+							<i class="ace-icon fa fa-bell-o"></i>
+							<span class="menu-text">Notificaciones</span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+	<?php
+	}
+	?> 
                     <!-- salir -->
                     <li class="">
-						<a href="">
+						<a href="./../php/logout.php">
 							<i class="ace-icon fa fa-power-off"></i>
-							<span class="menu-text"> salir</span>
+							<span class="menu-text">Salir</span>
 						</a>
 
 						<b class="arrow"></b>

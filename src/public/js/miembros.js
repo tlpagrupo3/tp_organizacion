@@ -312,8 +312,9 @@ fetch('../../php/consultas/consulta_miembros.php')
         `
         <tr id='miembro${miembro.id_miembros}'>
         <td>
-        <a onclick="document.getElementById('agregarMiembro').style.display='block'"><i class="fas fa-edit" onclick='cargarModificar(${miembro.id_miembros})' style='color: blue'></i></a>
-        <a onclick="document.getElementById('eliminarMiembro').style.display='block'"><i class="far fa-trash-alt" onclick='cargarEliminar(${miembro.id_miembros})' style='color: green'></i></a></td>
+        <i class="ace-icon fa fa-search-plus bigger-130"></i>
+        <a href="#agregarMiembro" data-toggle="modal"><i class="ace-icon fa fa-pencil bigger-130" onclick='cargarModificar(${miembro.id_miembros})' style='color: blue'></i></a>
+        <a href="#eliminarMiembro" data-toggle="modal"><i class="ace-icon fa fa-trash-o bigger-130" onclick='cargarEliminar(${miembro.id_miembros})' style='color: green'></i></a></td>
         <td>${miembro.apellido}</td>
         <td>${miembro.nombre}</td>
         <td>${miembro.tipo_documento}</td>
