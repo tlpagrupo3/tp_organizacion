@@ -60,7 +60,7 @@ if (isset($_SESSION)) {
   <a class="w3-bar-item w3-button w3-hover-black" href="../notificaciones/" class="nav-link">Notificaciones</a>
   <?php
   }
-  ?>
+  ?> 
  
   <a class="w3-bar-item w3-button w3-hover-black" href="../../php/logout.php" class="nav-link">Salir</a>
 </nav>

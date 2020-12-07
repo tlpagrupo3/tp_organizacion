@@ -1,8 +1,11 @@
 /* css para el formato de muestra de las noticias */
 .fecha{
+      
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 50px;
     border-bottom: solid;
     text-align:right;
+   
 }
 .volanta{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -40,11 +43,30 @@
     font-style: italic;
     text-align:center;  
     color: rgb(44, 43, 43);
+    margin-left: 40px;
+    margin-right: 40px;
 }
 .cuerpo{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     margin-bottom: 30px;
-    border-bottom: red 5px double;   
+    margin-left: 40px;
+    margin-right: 40px;
+     
 }
-/* formato listo */
+.card-img{
+    width: 90px; 
+    height: 180px; 
+
+}
+.autor{
+    text-align:right;   
+    font-style: italic;
+    margin-right: 30px;
+}
+.card-title{
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card-text{
+font-family: Georgia, 'Times New Roman', Times, serif;  
+}
