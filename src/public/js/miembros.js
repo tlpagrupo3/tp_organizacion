@@ -5,7 +5,7 @@ $('.message a').click(function(){
  });
 
 
- let formulario= document.querySelector('div form.w3-container')
+ let formulario= document.querySelector('div.modal-body form.form-horizontal')
 
  formulario.addEventListener('submit',(e)=>{
      e.preventDefault();

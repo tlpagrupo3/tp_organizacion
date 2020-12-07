@@ -37,19 +37,140 @@ require "../../templates/sidebarsistema.php";
 							<h3 class="smaller lighter blue no-margin">Ingresar datos del nuevo miembro</h3>
 						</div>
 						<div class="modal-body">
-							Some content
-							<br />
-							<br />
-							<br />
-							<br />
-							<br />
-							1
-							<br />
-							<br />
-							<br />
-							<br />
-							<br />
-							2
+							<!-- form -->
+							<form class="form-horizontal" role="form"action="../../php/miembros_abm.php" method="POST">
+									  <div id='primeraParte'>
+                            <input type="text" hidden id='accion' name="accion" value="agregar">
+							<input type="text" hidden id='id_miembro' name="id_miembro">
+							        <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Nombre </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"id="nombre" name="nombre" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">  Apellido</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"id="apellido" name="apellido" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tipo de documento </label>
+										<div class="col-sm-9">
+										<select class="form-control" name="id_tipo_documento" id="id_tipo_documento"></select><br>
+										</div>
+									</div>
+							        <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Número de documento </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"id="numero_documento" name="numero_documento"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Sexo</label>
+										<div class="col-sm-9">
+											<select class="col-xs-10 col-sm-5" name="id_tipo_genero" id="id_tipo_genero"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">CUIL</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" id="cuil" name="cuil"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fecha de nacimiento</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+										<div class="col-sm-9">
+											<select class="form-control" name="id_provincia" id="id_provincias"></select><br>
+                                            <select class="form-control" name="id_departamento" id="id_departamentos"></select><br>
+                                            <select class="form-control" name="id_localidad" id="id_localidades"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Calle</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" d="calle" name="calle"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Número de teléfono</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" id="numero_telefono" name="numero_telefono"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Correo Electrónico</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" id="email" name="email"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Código Postal</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" id="codigo_postal" name="codigo_postal"/>
+										</div>
+									</div>
+                            <p class="message">Siguiente <a href="#"> <i class="ace-icon glyphicon glyphicon-play"></i></a></p>
+							</div>
+							<!-- fin de la primera parte -->
+							
+							<!-- fin form -->
+							
+                        
+                        <div class='segundaParte' hidden>
+						           <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Municipio Alta</label>
+										<div class="col-sm-9">
+											 <select class="form-control" name="id_provincia_m_a" id="id_provincias_m_a"></select><br>
+                                             <select class="form-control" name="id_departamento_m_a" id="id_departamentos_m_a"></select><br>
+                                             <select class="form-control" name="municipio_alta" id="municipio_alta"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Municipio Domicilio</label>
+										<div class="col-sm-9">
+											 <select class="form-control" name="id_provincia_m_d" id="id_provincias_m_d" ></select><br>
+                                             <select class="form-control" name="id_departamento_m_d" id="id_departamentos_m_d"></select><br>
+                                             <select class="form-control" name="municipio_domicilio" id="municipio_domicilio"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Origen</label>
+										<div class="col-sm-9">
+                                            <select class="form-control"name="id_tipo_origen" id="id_tipo_origen"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Oficio</label>
+										<div class="col-sm-9">						           
+                                            <select  class="form-control"name="id_rama_economia_popular" id="id_rama_economia_popular"></select><br>
+                                            <select class="form-control" name="id_actividad_economia_popular" id="id_actividad_economia_popular"></select><br>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Programa</label>
+										<div class="col-sm-9">	
+											<select class="form-control"name="id_linea_programa" id="id_linea_programa"></select><br>				           
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Monotributo</label>
+										<div class="col-sm-9">	
+										<input type="text" class="col-xs-10 col-sm-5"id="monotributo" name="monotributo" placeholder="S/N"/>					           
+										</div>
+									</div>
+									                                                 
+							<button type="input" class="btn btn-white btn-info btn-bold"><i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>Enviar</button>
+							<br>
+                            <p class="message">Atrás <a href="#"> <i class="ace-icon glyphicon glyphicon-backward"></i></a></p>
+                        </div>
+                        </form>
 						</div>
 							<div class="modal-footer">
 								<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
@@ -72,26 +193,24 @@ require "../../templates/sidebarsistema.php";
 				<table style="display: block; overflow-x:auto" id="dynamic-table" class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-<th>Acciones</th>
+							<th>Acciones</th>
 							<th>Apellido</th>
 							<th>Nombre</th>
 							<th>Tip de Doc</th>
 							<th>Nº D.N.I</th>
-<th>Cuil</th>
-<th>Género</th>
-<th>Fecha de nac</th>
-<th>Teléfono</th>
-<th>Email</th>
-<th>Provinvia</th>
-<th>Departamento</th>
-<th>Localidad</th>
-
+							<th>Cuil</th>
+							<th>Género</th>
+							<th>Fecha de nac</th>
+							<th>Teléfono</th>
+							<th>Email</th>
+							<th>Provinvia</th>
+							<th>Departamento</th>
+							<th>Localidad</th>
 						</tr>
 					</thead>
-
 					<tbody>
 						<tr>
-<td>
+							<td>
 								<div class="hidden-sm hidden-xs action-buttons">
 									<a class="blue" href="#">
 										<i class="ace-icon fa fa-search-plus bigger-130"></i>
@@ -140,25 +259,19 @@ require "../../templates/sidebarsistema.php";
 									</div>
 								</div>
 							</td>
-<td>perez</td>
-<td>arveja</td>
-<td>tipo ave</td>
-<td>001</td>
-<td>20013</td>
-<td>ave</td>
-<td>2013</td>
-<td>3704pico pico</td>
-<td>tucutu@gmail.com</td>
-<td>formosa</td>
-<td>formosa</td>
-<td>san hilario</td>
-
-
-							
+							<td>perez</td>
+							<td>arveja</td>
+							<td>tipo ave</td>
+							<td>001</td>
+							<td>20013</td>
+							<td>ave</td>
+							<td>2013</td>
+							<td>3704pico pico</td>
+							<td>tucutu@gmail.com</td>
+							<td>formosa</td>
+							<td>formosa</td>
+							<td>san hilario</td>
 						</tr>
-
-						
-							
 						</tbody>
 					</table>
 				</div>
