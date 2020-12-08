@@ -23,22 +23,60 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
             //Acta
             inputs+=
                 `
-                <label>Codigo del Acta</label><br>
-                <input type='text' name='documento_nombre' placeholder='Ej: 25/2020'><br>
-                <label>Fecha</label><br>
-                <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'><br>
-                <label>Intervinientes</label><br>
-                <input type='text' name='documento_intervinientes' placeholder='Ej: Juan Pérez, Robustiano Martinez, Jorge Rogelio'><br>
-                <label>Tema</label><br>
-                <input type='text' name='documento_tema' placeholder='Ej: Reunion para planificar el presupuesto'><br>
-                <label>Localidad</label><br>
-                <select id='id_provincia' name='id_provincia'></select><br>
-                <select id='id_departamento' name='id_departamento'></select><br>
-                <select id='id_localidad' name='id_localidad'></select><br>
-                <label>Foto/Scaneo del Acta</label><br>
-                <input type='file' name='archivo'><br>
-                <label>Referente</label><br>
-                <select id='id_usuario' name='id_usuario'></select><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Codigo del Acta</label>
+                    <div class="col-sm-9">
+                    <input type='text' name='documento_nombre' placeholder='Ej: 25/2020'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fecha</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Intervinientes</label>
+                    <div class="col-sm-9">
+                        <input type='text'name='documento_intervinientes' placeholder='Ej: Juan Pérez, Robustiano Martinez, Jorge Rogelio'/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tema</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_tema' placeholder='Ej: Reunion para planificar el presupuesto' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Provincia</label>
+                    <div class="col-sm-9">
+                    <select id='id_provincia' name='id_provincia'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Departamento</label>
+                    <div class="col-sm-9">
+                    <select id='id_departamento' name='id_departamento'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+                    <div class="col-sm-9">
+                    <select id='id_localidad' name='id_localidad'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Foto/Escaneo del Acta</label>
+                    <div class="col-sm-9">
+                        <input type='file' class="col-xs-10 col-sm-5" name='archivo' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Referente</label>
+                    <div class="col-sm-9">
+                    <select <select id='id_usuarios' name='id_usuarios'></select></select>
+                    </div>
+                </div>
                 `
                 document.querySelector('#inputs').innerHTML= inputs
 
@@ -112,30 +150,64 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
                         select+=
                         `
                         
-                        <option value='${usuarios.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
+                        <option value='${usuario.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
                         `
                     })
-                    document.querySelector('#id_usuario').innerHTML= select
+                    document.querySelector('#id_usuarios').innerHTML= select
                 })
             break;
         case '2':
             //Grilla
             inputs+=
                 `
-                <label>Nombre de la grilla</label><br>
-                <input type='text' name='documento_nombre' placeholder='Ej: Presupuesto 07/2020'><br>
-                <label>Fecha</label><br>
-                <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'><br>
-                <label>Tema</label><br>
-                <input type='text' name='documento_tema' placeholder='Ej: Cálculo del presupuesto para Julio 2020'><br>
-                <label>Localidad</label><br>
-                <select id='id_provincia' name='id_provincia'></select><br>
-                <select id='id_departamento' name='id_departamento'></select><br>
-                <select id='id_localidad' name='id_localidad'></select><br>
-                <label>Archivo</label><br>
-                <input type='file' name='archivo'><br>
-                <label>Referente</label><br>
-                <select id='id_usuario' name='id_usuario'></select><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nombre de la Grilla</label>
+                    <div class="col-sm-9">
+                    <input type='text' name='documento_nombre' placeholder='Ej: Presupuesto 07/2020'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fecha</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tema</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_tema' placeholder='Ej: Cálculo del presupuesto para Julio 2020' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Provincia</label>
+                    <div class="col-sm-9">
+                    <select id='id_provincia' name='id_provincia'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Departamento</label>
+                    <div class="col-sm-9">
+                    <select id='id_departamento' name='id_departamento'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+                    <div class="col-sm-9">
+                    <select id='id_localidad' name='id_localidad'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Archivo</label>
+                    <div class="col-sm-9">
+                        <input type='file' class="col-xs-10 col-sm-5" name='archivo' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Referente</label>
+                    <div class="col-sm-9">
+                    <select <select id='id_usuarios' name='id_usuarios'></select></select>
+                    </div>
+                </div>
                 `
             document.querySelector('#inputs').innerHTML= inputs
 
@@ -208,10 +280,10 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
                     select+=
                     `
                     
-                    <option value='${usuarios.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
+                    <option value='${usuario.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
                     `
                 })
-                document.querySelector('#id_usuario').innerHTML= select
+                document.querySelector('#id_usuarios').innerHTML= select
             })
             
             break;
@@ -219,20 +291,54 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
             //Documento de texto
             inputs+=
                 `
-                <label>Nombre del documento</label><br>
-                <input type='text' name='documento_nombre' placeholder='Ej: Circular Covid'><br>
-                <label>Fecha</label><br>
-                <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'><br>
-                <label>Tema</label><br>
-                <input type='text' name='documento_tema' placeholder='Ej: Acciones a tomar para el cuidado del personal'><br>
-                <label>Localidad</label><br>
-                <select id='id_provincia' name='id_provincia'></select><br>
-                <select id='id_departamento' name='id_departamento'></select><br>
-                <select id='id_localidad' name='id_localidad'></select><br>
-                <label>Documento</label><br>
-                <input type='file' name='archivo'><br>
-                <label>Referente</label><br>
-                <select id='id_usuario' name='id_usuario'></select><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nombre del Documento</label>
+                    <div class="col-sm-9">
+                    <input type='text' name='documento_nombre' placeholder='Ej: Circular Covid'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fecha</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tema</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_tema' placeholder='Ej: Acciones a tomar para el cuidado del personal' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Provincia</label>
+                    <div class="col-sm-9">
+                    <select id='id_provincia' name='id_provincia'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Departamento</label>
+                    <div class="col-sm-9">
+                    <select id='id_departamento' name='id_departamento'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+                    <div class="col-sm-9">
+                    <select id='id_localidad' name='id_localidad'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Archivo</label>
+                    <div class="col-sm-9">
+                        <input type='file' class="col-xs-10 col-sm-5" name='archivo' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Referente</label>
+                    <div class="col-sm-9">
+                    <select <select id='id_usuarios' name='id_usuarios'></select></select>
+                    </div>
+                </div>
                 `
             document.querySelector('#inputs').innerHTML= inputs
             fetch('../../php/consultas/consulta_provincias.php')
@@ -304,30 +410,64 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
                     select+=
                     `
                     
-                    <option value='${usuarios.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
+                    <option value='${usuario.id_usuarios}'>${usuario.apellido}, ${usuario.nombre}</option>
                     `
                 })
-                document.querySelector('#id_usuario').innerHTML= select
+                document.querySelector('#id_usuarios').innerHTML= select
             })
             break;
         case '4':
             //Documento personal
             inputs+=
                 `
-                <label>Nombre del documento</label><br>
-                <input type='text' name='documento_nombre' placeholder='Ej: Foto DNI Juan Quintana'><br>
-                <label>Fecha</label><br>
-                <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'><br>
-                <label>Tema</label><br>
-                <input type='text' name='documento_tema' placeholder='Ej: Actualización de datos'><br>
-                <label>Localidad</label><br>
-                <select id='id_provincia' name='id_provincia'></select><br>
-                <select id='id_departamento' name='id_departamento'></select><br>
-                <select id='id_localidad' name='id_localidad'></select><br>
-                <label>Imagen</label><br>
-                <input type='file' name='archivo'><br>
-                <label>Miembro</label><br>
-                <select id='id_miembro' name='id_miembro'></select><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Nombre del Documento</label>
+                    <div class="col-sm-9">
+                    <input type='text' name='documento_nombre' placeholder='Ej: Foto DNI Juan Quintana'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Fecha</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_fecha' placeholder='dd/mm/aaaa'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tema</label>
+                    <div class="col-sm-9">
+                        <input type='text' name='documento_tema' placeholder='Ej: Actualización de datos' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Provincia</label>
+                    <div class="col-sm-9">
+                    <select id='id_provincia' name='id_provincia'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Departamento</label>
+                    <div class="col-sm-9">
+                    <select id='id_departamento' name='id_departamento'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+                    <div class="col-sm-9">
+                    <select id='id_localidad' name='id_localidad'></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Archivo</label>
+                    <div class="col-sm-9">
+                        <input type='file' class="col-xs-10 col-sm-5" name='archivo' />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">Localidad</label>
+                    <div class="col-sm-9">
+                    <select id='id_miembros' name='id_miembros'></select>
+                    </div>
+                </div>
                 `
             document.querySelector('#inputs').innerHTML= inputs
 
@@ -405,7 +545,7 @@ document.querySelector('#id_tipo_documento').addEventListener('change',()=>{
                     `
 
                 })
-                document.querySelector('#id_miembro').innerHTML=select
+                document.querySelector('#id_miembros').innerHTML=select
             })
 
             break;
@@ -423,7 +563,10 @@ fetch('../../php/consultas/consulta_documentos.php')
         tabla+=
         `
         <tr id='documento${documento.id_documento}'>
-        <td><i class="fas fa-download"></i><i class="fas fa-edit"></i><i class="far fa-trash-alt"></i></td>
+        <td>
+        <a href="#agregarUsuario" data-toggle="modal"><i class="ace-icon fa fa-pencil bigger-130"  style='color: blue'></i></a>
+        <a href="#eliminarUsuario" data-toggle="modal"><i class="ace-icon fa fa-trash-o bigger-130"  style='color: green'></i></a>
+        </td>
         <td>${documento.tipo_documento}</td>
         <td>${documento.documento_nombre}</td>
         <td>${documento.documento_tema}</td>
@@ -476,18 +619,13 @@ document.querySelector('#buscador').addEventListener('submit',(e)=>{
     })
 })
 
-// document.getElementById('nuevoDocumento').addEventListener('submit',(e)=>{
-//     e.preventDefault();
-//     let form =document.getElementById('nuevoDocumento')
-//     let data = new FormData(form)
-//     fetch('../../php/gestion_documetal.php',{
-        
-//         method: 'POST',
-//         enctype: 'multipart/form-data',
-//         body: data
-//     })
-//     .then(res=>res.json())
-//     .then(respuesta=>{
-//         alert(respuesta)
-//     })
-// })
+document.getElementById('nuevoDocumento').addEventListener('submit',(e)=>{
+    e.preventDefault();
+    let form =document.getElementById(e.target)
+    let data = new FormData(form)
+    fetch('../../php/gestion_documetal.php')
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+    })
+})
