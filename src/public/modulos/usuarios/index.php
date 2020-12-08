@@ -99,7 +99,7 @@ require "../../templates/sidebarsistema.php";
 
 				<!-- div.dataTables_borderWrap -->
 			<div>
-				<table style="display: block; overflow-x:auto" id="dynamic-table" class="table table-striped table-bordered table-hover">
+				<table  style=" overflow-x:auto" id="dynamic-table" class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
                             <th>Acciones</th>

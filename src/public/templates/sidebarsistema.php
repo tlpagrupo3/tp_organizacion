@@ -28,7 +28,7 @@
 					<li class="">
 						<a href="../miembros/">
 							<i class="ace-icon fa fa-users"></i>
-							<span class="menu-text">Administración de Miembros</span>
+							<span class="menu-text">Administrar Miembros</span>
 						</a>
 
 						<b class="arrow"></b>
@@ -44,7 +44,7 @@
                     <li class="">
 						<a href="../usuarios/">
 							<i class="ace-icon glyphicon glyphicon-user"></i>
-							<span class="menu-text">Administración de Usuarios</span>
+							<span class="menu-text">Administrar Usuarios</span>
 						</a>
 
 						<b class="arrow"></b>
@@ -77,7 +77,7 @@
 					<li class="">
 						<a href="../actividades/" class="">
                         <i class="ace-icon glyphicon glyphicon-book"></i>
-							<span class="menu-text">Generador de Actividades</span>
+							<span class="menu-text">Generar de Actividades</span>
 						</a>
 					</li>
 	<?php
