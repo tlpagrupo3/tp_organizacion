@@ -8,7 +8,9 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>Document</title>
+	<title>Document</title>
+	<link rel="stylesheet" href="../../css/style_noticias.css">
+    <link rel="stylesheet" href="../../css/style_modulo_noticias.css">
         <!-- bootstrap & fontawesome -->
         <link rel="stylesheet" href="../../css/css/bootstrap.min.css">
 		
@@ -50,4 +52,3 @@
        
 	
 </head>
-<body class="no-skin">
