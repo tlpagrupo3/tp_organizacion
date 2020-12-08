@@ -1,8 +1,7 @@
 <?php
 require '../bd/conexion.php';
 $accion= $_POST['accion'];
-var_dump($_POST);
-var_dump($_FILES);
+error_reporting(E_ALL ^ E_NOTICE);
 class documento {
 
     public $conexion;
@@ -14,8 +13,8 @@ class documento {
     private $documento_tema;
     private $documento_fecha;
     private $id_localidad;
-    private $id_usuario;
-    private $id_miembro;
+    private $id_usuarios;
+    private $id_miembros;
     private $documento_direccion;
     private $archivo;
 
@@ -30,8 +29,8 @@ class documento {
         $this->documento_intervinientes= $_POST['documento_intervinientes'];
         $this->documento_fecha= $_POST['documento_fecha'];
         $this->documento_direccion= $_POST['documento_direccion'];
-        $this->id_usuario= $_POST['id_usuario'];
-        $this->id_miembro= $_POST['id_miembro'];
+        $this->id_usuarios= $_POST['id_usuarios'];
+        $this->id_miembros= $_POST['id_miembros'];
         $this->id_localidad= $_POST['id_localidad'];
         $this->archivo= $_FILES['archivo'];
 
@@ -72,8 +71,8 @@ class documento {
                                     , documento_intervinientes
                                     , documento_direccion
                                     , id_localidad
-                                    , id_usuario
-                                    , id_miembro
+                                    , id_usuarios
+                                    , id_miembros
                                     , documento_tema
                                     , id_tipo_documento)
                                     VALUES ( :documento_nombre
@@ -81,8 +80,8 @@ class documento {
                                     , :documento_intervinientes
                                     , :documento_direccion
                                     , :id_localidad
-                                    , :id_usuario
-                                    , :id_miembro
+                                    , :id_usuarios
+                                    , :id_miembros
                                     , :documento_tema
                                     , :id_tipo_documento);';
             
@@ -92,18 +91,20 @@ class documento {
                                         ,':documento_intervinientes'=>$this->documento_intervinientes
                                         ,':documento_direccion'=>'../../archivo/'.$this->archivo['name']
                                         ,':id_localidad'=>$this->id_localidad
-                                        ,':id_usuario'=>$this->id_usuario
-                                        ,':id_miembro'=>$this->id_miembro
+                                        ,':id_usuarios'=>$this->id_usuarios
+                                        ,':id_miembros'=>$this->id_miembros
                                         ,':documento_tema'=>$this->documento_tema
                                         ,':id_tipo_documento'=>$this->id_tipo_documento));
                     if ($stmt->rowCount()==1) {
                         # code...
+                        $this->conexion->commit();
                         echo json_encode('El documento se cargo exitosamente');
                     }else {
                         # code...
+                        $this->conexion->rollBack();
                         echo json_encode('El documento no se pudo cargar, intente mas tarde');
                     }
-                    $this->conexion->commit();
+                    
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
@@ -148,8 +149,8 @@ class documento {
                 , documento_intervinientes=:documento_intervinientes
                 , documento_direccion=:documento_direccion
                 , id_localidad=:id_localidad
-                , id_usuario=:id_usuario
-                , id_miembro=:id_miembro
+                , id_usuarios=:id_usuarios
+                , id_miembros=:id_miembros
                 , documento_tema=:documento_tema
                 , id_tipo_documento=:id_tipo_documento
                 WHERE id_documento=:id_documento;';
@@ -160,19 +161,21 @@ class documento {
                                     ,':documento_intervinientes'=>$this->documento_intervinientes
                                     ,':documento_direccion'=>'../../../archivo/'.$this->archivo['name']
                                     ,':id_localidad'=>$this->id_localidad
-                                    ,':id_usuario'=>$this->id_usuario
-                                    ,':id_miembro'=>$this->id_miembro
+                                    ,':id_usuarios'=>$this->id_usuarios
+                                    ,':id_miembros'=>$this->id_miembros
                                     ,':documento_tema'=>$this->documento_tema
                                     //,':id_tipo_documento'=>$this->id_tipo_documento,
                                     ,':id_documento'=>$this->id_documento));
                 if ($stmt->rowCount()==1) {
                     # code...
+                    $this->conexion->commit();
                     echo json_encode('El documento se modificó exitosamente');
                 }else {
                     # code...
                     echo json_encode('El documento no se pudo modificar, intente mas tarde');
+                    $this->conexion->rollBack();
                 }
-                $this->conexion->commit();
+                
             } catch (PDOException $e) {
                 //throw $th;
                 echo json_encode('Ha ocurrido un error, intente mas tarde: '.$e);
