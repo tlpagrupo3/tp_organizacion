@@ -133,7 +133,7 @@
 	?> 
                     <!-- salir -->
                     <li class="">
-						<a href="./../php/logout.php">
+						<a href="../../php/logout.php">
 							<i class="ace-icon fa fa-power-off"></i>
 							<span class="menu-text">Salir</span>
 						</a>
