@@ -2,7 +2,7 @@
    
 define('DB_HOST','localhost');
     define('DB_USER','postgres');
-    define('DB_PASS','3737Arveja');
+    define('DB_PASS','nonita123');
     define('DB_NAME','sadop');
     define('DB_PORT',5432);
 
