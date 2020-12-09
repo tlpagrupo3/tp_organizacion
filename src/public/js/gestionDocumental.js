@@ -573,7 +573,7 @@ fetch('../../php/consultas/consulta_documentos.php')
         <td>${documento.documento_fecha}</td>
         <td>${documento.localidad}, ${documento.provincia}</td>
         <td>${documento.apellido}, ${documento.nombre}</td>
-        <td><embed src="${documento.documento_direccion}" type="jpg"></td>
+        <td><a href="${documento.documento_direccion}" download><i class="ace-icon fa fa-download"></i></a></td>
         </tr>
         `
         // <td>${miembro.}</td>
