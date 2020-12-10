@@ -6,7 +6,7 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
         news+=
         `        
         <div id='noticia${noticia.id_noticias}' style='max-width:500px;max-height: 500px;
-        overflow: auto;'>
+        overflow: auto; border:solid 1px silver;'>
             <div class='fecha'>${noticia.fecha}</div>
             <div class='volanta'>${noticia.volanta}</div>
             <div class='titular'>${noticia.titular}</div>
@@ -18,7 +18,7 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
             
         </div>
         <div>
-            <h3>Autorizar Noticia</h3>
+            <h3 class="text-primary">Autorizar Noticia</h3>
             <form action='../../php/noticia_abm.php' method='POST'>
                 <input type='text' value='${noticia.id_noticias}' hidden name='id_noticias'>
                 <input type='text' value='autorizar' hidden name='accion'>
@@ -28,11 +28,11 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
                     <option value='n'>No autorizar</option>
                     <option value='s'>Autorizar</option>
                 </select>
-                <input type='submit' value='Enviar'>
+                <input type='submit' value='Enviar'class="btn btn-white btn-info btn-bold">
             </form>
         </div>
         <div>
-        <h3>Eliminar Noticia</h3>
+        <h3 class="text-primary">Eliminar Noticia</h3>
         <form action='../../php/noticia_abm.php' method='POST'>
             <input type='text' value='eliminar' hidden name='accion'>
             <select name='id_noticias'>                
@@ -40,7 +40,7 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
                 <option value='n'>No Eliminar</option>
                 <option value='${noticia.id_noticias}'>Eliminar</option>
             </select>
-            <input type='submit' value='Enviar'>
+            <input type='submit' value='Enviar' class="btn btn-white btn-info btn-bold">
         </form>
     </div>
         `
@@ -66,7 +66,7 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
             
         </div>
         <div>
-            <h3>Autorizar Actividad</h3>
+            <h3 class="text-primary">Autorizar Actividad</h3>
             <form action='../../php/actividad_abm.php' method='POST'>
                 <input type='text' value='${actividad.id_actividades}' hidden name='id_actividades'>
                 <input type='text' value='autorizar' hidden name='accion'>
@@ -76,11 +76,11 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
                     <option value='n'>No autorizar</option>
                     <option value='s'>Autorizar</option>
                 </select>
-                <input type='submit' value='Enviar'>
+                <input type='submit' value='Enviar' class="btn btn-white btn-info btn-bold">
             </form>
         </div>
         <div>
-        <h3>Eliminar Actividad</h3>
+        <h3 class="text-primary">Eliminar Actividad</h3>
         <form action='../../php/actividad_abm.php' method='POST'>
             <input type='text' value='eliminar' hidden name='accion'>
             <select name='id_actividades'>                
@@ -88,7 +88,7 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
                 <option value='n'>No Eliminar</option>
                 <option value='${actividad.id_actividades}'>Eliminar</option>
             </select>
-            <input type='submit' value='Enviar'>
+            <input type='submit' value='Enviar' class="btn btn-white btn-info btn-bold">
         </form>
     </div>
         `
