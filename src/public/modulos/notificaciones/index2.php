@@ -14,10 +14,10 @@ require "../../templates/sidebarsistema.php";
     </div>
   </div>
 <div>
-  <p class="text-primary" align="center">En esta seccion se pueden autorizar o denegar las noticias que estan sujetas a aprobacion para el portal web</p>
+  <p class="text-primary" align="center">En esta seccion se pueden autorizar o denegar las Noticias y Actividades que estan sujetas a aprobacion para el portal web</p>
   <div id='noticias' align="center">
   </div>
-  <div id="actividades"></div>
+  <div id="actividades" align="center"></div>
 </div><br><br>
  
 

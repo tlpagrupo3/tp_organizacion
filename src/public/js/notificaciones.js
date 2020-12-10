@@ -56,7 +56,7 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
         actis+=
         `        
         <div id='actividad${actividad.id_actividades}' style='max-width:500px;max-height: 500px;
-        overflow: auto;'>
+        overflow: auto; border:solid 1px silver;'>
             <div class='fecha'>${actividad.fecha}</div>
             <div class='titular'>${actividad.titular}</div>
             <div class='imagen' style='max-width=200px;'><img src='http://localhost/sadop/src/public/${actividad.imagen}' ></div>
