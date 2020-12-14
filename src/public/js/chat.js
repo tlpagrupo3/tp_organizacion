@@ -20,31 +20,86 @@
     })
     .then(res=>res.json())
     .then(session=>{
-        let sidebar=""
+        let sidebar=`<ul class="nav nav-list">`
         if (session.id_tipo_genero==undefined) {
             window.location.assign('http://localhost/sadop/')
         }
         document.getElementById('usuario').innerHTML=session.nombre + ' '+ session.apellido+`<p id='usuarioActual' hidden>${session.id_usuarios}</p>`
         if(session.codigo_acceso==='WK90e'||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')){
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/miembros/" class="nav-link">Administración de Miembros</a>`      
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/miembros/">
+                <i class="ace-icon fa fa-users"></i>
+                <span class="menu-text">Administrar Miembros</span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>`      
         }
         if (session.codigo_acceso==='NH5T1'||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')) {
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/usuarios/" class="nav-link">Administración de Usuarios</a>`
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/usuarios/">
+                <i class="ace-icon glyphicon glyphicon-user"></i>
+                <span class="menu-text">Administrar Usuarios</span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>`
         }
-        sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="#" class="nav-link"> Chat</a>`
+        sidebar+=`<li class="">
+        <a href="http://localhost/sadop/src/public/modulos/calendario/">
+            <i class="ace-icon fa fa-calendar"></i>
+            <span class="menu-text">Agenda<span class="badge badge-transparent tooltip-error" title="2 Important Events"></span></span>
+        </a>
+        <b class="arrow"></b>
+    </li>`
+        sidebar+=`<li class="">
+        <a href="http://localhost:3000">
+            <i class="ace-icon fa fa-envelope"></i>
+            <span class="menu-text">Chat</span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>`
         if (session.codigo_acceso===('RDO1')||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')) {
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/actividades/" class="nav-link">Generador de Actividades</a>`
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/actividades//" class="">
+            <i class="ace-icon glyphicon glyphicon-book"></i>
+                <span class="menu-text">Generar de Actividades</span>
+            </a>
+        </li>`
         }
         if (session.codigo_acceso==='76YP0'||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')) {
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/noticias/" class="nav-link">Generador de Noticias</a>`
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/noticias/">
+                <i class="ace-icon glyphicon glyphicon-align-center"></i>
+                <span class="menu-text">Generador de Noticias</span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>`
         }
         if (session.codigo_acceso==='WK90e'||session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')) {
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/gestion_documental/" class="nav-link"> Gestion Documental</a>`
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/gestion_documental/">
+                <i class="ace-icon fa fa-folder-open"></i>
+                <span class="menu-text">Gestión Documental</span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>`
         }
         if (session.codigo_acceso===('D53KP')||session.codigo_acceso===('53C91')) {
-            sidebar+=`<a class="w3-bar-item w3-button w3-hover-black" href="http://localhost/sadop/src/public/modulos/notificaciones/" class="nav-link">Notificaciones</a>`
+            sidebar+=`<li class="">
+            <a href="http://localhost/sadop/src/public/modulos/notificaciones/">
+                <i class="ace-icon fa fa-bell-o"></i>
+                <span class="menu-text">Notificaciones</span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>`
         }
-        document.querySelector('nav div').innerHTML=sidebar
+        sidebar+=`</ul>`
+        document.querySelector('#barraLateral').innerHTML=sidebar
         
         let datos= new FormData()
         datos.append('accion', 'cargar')
