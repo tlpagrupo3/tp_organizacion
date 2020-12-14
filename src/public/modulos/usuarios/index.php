@@ -24,7 +24,7 @@ require "../../templates/sidebarsistema.php";
 			</div>
 				<!-- /.modal-dialog -->
 									
-			<a href="agregarUsuario" role="button" class="btn btn-primary" data-toggle="modal">
+			<a href="#agregarUsuario" role="button" class="btn btn-primary" data-toggle="modal">
 				&nbsp; Agregar Usuarios &nbsp;
 			</a>
 

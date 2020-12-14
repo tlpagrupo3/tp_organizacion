@@ -81,7 +81,7 @@ document.querySelector('form').addEventListener('submit',(e)=>{
     })
     .then(res=>res.json())
     .then(respuesta=>{
-        alert(respuesta)
+        // alert(respuesta)
     })
 })
 
