@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 require '../bd/conexion.php';
 $accion=$_POST['accion'];
 class usuarios {

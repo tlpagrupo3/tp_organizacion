@@ -32,3 +32,17 @@ document.querySelector('#selectModificar').addEventListener('submit',(e)=>{
         });
     })
 })
+
+document.querySelector('#generarActividad').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    datos= new FormData(e.target)
+    fetch('../../php/actividad_abm.php',{
+        method:'POST',
+        body:datos
+    })
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+        document.location.reload()
+    })
+})

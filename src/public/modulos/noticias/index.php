@@ -23,7 +23,7 @@ require "../../templates/sidebarsistema.php";
     </form>
     <br>
     <!-- formar la noticia -->
-    <form action="../../php/noticia_abm.php" method="post" enctype="multipart/form-data">
+    <form id="generarNoticia"method="post" enctype="multipart/form-data">
         <input type="text" id='accion' value='agregar' name='accion' hidden>
         <input type="text" name='id_usuario' value='<?php echo $_SESSION['id_usuarios']?>' hidden>
         <input type="text" name='id_noticias' id="id_noticias" hidden>

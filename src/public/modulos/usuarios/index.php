@@ -33,7 +33,7 @@ require "../../templates/sidebarsistema.php";
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close red" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h3 class="smaller lighter blue no-margin">Ingresar datos del nuevo miembro</h3>
+							<h3 class="smaller lighter blue no-margin">Ingresar datos del nuevo Usuario</h3>
 						</div>
 						<div class="modal-body">
 							<!-- form -->
@@ -173,7 +173,7 @@ require "../../templates/sidebarsistema.php";
 						</div>
 						<div class="modal-body">
 							<!-- form -->
-							<form class="form-horizontal" role="form"action="../../php/miembros_abm.php" method="POST">
+							<form class="form-horizontal" role="form"action="../../php/usuarios_abm.php" method="POST">
 								<div id='primeraParte'>
 									<input type="text" name='accion' id='accion' value='eliminar' hidden>
 									<div class="form-group">

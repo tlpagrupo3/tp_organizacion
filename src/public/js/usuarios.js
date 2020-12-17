@@ -4,25 +4,20 @@ $('.message a').click(function(){
     
  });
 
-window.addEventListener('unload',(e)=>{
-    
-    window.open("www.google.com")
-})
-fetch('../../php/consultas/consulta_miembros_no_usuarios.php')
-.then(res=>res.json())
-.then(miembros=>{
-    let selectHTML    
-    miembros.forEach(miembro => {
-        selectHTML+=
-        `
-    <option value='${miembro.id_miembros}'>${miembro.apellido}, ${miembro.nombre}</option>
-    `
-    
-    });
-    
-    document.querySelector('#id_miembros').innerHTML=selectHTML
-})
-
+ fetch('../../php/consultas/consulta_miembros_no_usuarios.php')
+ .then(res=>res.json())
+ .then(miembros=>{
+     let selectHTML    
+     miembros.forEach(miembro => {
+         selectHTML+=
+         `
+     <option value='${miembro.id_miembros}'>${miembro.apellido}, ${miembro.nombre}</option>
+     `
+     
+     });
+     
+     document.querySelector('#id_miembros').innerHTML=selectHTML
+ })
 fetch('../../php/consultas/consulta_nivel_acceso.php')
 .then(res=>res.json())
 .then(niveles=>{
@@ -82,3 +77,31 @@ const cargarEliminar= (id)=>{
         document.getElementById('id_usuariosEliminar').innerHTML= `<option value="${usuario.id_usuarios}">${usuario.nombre_usuario}</option>`
     })
 }
+
+document.querySelector('div#agregarUsuario form').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    datos= new FormData(e.target)
+    fetch('../../php/usuarios_abm.php',{
+        method:'POST',
+        body:datos
+    })
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+        document.location.reload()
+    })
+})
+
+document.querySelector('div#eliminarUsuario form').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    datos= new FormData(e.target)
+    fetch('../../php/usuarios_abm.php',{
+        method:'POST',
+        body:datos
+    })
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+        document.location.reload()
+    })
+})

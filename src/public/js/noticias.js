@@ -36,3 +36,17 @@ document.querySelector('#selectModificar').addEventListener('submit',(e)=>{
         });
     })
 })
+
+document.querySelector('#generarNoticia').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    datos= new FormData(e.target)
+    fetch('../../php/noticia_abm.php',{
+        method:'POST',
+        body:datos
+    })
+    .then(res=>res.json())
+    .then(respuesta=>{
+        alert(respuesta)
+        document.location.reload()
+    })
+})

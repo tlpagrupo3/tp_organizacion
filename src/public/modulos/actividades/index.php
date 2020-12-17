@@ -15,17 +15,19 @@ require "../../templates/sidebarsistema.php";
   </div>
   <h3>Modificar Actividad</h3>
   <!-- seleccionar actividad para modificar -->
-
- <div action=""class="form-group"id="selectModificar" >
+<form id="selectModificar">
+ <div action="" class="form-group" >
+    
     <label class="col-sm-3 control-label no-padding-right" for="form-field-1">seleccione la Actividad</label>
     <div class="col-sm-4">
         <select class="form-control"  name="id_actividades" id="selectActividades"></select>
         
     </div>
- </div><button type="submit" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Elegir</button> 
+ </div><button type="submit" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Elegir</button>
+    </form>
  <br>
 
- <form action="../../php/actividad_abm.php" method="POST" enctype="multipart/form-data">
+ <form id="generarActividad"method="POST" enctype="multipart/form-data">
     <input type="text" name='accion' id="accion" value='agregar' hidden><br>
     <input type="text" name='id_actividades' id="id_actividades"hidden><br>
     <input type="text" name="id_usuario" id="id_usuario" value='<?php echo $_SESSION['id_usuarios']?>' hidden><br>
@@ -75,7 +77,7 @@ require "../../templates/sidebarsistema.php";
 
 </div>
 
-
+<script src="../../js/actividades.js"></script>
 <?php
 require "../../templates/footersistema.php";
 
