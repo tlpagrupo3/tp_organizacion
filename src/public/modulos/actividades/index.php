@@ -25,7 +25,7 @@ require "../../templates/sidebarsistema.php";
  </div><button type="submit" class="w3-button w3-round-xlarge w3-dark-gray w3-hover-cyan">Elegir</button> 
  <br>
 
- <form action="../../php/actividad_abm.php" method="POST" enctype="multipart/form-data">
+ <form id="actividades" method="POST" enctype="multipart/form-data">
     <input type="text" name='accion' id="accion" value='agregar' hidden><br>
     <input type="text" name='id_actividades' id="id_actividades"hidden><br>
     <input type="text" name="id_usuario" id="id_usuario" value='<?php echo $_SESSION['id_usuarios']?>' hidden><br>
