@@ -12,7 +12,7 @@ login.addEventListener('submit',(e)=>{
         .then(res=>res.json())
         .then(mensaje=>{
             console.log(mensaje)
-            if (mensaje=='El usuario o la contraseña son erroneos'){
+            if (mensaje=='El usuarios o la contraseña son incorrectos'){
                 console.log('h')
                 function mostrar() {
                     $(`#alert`).show(); }

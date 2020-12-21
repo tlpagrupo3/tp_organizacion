@@ -18,6 +18,7 @@ $('.message a').click(function(){
      .then(res=>res.json())
      .then(respuesta=>{
          alert(respuesta)
+         document.location.reload()
          
      })
  })
