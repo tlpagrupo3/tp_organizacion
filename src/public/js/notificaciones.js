@@ -19,7 +19,7 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
         </div>
         <div>
             <h3 class="text-primary">Autorizar Noticia</h3>
-            <form action='../../php/noticia_abm.php' method='POST'>
+            <form class="autorizarNoticia" method='POST'>
                 <input type='text' value='${noticia.id_noticias}' hidden name='id_noticias'>
                 <input type='text' value='autorizar' hidden name='accion'>
                 <select name='autorizacion'>
@@ -32,8 +32,8 @@ fetch('../../php/consultas/consulta_noticias_sin_autorizar.php')
             </form>
         </div>
         <div>
-        <h3 class="text-primary">Eliminar Noticia</h3>
-        <form action='../../php/noticia_abm.php' method='POST'>
+        <h3 class="eliminarNoticia" class="text-primary">Eliminar Noticia</h3>
+        <form method='POST'>
             <input type='text' value='eliminar' hidden name='accion'>
             <select name='id_noticias'>                
                 <option selected disabled>Seleccione una opción</option>
@@ -67,7 +67,7 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
         </div>
         <div>
             <h3 class="text-primary">Autorizar Actividad</h3>
-            <form action='../../php/actividad_abm.php' method='POST'>
+            <form class="autorizarActividad" method='POST'>
                 <input type='text' value='${actividad.id_actividades}' hidden name='id_actividades'>
                 <input type='text' value='autorizar' hidden name='accion'>
                 <select name='autorizacion'>
@@ -81,7 +81,7 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
         </div>
         <div>
         <h3 class="text-primary">Eliminar Actividad</h3>
-        <form action='../../php/actividad_abm.php' method='POST'>
+        <form class="eliminarActividad" method='POST'>
             <input type='text' value='eliminar' hidden name='accion'>
             <select name='id_actividades'>                
                 <option selected disabled>Seleccione una opción</option>
@@ -94,4 +94,68 @@ fetch('../../php/consultas/consulta_actividades_sin_autorizar.php')
         `
     });
     document.querySelector('#actividades').innerHTML= actis
+})
+
+document.querySelectorAll('.autorizarActividad').forEach(actividad => {
+    actividad.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        datos= new FormData(e.target)
+        fetch('../../php/actividad_abm.php',{
+            method:'POST',
+            body:datos
+        })
+        .then(res=>res.json())
+        .then(respuesta=>{
+            alert(respuesta)
+            document.location.reload()
+        })
+    })
+});
+
+document.querySelectorAll('.eliminarActividad').forEach(actividad => {
+    actividad.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        datos= new FormData(e.target)
+        fetch('../../php/actividad_abm.php',{
+            method:'POST',
+            body:datos
+        })
+        .then(res=>res.json())
+        .then(respuesta=>{
+            alert(respuesta)
+            document.location.reload()
+        })
+    })
+})
+
+document.querySelectorAll('.autorizarNoticia').forEach(noticia =>{
+    noticia.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        datos= new FormData(e.target)
+        fetch('../../php/noticia_abm.php',{
+            method:'POST',
+            body:datos
+        })
+        .then(res=>res.json())
+        .then(respuesta=>{
+            alert(respuesta)
+            document.location.reload()
+        })
+    })
+})
+
+document.querySelectorAll('.eliminarNoticia').forEach(noticia =>{
+    noticia.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        datos= new FormData(e.target)
+        fetch('../../php/noticia_abm.php',{
+            method:'POST',
+            body:datos
+        })
+        .then(res=>res.json())
+        .then(respuesta=>{
+            alert(respuesta)
+            document.location.reload()
+        })
+    })
 })
