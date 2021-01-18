@@ -584,48 +584,51 @@ fetch('../../php/consultas/consulta_documentos.php')
     document.querySelector('tbody').innerHTML=tabla
 })
 
-document.querySelector('#buscador').addEventListener('submit',(e)=>{
+// document.querySelector('#buscador').addEventListener('submit',(e)=>{
+//     e.preventDefault()
+//     let buscador= document.querySelector('#buscador')
+//     let data= new FormData(buscador)
+
+//     fetch('../../php/consultas/consulta_buscador_documentos.php',{
+//         method: 'GET',
+//         body: data
+//     })
+//     .then(res=>res.json())
+//     .then(resultados=>{
+//         let tabla=''
+//         if (resultado=='') {
+//             tabla+=`No hay documentos que respondan a los parametros solicitados`
+//             document.querySelector('tbody').innerHTML=tabla
+//         }else{
+//             resultados.forEach(resultado=>{
+//                 tabla+=
+//                     `
+//                     <tr id='documento${resultado.id_documento}'>
+//                     <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></i></td>
+//                     <td>${resultado.tipo_documento}</td>
+//                     <td>${resultado.documento_nombre}</td>
+//                     <td>${resultado.documento_tema}</td>
+//                     <td>${resultado.documento_fecha}</td>
+//                     <td>${resultado.id_localidad}</td>
+//                     <td>${resultado.id_usuarios}</td>
+//                     </tr>
+//                     `
+//                     document.querySelector('tbody').innerHTML=tabla
+//             })
+//         }
+//     })
+// })
+
+document.querySelector('form#nuevoDocumento').addEventListener('submit',(e)=>{
     e.preventDefault()
-    let buscador= document.querySelector('#buscador')
-    let data= new FormData(buscador)
-
-    fetch('../../php/consultas/consulta_buscador_documentos.php',{
-        method: 'GET',
-        body: data
+    datos= new FormData(e.target)
+    fetch('../../php/gestion_documental.php',{
+        method:'POST',
+        body:datos
     })
-    .then(res=>res.json())
-    .then(resultados=>{
-        let tabla=''
-        if (resultado=='') {
-            tabla+=`No hay documentos que respondan a los parametros solicitados`
-            document.querySelector('tbody').innerHTML=tabla
-        }else{
-            resultados.forEach(resultado=>{
-                tabla+=
-                    `
-                    <tr id='documento${resultado.id_documento}'>
-                    <td><i class="fas fa-edit"></i><i class="far fa-trash-alt"></i></td>
-                    <td>${resultado.tipo_documento}</td>
-                    <td>${resultado.documento_nombre}</td>
-                    <td>${resultado.documento_tema}</td>
-                    <td>${resultado.documento_fecha}</td>
-                    <td>${resultado.id_localidad}</td>
-                    <td>${resultado.id_usuarios}</td>
-                    </tr>
-                    `
-                    document.querySelector('tbody').innerHTML=tabla
-            })
-        }
-    })
-})
-
-document.getElementById('nuevoDocumento').addEventListener('submit',(e)=>{
-    e.preventDefault();
-    let form =document.getElementById(e.target)
-    let data = new FormData(form)
-    fetch('../../php/gestion_documetal.php')
     .then(res=>res.json())
     .then(respuesta=>{
         alert(respuesta)
+        document.location.reload()
     })
 })

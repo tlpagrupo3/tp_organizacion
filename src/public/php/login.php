@@ -50,6 +50,9 @@ class login {
                 }
                 $this->conexion->commit();
                 
+            }else {
+                # code...
+                echo json_encode('El usuarios o la contraseña son incorrectos');
             }
         } catch (\Throwable $th) {
             //throw $th;

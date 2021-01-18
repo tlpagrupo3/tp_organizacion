@@ -119,35 +119,10 @@ class documento {
             try {
                 //code...
                 $this->conexion->beginTransaction();
-                function validarImagen($archivo){
-                    $tipo= $archivo['type'];
-                    $nombre= $archivo['name'];
-    
-                    if ($tipo == "image/jpg"
-                    ||$tipo == "image/jpeg"
-                    ||$tipo == "image/png"
-                    ||$tipo == "image/gif"
-                    ||$tipo == "application/pdf"
-                    ||$tipo == "application/csv"
-                    ||$tipo == "application/txt"
-                    ||$tipo == "application/doc"
-                    ||$tipo == "application/docx"
-                    ||$tipo == "application/xls"
-                    ||$tipo == "application/xlsx"
-                    ||$tipo == "application/ppt"
-                    ||$tipo == "application/pptx"
-                    //||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"||$tipo == "image/gif"
-                    ) {
-                        # code...
-                        move_uploaded_file($archivo['tmp_name'],'../../archivo/'.$nombre);
-                    }
-                }
-                validarImagen($this->archivo);
                 $sql='UPDATE documentacion.documento
                 SET documento_nombre=:documento_nombre
                 , documento_fecha=:documento_fecha
                 , documento_intervinientes=:documento_intervinientes
-                , documento_direccion=:documento_direccion
                 , id_localidad=:id_localidad
                 , id_usuarios=:id_usuarios
                 , id_miembros=:id_miembros
@@ -159,12 +134,11 @@ class documento {
                 $stmt->execute(array(':documento_nombre'=>$this->documento_nombre
                                     ,':documento_fecha'=>$this->documento_fecha
                                     ,':documento_intervinientes'=>$this->documento_intervinientes
-                                    ,':documento_direccion'=>'../../../archivo/'.$this->archivo['name']
                                     ,':id_localidad'=>$this->id_localidad
                                     ,':id_usuarios'=>$this->id_usuarios
                                     ,':id_miembros'=>$this->id_miembros
                                     ,':documento_tema'=>$this->documento_tema
-                                    //,':id_tipo_documento'=>$this->id_tipo_documento,
+                                    ,':id_tipo_documento'=>$this->id_tipo_documento
                                     ,':id_documento'=>$this->id_documento));
                 if ($stmt->rowCount()==1) {
                     # code...

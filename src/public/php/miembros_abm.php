@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 require "../bd/conexion.php";
 $accion=$_POST['accion'];
 class miembro{
@@ -105,29 +106,29 @@ class miembro{
                   }
 
                   if (!validar_nombre($this->nombre)){
-                    echo $this->nombre. ' Debe ingresar un Nombre';
+                    echo json_encode($this->nombre. ' Debe ingresar un Nombre');
                     exit;
                   }
                   if (!validar_apellido($this->apellido)){
-                    echo $this->apellido. ' Debe ingresar un Apellido';
+                    echo json_encode($this->apellido. ' Debe ingresar un Apellido');
                     exit;
                   }
                   if (!validar_dni($this->numero_documento)){
-                    echo $this->dni. ' DNI Incorrecto';
+                    echo json_encode($this->numero_documento.' DNI Incorrecto');
                     exit;
                   }
                   if (!filter_var($this->email, FILTER_VALIDATE_EMAIL) === true) {
-                  echo("$this->email ingrese un correo valido");
+                  echo json_encode($this->email." ingrese un correo valido");
                   exit;
                   }
                   if (!validar_cuil($this->cuil)){
-                    echo $this->cuil.' Cuil incorrecto';
+                    echo json_encode($this->cuil.' Cuil incorrecto');
                     exit;
                     
                   }
 
                   if (!validar_direccion($this->calle)){
-                    echo $this->calle.' Ingrese una dirección';
+                    echo json_encode($this->calle.' Ingrese una dirección');
                     exit;
                   }
 

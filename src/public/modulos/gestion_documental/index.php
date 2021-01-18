@@ -36,8 +36,8 @@ require "../../templates/sidebarsistema.php";
                     </div>
                     <div class="modal-body">
                         <!-- form -->
-                        <form id='nuevoDocumento' class="form-horizontal" role="form"action="../../php/gestion_documental.php" method="POST" enctype="multipart/form-data">
-                                  <div id='primeraParte'>
+                        <form id='nuevoDocumento' class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                  
                         <input type="text" name='accion' id='accion' value='agregar' hidden>
                         <input type="text" name='id_documento' id="id_documento" hidden>
                                 <div class="form-group">
@@ -47,10 +47,10 @@ require "../../templates/sidebarsistema.php";
                                     </div>
                                 </div>
                                 <div id='inputs'></div>
-                        <button type="input" class="btn btn-white btn-info btn-bold"><i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>Enviar</button>
+                        <button type="submit" class="btn btn-white btn-info btn-bold"><i class="ace-icon fa fa-floppy-o bigger-120 blue"></i>Enviar</button>
                         <br>
                         
-                    </div>
+                    
                     </form>
                     </div>
                         <div class="modal-footer">
