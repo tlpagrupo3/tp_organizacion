@@ -206,31 +206,9 @@ require "../../templates/sidebarsistema.php";
 					<div class="modal-footer no-margin-top">
 					
 
-						<ul class="pagination pull-right no-margin">
-							<li class="prev disabled">
-								<a href="#">
-									<i class="ace-icon fa fa-angle-double-left"></i>
-								</a>
-							</li>
-
-							<li class="active">
-								<a href="#">1</a>
-							</li>
-
-							<li>
-								<a href="#">2</a>
-							</li>
-
-							<li>
-								<a href="#">3</a>
-							</li>
-
-							<li class="next">
-								<a href="#">
-									<i class="ace-icon fa fa-angle-double-right"></i>
-								</a>
-							</li>
-						</ul>
+						
+					<div id='paginas'></div>
+            				
 					</div>
 				</div><!-- /.modal-content -->
 								</div><!-- /.modal-dialog -->
@@ -252,6 +230,7 @@ require "../../templates/sidebarsistema.php";
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="../../js/elementosHTML.js"></script>
   <script src="../../js/usuarios.js"></script>
+  <script src="../../js/paginador.js"></script>
   
 <?php
 require "../../templates/footersistema.php";
